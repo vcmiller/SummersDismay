@@ -14,22 +14,13 @@
         <link rel="stylesheet" href="css/normalize.css">
         <link rel="stylesheet" href="css/main.css">
     </head>
-    <body>
+    <body onload="startGame()">
         <!--[if lte IE 9]>
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
         <![endif]-->
 
         <!-- Add your site or application content here -->
-        <p>Who tf are you?</p>
-        <textarea id="name_input">Billy Shookspear</textarea><br>
-        <p>Where tf u think u goin</p>
-        <textarea id="ip_input">localhost</textarea><br>
-        <button id="ip_name_submit" onclick="httpPostAsync($('#ip_input').text(),'user='+$('#name_input').text(),function(a){alert('hey')});">We go DEEP</button>
-
-
-
-
-
+        <p id="show_name"></p>
 
         <script src="js/vendor/modernizr-3.5.0.min.js"></script>
         <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>

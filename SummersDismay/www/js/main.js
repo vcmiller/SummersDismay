@@ -1,11 +1,9 @@
-//Succ
 
-$(document).ready(function () {
-    $("#ip_name_submit").click(function () {
-        // httpPostAsync($('#ip_input').text(),'user='+$('#name_input').text(),function(a){alert('hey')});
-        alert($("#name_input").text());
-    });
-});
+
+function submitName() {
+    var host = window.location.protocol + "//" + window.location.host;
+    window.location.href = host + "/play?name=" + document.getElementById("name_input").value;
+}
 
 function httpGetAsync(theUrl, callback)
 {
@@ -28,6 +26,13 @@ function httpPostAsync(theUrl, params, callback)
     }
     xmlHttp.open("POST", theUrl, true); // true for asynchronous
     xmlHttp.send(params);
+}
+
+function startGame() {
+    var url = new URL(window.location.href);
+    var c = url.searchParams.get("name");
+
+    document.getElementById("show_name").innerHTML = c;
 }
 
 //httpGetAsync($('#meme'), function(a){$('#meme').text('meme')});
