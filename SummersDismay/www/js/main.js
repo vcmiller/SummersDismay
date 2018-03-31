@@ -35,6 +35,11 @@ var sentence = "";
 
 //HTTP Shit
 
+function backToStart() {
+    window.location.href = window.location.protocol + "//" + window.location.host;
+
+}
+
 function submitName() {
     var host = window.location.protocol + "//" + window.location.host;
     window.location.replace(host + "/play?name=" + document.getElementById("name_input").value);

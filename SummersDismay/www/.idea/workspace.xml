@@ -27,7 +27,7 @@
       <file leaf-file-name="game.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/game.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
+            <state relative-caret-position="255">
               <caret line="30" column="53" lean-forward="false" selection-start-line="30" selection-start-column="53" selection-end-line="30" selection-end-column="53" />
               <folding>
                 <element signature="n#style#0;n#button#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -42,13 +42,23 @@
       <file leaf-file-name="main.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="60" column="0" lean-forward="true" selection-start-line="60" selection-start-column="0" selection-end-line="60" selection-end-column="0" />
+            <state relative-caret-position="170">
+              <caret line="38" column="24" lean-forward="false" selection-start-line="38" selection-start-column="24" selection-end-line="38" selection-end-column="24" />
               <folding>
                 <element signature="n#!!block;n#shuffle#0" expanded="false" />
                 <element signature="n#!!block;n#refreshBag#0" expanded="false" />
-                <marker date="1522529733898" expanded="true" signature="3901:3915" ph="..." />
+                <marker date="1522530293853" expanded="true" signature="4013:4027" ph="..." />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="main.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/css/main.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="238">
+              <caret line="86" column="26" lean-forward="false" selection-start-line="86" selection-start-column="26" selection-end-line="86" selection-end-column="26" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -65,6 +75,7 @@
       <list>
         <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/game.html" />
+        <option value="$PROJECT_DIR$/css/main.css" />
         <option value="$PROJECT_DIR$/js/main.js" />
       </list>
     </option>
@@ -101,6 +112,16 @@
             <path>
               <item name="www" type="b2602c69:ProjectViewProjectNode" />
               <item name="www" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="www" type="b2602c69:ProjectViewProjectNode" />
+              <item name="www" type="462c0819:PsiDirectoryNode" />
+              <item name="css" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="www" type="b2602c69:ProjectViewProjectNode" />
+              <item name="www" type="462c0819:PsiDirectoryNode" />
+              <item name="img" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -158,12 +179,12 @@
       <workItem from="1522466120496" duration="2691000" />
       <workItem from="1522468850138" duration="6000" />
       <workItem from="1522474238243" duration="1001000" />
-      <workItem from="1522521341578" duration="7925000" />
+      <workItem from="1522521341578" duration="8484000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="11623000" />
+    <option name="totallyTimeSpent" value="12182000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -240,7 +261,7 @@
           <folding>
             <element signature="n#!!block;n#shuffle#0" expanded="false" />
             <element signature="n#!!block;n#refreshBag#0" expanded="false" />
-            <marker date="1522529733898" expanded="true" signature="3901:3915" ph="..." />
+            <marker date="1522530293853" expanded="true" signature="4013:4027" ph="..." />
           </folding>
         </state>
       </provider>
@@ -260,7 +281,7 @@
           <folding>
             <element signature="n#!!block;n#shuffle#0" expanded="false" />
             <element signature="n#!!block;n#refreshBag#0" expanded="false" />
-            <marker date="1522529733898" expanded="true" signature="3901:3915" ph="..." />
+            <marker date="1522530293853" expanded="true" signature="4013:4027" ph="..." />
           </folding>
         </state>
       </provider>
@@ -280,7 +301,7 @@
           <folding>
             <element signature="n#!!block;n#shuffle#0" expanded="false" />
             <element signature="n#!!block;n#refreshBag#0" expanded="false" />
-            <marker date="1522529733898" expanded="true" signature="3901:3915" ph="..." />
+            <marker date="1522530293853" expanded="true" signature="4013:4027" ph="..." />
           </folding>
         </state>
       </provider>
@@ -301,9 +322,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/css/main.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="86" column="26" lean-forward="false" selection-start-line="86" selection-start-column="26" selection-end-line="86" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/game.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
+        <state relative-caret-position="255">
           <caret line="30" column="53" lean-forward="false" selection-start-line="30" selection-start-column="53" selection-end-line="30" selection-end-column="53" />
           <folding>
             <element signature="n#style#0;n#button#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -316,12 +345,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/js/main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="60" column="0" lean-forward="true" selection-start-line="60" selection-start-column="0" selection-end-line="60" selection-end-column="0" />
+        <state relative-caret-position="170">
+          <caret line="38" column="24" lean-forward="false" selection-start-line="38" selection-start-column="24" selection-end-line="38" selection-end-column="24" />
           <folding>
             <element signature="n#!!block;n#shuffle#0" expanded="false" />
             <element signature="n#!!block;n#refreshBag#0" expanded="false" />
-            <marker date="1522529733898" expanded="true" signature="3901:3915" ph="..." />
+            <marker date="1522530293853" expanded="true" signature="4013:4027" ph="..." />
           </folding>
         </state>
       </provider>

@@ -82,6 +82,11 @@ textarea {
     resize: vertical;
 }
 
+button{
+    background: url(/img/wooden_buttons.png);
+    background-size: 100%;
+}
+
 /* ==========================================================================
    Browser Upgrade Prompt
    ========================================================================== */
