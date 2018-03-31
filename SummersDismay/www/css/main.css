@@ -83,8 +83,8 @@ textarea {
 }
 
 button{
-    background: url(/img/wooden_buttons.png);
-    background-size: 100%;
+    background: url(/img/wooden_buttons.png) no-repeat;
+    background-size: auto;
 }
 
 /* ==========================================================================
