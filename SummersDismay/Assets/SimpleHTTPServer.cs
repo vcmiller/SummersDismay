@@ -121,7 +121,7 @@ public class SimpleHTTPServer {
             }
         }
 
-        //IP = System.String.Join("\n", System.Array.ConvertAll(addr, (a) => a.ToString()));
+        IP = System.String.Join("\n", System.Array.ConvertAll(addr, (a) => a.ToString()));
         
         Initialize(Path.Combine(Directory.GetParent(Application.dataPath).FullName, path), port);
     }
