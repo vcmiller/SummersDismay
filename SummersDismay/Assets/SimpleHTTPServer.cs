@@ -116,10 +116,12 @@ public class SimpleHTTPServer {
         IPAddress[] addr = ipEntry.AddressList;
         
         for (int i = 0; i < addr.Length; i++) {
-           IP = addr[i].ToString();
+            if (addr[i].ToString().StartsWith("130")) {
+                IP = addr[i].ToString();
+            }
         }
 
-        IP = System.String.Join("\n", System.Array.ConvertAll(addr, (a) => a.ToString()));
+        //IP = System.String.Join("\n", System.Array.ConvertAll(addr, (a) => a.ToString()));
         
         Initialize(Path.Combine(Directory.GetParent(Application.dataPath).FullName, path), port);
     }
