@@ -231,7 +231,7 @@ public class GameManager : MonoBehaviour {
             if (!con.iconObject) {
                 con.iconObject = Instantiate(playerIconPrefab, new Vector2(0, -7), Quaternion.identity);
                 con.iconObject.GetComponent<SpriteRenderer>().sprite = icons[i % icons.Length];
-                con.iconObject.GetComponent<SpringJoint>().connectedAnchor = new Vector3(-5 + i * 2, 3.5f, 0);
+                con.iconObject.GetComponent<SpringJoint>().connectedAnchor = new Vector3(-5 + i * 2, 5.5f, 0);
             }
 
             string text = con.name;
