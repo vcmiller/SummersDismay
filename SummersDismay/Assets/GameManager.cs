@@ -8,6 +8,7 @@ using System.IO;
 using System.Threading;
 using System.Diagnostics;
 using UnityEngine;
+using UnityEngine.UI;
 using SBR;
 
 public class GameManager : MonoBehaviour {
@@ -16,10 +17,14 @@ public class GameManager : MonoBehaviour {
 
     public GameObject playerIconPrefab;
 
+    private ConnectedPlayer winner;
     private bool voting, insulting;
     private ExpirationTimer insultExpiration;
     private ExpirationTimer voteExpiration;
     private ExpirationTimer endExpiration;
+
+    public Sprite[] icons;
+    public Text timer;
 
     public List<ConnectedPlayer> connectedPlayers { get; private set; }
 
@@ -99,10 +104,10 @@ public class GameManager : MonoBehaviour {
         } else {
             response.insults = GetInsultsArray();
 
-            var w = GetWinner();
+            winner = GetWinner();
             response.winner = new Insult();
-            response.winner.caster = w.name;
-            response.winner.content = w.receivedInsult;
+            response.winner.caster = winner.name;
+            response.winner.content = winner.receivedInsult;
         }
 
         ServerManager.inst.server.WriteJsonToContext(context, response);
@@ -221,11 +226,30 @@ public class GameManager : MonoBehaviour {
     }
 
     private void Update() {
-        foreach (var con in connectedPlayers) {
+        for (int i = 0; i < connectedPlayers.Count; i++) {
+            var con = connectedPlayers[i];
             if (!con.iconObject) {
                 con.iconObject = Instantiate(playerIconPrefab, new Vector2(0, -7), Quaternion.identity);
-                con.iconObject.GetComponentInChildren<TextMesh>().text = con.name;
+                con.iconObject.GetComponent<SpriteRenderer>().sprite = icons[i % icons.Length];
+                con.iconObject.GetComponent<SpringJoint>().connectedAnchor = new Vector3(-5 + i * 2, 3.5f, 0);
             }
+
+            string text = con.name;
+            if (insulting) {
+                if (curJudge == i) {
+                    text += "\njudge";
+                } else if (con.receivedInsult != null) {
+                    text += "\nready!";
+                }
+            } else if (voting) {
+                text += "\nvotes: " + con.recievedVotes;
+            } else {
+                if (winner == con) {
+                    text += "\nwinner!";
+                }
+            }
+
+            con.iconObject.GetComponentInChildren<TextMesh>().text = text;
         }
 
         if (connectedPlayers.Count < 2) {
@@ -233,18 +257,23 @@ public class GameManager : MonoBehaviour {
         }
 
         if (insulting) {
+            timer.text = ((int)insultExpiration.remaining) + "";
             if (insultExpiration.expired || AllInsultsIn()) {
                 insulting = false;
                 voting = true;
                 voteExpiration.Set();
             }
         } else if (voting) {
+            timer.text = ((int)voteExpiration.remaining) + "";
             if (voteExpiration.expired || AllVotesIn()) {
                 voting = false;
                 endExpiration.Set();
             }
-        } else if (endExpiration.expired) {
-            NextRound();
+        } else {
+            timer.text = ((int)endExpiration.remaining) + "";
+            if (endExpiration.expired) {
+                NextRound();
+            }
         }
     }
 }
