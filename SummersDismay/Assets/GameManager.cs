@@ -8,19 +8,29 @@ using System.IO;
 using System.Threading;
 using System.Diagnostics;
 using UnityEngine;
+using SBR;
 
 public class GameManager : MonoBehaviour {
     public int curJudge { get; private set; }
     public static GameManager inst { get; private set; }
-    private bool roundOver;
 
     public GameObject playerIconPrefab;
+
+    private bool voting, insulting;
+    private ExpirationTimer insultExpiration;
+    private ExpirationTimer voteExpiration;
+    private ExpirationTimer endExpiration;
 
     public List<ConnectedPlayer> connectedPlayers { get; private set; }
 
     private void Awake() {
         connectedPlayers = new List<ConnectedPlayer>();
         inst = this;
+        insulting = true;
+
+        insultExpiration = new ExpirationTimer(90);
+        voteExpiration = new ExpirationTimer(30);
+        endExpiration = new ExpirationTimer(5);
     }
 
     public void HandleNewConnection(HttpListenerContext context) {
@@ -35,6 +45,7 @@ public class GameManager : MonoBehaviour {
                 }
 
                 connectedPlayers.Add(new ConnectedPlayer(actName, context.Request.RemoteEndPoint.Address));
+                
             }
             ServerManager.inst.server.WriteFileToContext(context, "game.html");
         } else {
@@ -74,43 +85,47 @@ public class GameManager : MonoBehaviour {
                         if (playerInfo.votedFor != null) {
                             playerInfo.votedFor.recievedVotes++;
                         }
-
-                        if (AllVotesIn()) {
-                            roundOver = true;
-                        }
                     }
                 }
             } catch (Exception ex) {
                 UnityEngine.Debug.Log(ex);
             }
-            
-            if (connectedPlayers.Count > 1 && AllInsultsIn()) {
-                response.insults = GetInsultsArray();
-            }
+        }
 
-            if (connectedPlayers.Count > 1 && AllVotesIn()) {
-                var w = GetWinner();
-                response.winner = new Insult();
-                response.winner.caster = w.name;
-                response.winner.content = w.receivedInsult;
-            }
+        if (insulting) {
+
+        } else if (voting) {
+            response.insults = GetInsultsArray();
+        } else {
+            response.insults = GetInsultsArray();
+
+            var w = GetWinner();
+            response.winner = new Insult();
+            response.winner.caster = w.name;
+            response.winner.content = w.receivedInsult;
         }
 
         ServerManager.inst.server.WriteJsonToContext(context, response);
     }
 
     public void NextRound() {
-        print("Reset called");
         foreach (var c in connectedPlayers) {
             c.receivedInsult = null;
             c.votedFor = null;
             c.recievedVotes = 0;
         }
 
+        voting = false;
+        insulting = true;
+        insultExpiration.Set();
         curJudge = (curJudge + 1) % connectedPlayers.Count;
     }
 
     public bool AllInsultsIn() {
+        if (connectedPlayers.Count < 2) {
+            return false;
+        }
+
         for (int i = 0; i < connectedPlayers.Count; i++) {
             var p = connectedPlayers[i];
             if (i != curJudge && (p.receivedInsult == null || p.receivedInsult.Length == 0)) {
@@ -122,6 +137,10 @@ public class GameManager : MonoBehaviour {
     }
 
     public bool AllVotesIn() {
+        if (connectedPlayers.Count < 2) {
+            return false;
+        }
+
         for (int i = 0; i < connectedPlayers.Count; i++) {
             var p = connectedPlayers[i];
             if (p.votedFor == null) {
@@ -148,7 +167,7 @@ public class GameManager : MonoBehaviour {
         var insults = new List<Insult>();
         for (int i = 0; i < connectedPlayers.Count; i++) {
             var p = connectedPlayers[i];
-            if (i != curJudge && p.receivedInsult != null && p.receivedInsult.Length > 0) {
+            if (i != curJudge) {
                 var ins = new Insult();
                 ins.caster = p.name;
                 ins.content = p.receivedInsult;
@@ -209,10 +228,23 @@ public class GameManager : MonoBehaviour {
             }
         }
 
-        if (roundOver) {
-            roundOver = false;
-            print("Invoking reset");
-            Invoke("NextRound", 3);
+        if (connectedPlayers.Count < 2) {
+            insultExpiration.Set();
+        }
+
+        if (insulting) {
+            if (insultExpiration.expired || AllInsultsIn()) {
+                insulting = false;
+                voting = true;
+                voteExpiration.Set();
+            }
+        } else if (voting) {
+            if (voteExpiration.expired || AllVotesIn()) {
+                voting = false;
+                endExpiration.Set();
+            }
+        } else if (endExpiration.expired) {
+            NextRound();
         }
     }
 }
