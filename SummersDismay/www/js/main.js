@@ -1,9 +1,9 @@
 
-var start_nouns = ["thy mother", "thy child", "thy father", "thy pet", "a villain", "a hog", "a three-inch fool", "a coward", "an icicle", "a Dutchman's beard"];
-var verbs = ["is", "hast no more brain than", "have in my elbows", "is like", "has"];
-var adjectives = ["rooting", "plague-sore", "rankest", "compound of", "much like a cheese", "sauce"];
+var start_nouns = ["thy mother", "thy child", "thy father", "thy pet", "a villain", "a hog", "a three-inch fool", "a coward", "an icicle", "a Dutchman's beard", "the remaining biscuit after voyage", "broken meats", "ripe grapes"];
+var verbs = ["is", "hast no more brain than", "has in their elbows", "is like", "has", "should lick", "tickles", "smells of", "sours", "butters"];
+var adjectives = ["rooting", "plague-sore", "rankest", "compound of", "much like a cheese", "saucy", "stewed", "tart-faced", "unnecessary"];
 var interjectives = ["you elf-skin!", "you dried neat's-tongue!", "you stock-fish!", "ye fat guts!"];
-var conjoiners = ["and", "but"];
+var conjoiners = ["and", "but", "and with", "and no less", "and shall be"];
 
 var bag_of_insults = shuffle(start_nouns.concat(verbs, adjectives, interjectives, conjoiners));
 var og_boi = [].concat(bag_of_insults);
@@ -56,6 +56,8 @@ function httpPostAsync(theUrl, callback, params) {
 
 function showUpdateResponse(text) {
     var json = JSON.parse(text);
+
+    // json.role = json.role == 0 ? 1 : 0;
 
     var roleP = document.getElementById("show_role");
     var insultDiv = document.getElementById("insult_area");
