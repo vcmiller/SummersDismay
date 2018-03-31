@@ -26,12 +26,13 @@
 
         <div id="insult_area" style="display:none">
             <p>Enter your insult:</p>
-            <button id="particle_1">Meme</button>
-            <button id="particle_2">Meme1</button>
-            <button id="particle_3">Meme2</button>
-            <button id="particle_4">Meme3</button>
-            <button id="magic">Magic</button>
-            <input id="enter_insult" />
+            <p id="sentence_display"></p>
+            <button id="particle_1" style="width:33%;">Meme</button><button id="magic_1">↺</button><br>
+            <button id="particle_2" style="width:33%;">Meme1</button><button id="magic_2">↺</button><br>
+            <button id="particle_3" style="width:33%;">Meme2</button><button id="magic_3">↺</button><br>
+            <button id="particle_4" style="width:33%;">Meme3</button><button id="magic_4">↺</button><br>
+            <!--<button id="magic">Magic</button><br>-->
+            <!--<input id="enter_insult" />-->
             <button onclick="sendInsult()">Send!</button>
         </div>
 
@@ -51,5 +52,7 @@
             ga('create','UA-XXXXX-Y','auto');ga('send','pageview')
         </script>
         <script src="https://www.google-analytics.com/analytics.js" async defer></script>
+
+
     </body>
 </html>

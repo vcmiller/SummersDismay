@@ -1,14 +1,14 @@
 
-var start_nouns = ["thy mother", "thy child", "thy father", "thy pet", "a villain", "a hog", "a three-inch fool", "a coward", "an icicle", "a Dutchman's beard"];
-var verbs = ["is a", "hast no more brain than", "have in my elbows", "is like a", "has a"];
-var adjectives = ["rooting", "plague-sore", "rankest", "compound of", "much like a cheese"];
+var start_nouns = ["thy mother", "thy child", "thy father", "thy pet", "a villain", "a hog", "a three-inch fool", "a coward", "an icicle", "a Dutchman's beard", "the remaining biscuit after voyage", "broken meats", "ripe grapes"];
+var verbs = ["is", "hast no more brain than", "has in their elbows", "is like", "has", "should lick", "tickles", "smells of", "sours", "butters"];
+var adjectives = ["rooting", "plague-sore", "rankest", "compound of", "much like a cheese", "saucy", "stewed", "tart-faced", "unnecessary"];
 var interjectives = ["you elf-skin!", "you dried neat's-tongue!", "you stock-fish!", "ye fat guts!"];
-var conjoiners = ["and", "but"];
+var conjoiners = ["and", "but", "and with", "and no less", "and shall be"];
 
-var bag_of_insults = start_nouns + verbs + adjectives +interjectives + conjoiners;
+var bag_of_insults = shuffle(start_nouns.concat(verbs, adjectives, interjectives, conjoiners));
+var og_boi = [].concat(bag_of_insults);
 function shuffle(array) {
     var currentIndex = array.length, temporaryValue, randomIndex;
-
     // While there remain elements to shuffle...
     while (0 !== currentIndex) {
 
@@ -20,12 +20,17 @@ function shuffle(array) {
         temporaryValue = array[currentIndex];
         array[currentIndex] = array[randomIndex];
         array[randomIndex] = temporaryValue;
+
     }
+
 
     return array;
 }
-bag_of_insults = shuffle(bag_of_insults);
-
+function refreshBag() {
+    if(bag_of_insults.length < 4){
+        bag_of_insults = bag_of_insults.concat(shuffle(og_boi));
+    }
+}
 var sentence = "";
 
 //HTTP Shit
@@ -52,9 +57,11 @@ function httpPostAsync(theUrl, callback, params) {
 function showUpdateResponse(text) {
     var json = JSON.parse(text);
 
+    // json.role = json.role == 0 ? 1 : 0;
+
     var roleP = document.getElementById("show_role");
     var insultDiv = document.getElementById("insult_area");
-    var insultInput = document.getElementById("enter_insult");
+    // var insultInput = document.getElementById("enter_insult");
     var allInsultsDiv = document.getElementById("show_insults_area");
 
     if (json) {
@@ -113,9 +120,12 @@ function voteFor(person) {
 
 function sendInsult() {
     var obj = {
-        insult: document.getElementById("enter_insult").value
+        // insult: document.getElementById("enter_insult").value
+        insult: sentence
     };
 
+    sentence = "";
+    $("#sentence_display").text("");
     httpPostAsync(getUpdateUrl(), showUpdateResponse, JSON.stringify(obj));
 }
 
@@ -127,19 +137,26 @@ function startGame() {
 
     [1,2,3,4].forEach(function (t) {
         var button = $("#particle_"+t);
-        $(this).text(bag_of_insults.pop());
+        // sentence += button.text();
+        button.text(bag_of_insults.pop());
         button.click(function () {
-            sentence += $(this).text();
+            sentence += $(this).text() + " ";
+            $("#sentence_display").text(sentence);
             $(this).text(bag_of_insults.pop());
-            alert(sentence);
+            refreshBag();
+        });
+
+        $("#magic_"+t).click(function () {
+            button.text(bag_of_insults.pop());
+            refreshBag();
         });
     });
-
-    $("#magic").click(function () {
-       [1,2,3,4].forEach(function (t) {
-           $("#particle_"+t).text(bag_of_insults.pop());
-       })
-    });
+    //
+    // $("#magic").click(function () {
+    //     [1,2,3,4].forEach(function (t) {
+    //         $("#particle_"+t).text(bag_of_insults.pop());
+    //     })
+    // });
 }
 
 function leaveGame() {
