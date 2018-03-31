@@ -133,7 +133,12 @@ function startGame() {
             $(this).text(bag_of_insults.pop());
             alert(sentence);
         });
+    });
 
+    $("#magic").click(function () {
+       [1,2,3,4].forEach(function (t) {
+           $("#particle_"+t).text(bag_of_insults.pop());
+       })
     });
 }
 
