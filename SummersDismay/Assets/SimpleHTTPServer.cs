@@ -12,7 +12,7 @@ using System.Threading;
 using System.Diagnostics;
 using UnityEngine;
 
-class SimpleHTTPServer {
+public class SimpleHTTPServer {
     private readonly string[] _indexFiles = {
         "index.html",
         "index.htm",
@@ -138,7 +138,9 @@ class SimpleHTTPServer {
             try {
                 HttpListenerContext context = _listener.GetContext();
                 Process(context);
-            } catch { }
+            } catch (Exception ex) {
+                UnityEngine.Debug.LogException(ex);
+            }
         }
     }
 
@@ -149,22 +151,42 @@ class SimpleHTTPServer {
         switch(filename) {
             case null:
             case "":
-                WriteFileToContext(context, Path.Combine(_rootDirectory, "index.html"));
+                WriteFileToContext(context, "index.html");
                 break;
 
             case "play":
-                WriteFileToContext(context, Path.Combine(_rootDirectory, "game.html"));
+                GameManager.inst.HandleNewConnection(context);
+                break;
+
+            case "update":
+                GameManager.inst.HandleUpdate(context);
                 break;
             
             default:
-                WriteFileToContext(context, Path.Combine(_rootDirectory, filename));
+                WriteFileToContext(context, filename);
                 break;
         }
 
         context.Response.OutputStream.Close();
     }
 
-    private void WriteFileToContext(HttpListenerContext context, string filename) {
+    public void WriteJsonToContext(HttpListenerContext context, object obj) {
+        try {
+            string json = JsonUtility.ToJson(obj);
+            byte[] bytes = new ASCIIEncoding().GetBytes(json);
+
+            context.Response.ContentType = "application/json";
+            context.Response.ContentLength64 = bytes.Length;
+            context.Response.AddHeader("Date", DateTime.Now.ToString("r"));
+            
+            context.Response.OutputStream.Write(bytes, 0, bytes.Length);
+        } catch {
+            context.Response.StatusCode = (int)HttpStatusCode.InternalServerError;
+        }
+    }
+
+    public void WriteFileToContext(HttpListenerContext context, string filename) {
+        filename = Path.Combine(_rootDirectory, filename);
         if (File.Exists(filename)) {
             try {
                 Stream input = new FileStream(filename, FileMode.Open);
