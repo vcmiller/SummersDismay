@@ -14,6 +14,36 @@ html {
     color: #222;
     font-size: 1em;
     line-height: 1.4;
+
+
+}
+
+body{
+    /*background: url(/img/wooden_buttons.png) center center fixed;*/
+    /*-webkit-background-size: cover;*/
+    /*-moz-background-size: cover;*/
+    /*-o-background-size: cover;*/
+    /*background-size: 100%;*/
+
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    align-content: center;
+
+
+    margin-left: auto;
+    margin-right: auto;
+    /*width:100%;*/
+
+    text-align: center;
+}
+#bolted{
+
+}
+p{
+    text-align: center;
+}
+button{ text-align: center;
 }
 
 /*
@@ -83,8 +113,7 @@ textarea {
 }
 
 button{
-    background: url(/img/wooden_buttons.png) no-repeat;
-    background-size: auto;
+
 }
 
 /* ==========================================================================

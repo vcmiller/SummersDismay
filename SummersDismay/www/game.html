@@ -19,26 +19,34 @@
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
         <![endif]-->
 
-        <!-- Add your site or application content here -->
-        <p id="show_name"></p>
-        <button onclick="backToStart()">Leave Game</button>
-        <p id="show_role"></p>
+        <section id="bolted">
+            <!-- Add your site or application content here -->
+            <p id="show_name"></p>
+            <button onclick="backToStart()">Leave Game</button>
+            <p id="show_role"></p>
 
-        <div id="insult_area" style="display:none">
-            <p>Enter your insult:</p>
-            <p id="sentence_display"></p>
-            <button id="particle_1" style="width:33%;">Meme</button><button id="magic_1">↺</button><br>
-            <button id="particle_2" style="width:33%;">Meme1</button><button id="magic_2">↺</button><br>
-            <button id="particle_3" style="width:33%;">Meme2</button><button id="magic_3">↺</button><br>
-            <button id="particle_4" style="width:33%;">Meme3</button><button id="magic_4">↺</button><br>
-            <!--<button id="magic">Magic</button><br>-->
-            <!--<input id="enter_insult" />-->
-            <button onclick="sendInsult()">Send!</button>
-        </div>
+            <div id="insult_area" style="display:none">
+                <p>Enter your insult:</p>
+                <p id="sentence_display"></p>
+                <button id="particle_1" style="width:33%;">Meme</button><button id="magic_1">↺</button><br>
+                <button id="particle_2" style="width:33%;">Meme1</button><button id="magic_2">↺</button><br>
+                <button id="particle_3" style="width:33%;">Meme2</button><button id="magic_3">↺</button><br>
+                <button id="particle_4" style="width:33%;">Meme3</button><button id="magic_4">↺</button><br>
+                <!--<button id="magic">Magic</button><br>-->
+                <!--<input id="enter_insult" />-->
+                <button onclick="sendInsult()">Send!</button>
+            </div>
 
-        <div id="show_insults_area" style="display:none">
-            <p id="all_insults"></p>
-        </div>
+            <div id="show_insults_area" style="display:none">
+                <p id="all_insults"></p>
+            </div>
+
+            <image href="/img/pillar.jpg" style="width:100%;"></image>
+
+            <br>
+            <image src="/img/pillar.jpg"></image>
+
+        </section>
 
         <script src="js/vendor/modernizr-3.5.0.min.js"></script>
         <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
