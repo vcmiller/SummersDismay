@@ -1,4 +1,34 @@
 
+var start_nouns = ["thy mother", "thy child", "thy father", "thy pet", "a villain", "a hog", "a three-inch fool", "a coward", "an icicle", "a Dutchman's beard"];
+var verbs = ["is a", "hast no more brain than", "have in my elbows", "is like a", "has a"];
+var adjectives = ["rooting", "plague-sore", "rankest", "compound of", "much like a cheese"];
+var interjectives = ["you elf-skin!", "you dried neat's-tongue!", "you stock-fish!", "ye fat guts!"];
+var conjoiners = ["and", "but"];
+
+var bag_of_insults = start_nouns + verbs + adjectives +interjectives + conjoiners;
+function shuffle(array) {
+    var currentIndex = array.length, temporaryValue, randomIndex;
+
+    // While there remain elements to shuffle...
+    while (0 !== currentIndex) {
+
+        // Pick a remaining element...
+        randomIndex = Math.floor(Math.random() * currentIndex);
+        currentIndex -= 1;
+
+        // And swap it with the current element.
+        temporaryValue = array[currentIndex];
+        array[currentIndex] = array[randomIndex];
+        array[randomIndex] = temporaryValue;
+    }
+
+    return array;
+}
+bag_of_insults = shuffle(bag_of_insults);
+
+var sentence = "";
+
+//HTTP Shit
 
 function submitName() {
     var host = window.location.protocol + "//" + window.location.host;
@@ -66,7 +96,7 @@ function showUpdateResponse(text) {
                 allInsultsDiv.innerHTML += "<h3>And the winner is...</h3>";
                 allInsultsDiv.innerHTML += "<p>" + json.winner.caster + ": " + json.winner.content + "</p>";
             }
-            
+
         } else {
             allInsultsDiv.style.display = "none";
         }
@@ -76,7 +106,7 @@ function showUpdateResponse(text) {
 function voteFor(person) {
     var obj = {
         vote: person
-    }
+    };
 
     httpPostAsync(getUpdateUrl(), showUpdateResponse, JSON.stringify(obj));
 }
@@ -84,7 +114,7 @@ function voteFor(person) {
 function sendInsult() {
     var obj = {
         insult: document.getElementById("enter_insult").value
-    }
+    };
 
     httpPostAsync(getUpdateUrl(), showUpdateResponse, JSON.stringify(obj));
 }
@@ -94,6 +124,22 @@ function startGame() {
     window.setInterval(function () {
         httpPostAsync(getUpdateUrl(), showUpdateResponse, null);
     }, 1000);
+
+    [1,2,3,4].forEach(function (t) {
+        var button = $("#particle_"+t);
+        $(this).text(bag_of_insults.pop());
+        button.click(function () {
+            sentence += $(this).text();
+            $(this).text(bag_of_insults.pop());
+            alert(sentence);
+        });
+    });
+
+    $("#magic").click(function () {
+       [1,2,3,4].forEach(function (t) {
+           $("#particle_"+t).text(bag_of_insults.pop());
+       })
+    });
 }
 
 function leaveGame() {

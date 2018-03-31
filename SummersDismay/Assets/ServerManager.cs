@@ -15,6 +15,7 @@ public class ServerManager : MonoBehaviour {
     public static ServerManager inst { get; private set; }
 
     public string path;
+    public RectTransform showURLBG;
     public Text showURL;
     public GameObject connectionInfo;
     public GameObject joinButton;
@@ -27,7 +28,8 @@ public class ServerManager : MonoBehaviour {
     public void StartServer() {
         server = new SimpleHTTPServer(path);
 
-        showURL.text = "http://" + server.IP + ":" + server.Port;
+        showURL.text = server.IP.Replace("\n", ":" + server.Port + "\n") + ":" + server.Port;
+        showURLBG.sizeDelta = new Vector2(showURLBG.sizeDelta.x, 20 * (1 + showURL.text.Count((c) => c == '\n')));
         connectionInfo.SetActive(true);
         joinButton.SetActive(true);
     }
