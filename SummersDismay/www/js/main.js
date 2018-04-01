@@ -84,7 +84,12 @@ function showUpdateResponse(text) {
             insultDiv.style.display = "none";
         }
 
-        if (json.insults && json.insults.length > 0) {
+
+        if(!json.running){
+            roleP.innerHTML += "<br>Hey you a ho, so hold on.<br>";
+            insultDiv.style.display = "none";
+            allInsultsDiv.style.display = "none";
+        }else if (json.insults && json.insults.length > 0) {
             allInsultsDiv.style.display = "block";
             allInsultsDiv.innerHTML = "";
             insultDiv.style.display = "none";
@@ -93,16 +98,17 @@ function showUpdateResponse(text) {
 
                 if (json.role == 1) {
                     allInsultsDiv.innerHTML += "<h3>Let's see how people really feel about you:</h3>";
+                    //The voting UI
+                    for (var i = 0; i < json.insults.length; i++) {
+                        if ((json.role == 0 || json.role == 1) && json.voted == false) {
+                            allInsultsDiv.innerHTML += "<p>" + json.insults[i].caster + " says: " + json.insults[i].content + "\t<button style=\"display:inline\" onclick=\"voteFor('" + json.insults[i].caster + "')\">Select</button></p>";
+                        } else {
+                            allInsultsDiv.innerHTML += "<p>" + json.insults[i].caster + " says: " + json.insults[i].content + "</p>";
+                        }
+                    }
                 } else {
                     allInsultsDiv.innerHTML += "<h3>Let's see how people really feel about " + json.judge + ":</h3>";
-                }
 
-                for (var i = 0; i < json.insults.length; i++) {
-                    if ((json.role == 0 || json.role == 1) && json.voted == false) {
-                        allInsultsDiv.innerHTML += "<p>" + json.insults[i].caster + " says: " + json.insults[i].content + "\t<button style=\"display:inline\" onclick=\"voteFor('" + json.insults[i].caster + "')\">Vote</button></p>";
-                    } else {
-                        allInsultsDiv.innerHTML += "<p>" + json.insults[i].caster + " says: " + json.insults[i].content + "</p>";
-                    }
                 }
             } else {
                 allInsultsDiv.innerHTML += "<h3>And the winner is...</h3>";
