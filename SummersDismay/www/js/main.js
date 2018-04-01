@@ -164,6 +164,10 @@ function startGame() {
                 $("#magic_"+t).hidden = false;
             });
             refreshBag();
+
+            if(sentence[sentence.length - 1] == '!'){
+                sendInsult();
+            }
         });
 
         $("#magic_"+t).click(function () {

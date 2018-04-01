@@ -43,12 +43,12 @@
       <file leaf-file-name="main.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="5" column="64" lean-forward="false" selection-start-line="5" selection-start-column="64" selection-end-line="5" selection-end-column="64" />
+            <state relative-caret-position="697">
+              <caret line="168" column="29" lean-forward="false" selection-start-line="168" selection-start-column="29" selection-end-line="168" selection-end-column="29" />
               <folding>
                 <element signature="n#!!block;n#shuffle#0" expanded="false" />
                 <element signature="n#!!block;n#refreshBag#0" expanded="false" />
-                <marker date="1522547435962" expanded="true" signature="4339:4353" ph="..." />
+                <marker date="1522547737178" expanded="true" signature="4339:4353" ph="..." />
               </folding>
             </state>
           </provider>
@@ -182,12 +182,12 @@
       <workItem from="1522466120496" duration="2691000" />
       <workItem from="1522468850138" duration="6000" />
       <workItem from="1522474238243" duration="1001000" />
-      <workItem from="1522521341578" duration="21686000" />
+      <workItem from="1522521341578" duration="22006000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="25384000" />
+    <option name="totallyTimeSpent" value="25704000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -264,7 +264,7 @@
           <folding>
             <element signature="n#!!block;n#shuffle#0" expanded="false" />
             <element signature="n#!!block;n#refreshBag#0" expanded="false" />
-            <marker date="1522547435962" expanded="true" signature="4339:4353" ph="..." />
+            <marker date="1522547737178" expanded="true" signature="4339:4353" ph="..." />
           </folding>
         </state>
       </provider>
@@ -284,7 +284,7 @@
           <folding>
             <element signature="n#!!block;n#shuffle#0" expanded="false" />
             <element signature="n#!!block;n#refreshBag#0" expanded="false" />
-            <marker date="1522547435962" expanded="true" signature="4339:4353" ph="..." />
+            <marker date="1522547737178" expanded="true" signature="4339:4353" ph="..." />
           </folding>
         </state>
       </provider>
@@ -304,7 +304,7 @@
           <folding>
             <element signature="n#!!block;n#shuffle#0" expanded="false" />
             <element signature="n#!!block;n#refreshBag#0" expanded="false" />
-            <marker date="1522547435962" expanded="true" signature="4339:4353" ph="..." />
+            <marker date="1522547737178" expanded="true" signature="4339:4353" ph="..." />
           </folding>
         </state>
       </provider>
@@ -349,12 +349,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/js/main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="64" lean-forward="false" selection-start-line="5" selection-start-column="64" selection-end-line="5" selection-end-column="64" />
+        <state relative-caret-position="697">
+          <caret line="168" column="29" lean-forward="false" selection-start-line="168" selection-start-column="29" selection-end-line="168" selection-end-column="29" />
           <folding>
             <element signature="n#!!block;n#shuffle#0" expanded="false" />
             <element signature="n#!!block;n#refreshBag#0" expanded="false" />
-            <marker date="1522547435962" expanded="true" signature="4339:4353" ph="..." />
+            <marker date="1522547737178" expanded="true" signature="4339:4353" ph="..." />
           </folding>
         </state>
       </provider>
