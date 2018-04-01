@@ -24,11 +24,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="game.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="game.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/game.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="697">
-              <caret line="53" column="35" lean-forward="false" selection-start-line="53" selection-start-column="35" selection-end-line="53" selection-end-column="35" />
+            <state relative-caret-position="770">
+              <caret line="63" column="0" lean-forward="true" selection-start-line="63" selection-start-column="0" selection-end-line="63" selection-end-column="0" />
               <folding>
                 <element signature="n#style#0;n#button#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#button#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -40,15 +40,15 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="main.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="main.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="654">
-              <caret line="171" column="64" lean-forward="false" selection-start-line="171" selection-start-column="64" selection-end-line="171" selection-end-column="64" />
+            <state relative-caret-position="85">
+              <caret line="5" column="64" lean-forward="false" selection-start-line="5" selection-start-column="64" selection-end-line="5" selection-end-column="64" />
               <folding>
                 <element signature="n#!!block;n#shuffle#0" expanded="false" />
                 <element signature="n#!!block;n#refreshBag#0" expanded="false" />
-                <marker date="1522545937941" expanded="true" signature="4274:4288" ph="..." />
+                <marker date="1522547435962" expanded="true" signature="4339:4353" ph="..." />
               </folding>
             </state>
           </provider>
@@ -78,8 +78,8 @@
       <list>
         <option value="$PROJECT_DIR$/css/main.css" />
         <option value="$PROJECT_DIR$/index.html" />
-        <option value="$PROJECT_DIR$/js/main.js" />
         <option value="$PROJECT_DIR$/game.html" />
+        <option value="$PROJECT_DIR$/js/main.js" />
       </list>
     </option>
   </component>
@@ -182,12 +182,12 @@
       <workItem from="1522466120496" duration="2691000" />
       <workItem from="1522468850138" duration="6000" />
       <workItem from="1522474238243" duration="1001000" />
-      <workItem from="1522521341578" duration="20853000" />
+      <workItem from="1522521341578" duration="21686000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="24551000" />
+    <option name="totallyTimeSpent" value="25384000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -264,7 +264,7 @@
           <folding>
             <element signature="n#!!block;n#shuffle#0" expanded="false" />
             <element signature="n#!!block;n#refreshBag#0" expanded="false" />
-            <marker date="1522545937941" expanded="true" signature="4274:4288" ph="..." />
+            <marker date="1522547435962" expanded="true" signature="4339:4353" ph="..." />
           </folding>
         </state>
       </provider>
@@ -284,7 +284,7 @@
           <folding>
             <element signature="n#!!block;n#shuffle#0" expanded="false" />
             <element signature="n#!!block;n#refreshBag#0" expanded="false" />
-            <marker date="1522545937941" expanded="true" signature="4274:4288" ph="..." />
+            <marker date="1522547435962" expanded="true" signature="4339:4353" ph="..." />
           </folding>
         </state>
       </provider>
@@ -304,7 +304,7 @@
           <folding>
             <element signature="n#!!block;n#shuffle#0" expanded="false" />
             <element signature="n#!!block;n#refreshBag#0" expanded="false" />
-            <marker date="1522545937941" expanded="true" signature="4274:4288" ph="..." />
+            <marker date="1522547435962" expanded="true" signature="4339:4353" ph="..." />
           </folding>
         </state>
       </provider>
@@ -333,28 +333,28 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="654">
-          <caret line="171" column="64" lean-forward="false" selection-start-line="171" selection-start-column="64" selection-end-line="171" selection-end-column="64" />
-          <folding>
-            <element signature="n#!!block;n#shuffle#0" expanded="false" />
-            <element signature="n#!!block;n#refreshBag#0" expanded="false" />
-            <marker date="1522545937941" expanded="true" signature="4274:4288" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/game.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="697">
-          <caret line="53" column="35" lean-forward="false" selection-start-line="53" selection-start-column="35" selection-end-line="53" selection-end-column="35" />
+        <state relative-caret-position="770">
+          <caret line="63" column="0" lean-forward="true" selection-start-line="63" selection-start-column="0" selection-end-line="63" selection-end-column="0" />
           <folding>
             <element signature="n#style#0;n#button#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#button#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#button#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#button#4;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#button#6;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="64" lean-forward="false" selection-start-line="5" selection-start-column="64" selection-end-line="5" selection-end-column="64" />
+          <folding>
+            <element signature="n#!!block;n#shuffle#0" expanded="false" />
+            <element signature="n#!!block;n#refreshBag#0" expanded="false" />
+            <marker date="1522547435962" expanded="true" signature="4339:4353" ph="..." />
           </folding>
         </state>
       </provider>

@@ -3,6 +3,7 @@ var start_nouns = ["thy mother", "thy child", "thy father", "thy pet", "a villai
     "an icicle", "a Dutchman's beard", "the remaining biscuit after voyage", "a pound of broken meats", "ripe grapes", "a moonlight flit", "a tallow catch", "a lump of foul deformity"];
 var verbs = ["is", "hast no more brain than", "has in their elbows", "is like", "may strike", "should lick", "tickles", "smells of", "sours", "butters"];
 var adjectives = ["rooting", "plague-sore", "rankest", "compound of", "much like a cheese", "saucy", "stewed", "tart-faced", "unnecessary", "clay-brained", "cream-faced"];
+adjectives = adjectives.map(function (t) { return "is " + t; });
 var interjectives = ["you elf-skin!", "you dried neat's-tongue!", "you stock-fish!", "ye fat guts!"];
 var conjoiners = ["and", "but", "and with", "and no less", "and shall be", "and they"];
 
