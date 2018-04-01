@@ -261,6 +261,22 @@ public class GameManager : MonoBehaviour {
         return null;
     }
 
+    public void QuitButton() {
+        if (insulting || voting || roundOver) {
+            NextRound();
+            curJudge = 0;
+
+            insulting = false;
+            timer.gameObject.SetActive(false);
+
+            foreach (var p in connectedPlayers) {
+                p.wins = 0;
+            }
+        } else {
+            Application.Quit();
+        }
+    }
+
     private void Update() {
         startGameButton.interactable = !(insulting || voting) && connectedPlayers.Count > 1;
 

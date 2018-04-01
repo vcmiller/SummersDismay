@@ -7,7 +7,7 @@ adjectives = adjectives.map(function (t) { return "is " + t; });
 var interjectives = ["you elf-skin!", "you dried neat's-tongue!", "you stock-fish!", "ye fat guts!"];
 var conjoiners = ["and", "but", "and with", "and no less", "and shall be", "and they"];
 
-var bag_of_insults = shuffle(start_nouns.concat(verbs, adjectives, interjectives, conjoiners, conjoiners));
+var bag_of_insults = shuffle(start_nouns.concat(start_nouns, verbs, verbs, adjectives, interjectives, conjoiners, conjoiners));
 var og_boi = [].concat(bag_of_insults);
 function shuffle(array) {
     var currentIndex = array.length, temporaryValue, randomIndex;
@@ -204,4 +204,8 @@ function startGame() {
     //         $("#particle_"+t).text(bag_of_insults.pop());
     //     })
     // });
+}
+
+function die() {
+    window.location.href = window.location.protocol + "//" + window.location.host + "/dunwich/game.html";
 }
