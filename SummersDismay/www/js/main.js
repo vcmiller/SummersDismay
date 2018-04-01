@@ -39,13 +39,24 @@ var rerolls = {current:3, max:3};
 //HTTP Shit
 
 function backToStart() {
-    window.location.href = window.location.protocol + "//" + window.location.host;
+    var obj = {
+        leaving: true
+    };
 
+    httpPostAsync(getUpdateUrl(), showUpdateResponse, JSON.stringify(obj));
+
+    window.location.href = window.location.protocol + "//" + window.location.host;
 }
 
 function submitName() {
-    var host = window.location.protocol + "//" + window.location.host;
-    window.location.replace(host + "/play?name=" + document.getElementById("name_input").value);
+    var name = document.getElementById("name_input").value;
+
+    if (name.length > 0) {
+        var host = window.location.protocol + "//" + window.location.host;
+        window.location.replace(host + "/play?name=" + name);
+    } else {
+        alert("You must enter your name.");
+    }
 }
 
 function getUpdateUrl() {
@@ -89,7 +100,7 @@ function showUpdateResponse(text) {
 
 
         if(!json.running){
-            roleP.innerHTML += "<br>Hey you a ho, so hold on.<br>";
+            roleP.innerHTML += "<br>Waiting for host to start game...<br>";
             insultDiv.style.display = "none";
             allInsultsDiv.style.display = "none";
         }else if (json.insults && json.insults.length > 0) {
@@ -189,8 +200,4 @@ function startGame() {
     //         $("#particle_"+t).text(bag_of_insults.pop());
     //     })
     // });
-}
-
-function leaveGame() {
-    window.location.replace(window.location.protocol + "//" + window.location.host);
 }

@@ -15,10 +15,11 @@ public class GameManager : MonoBehaviour {
     public int curJudge { get; private set; }
     public static GameManager inst { get; private set; }
 
-    public GameObject playerIconPrefab;
+    public PlayerIcon playerIconPrefab;
     public GameObject insultViewPrefab;
     public Button startGameButton;
 
+    private int nextIcon;
     private ConnectedPlayer winner;
     private bool voting, insulting, roundOver;
     private ExpirationTimer insultExpiration;
@@ -26,6 +27,7 @@ public class GameManager : MonoBehaviour {
     private ExpirationTimer endExpiration;
 
     public Sprite[] icons;
+    public Sprite[] expr;
     public Text timer;
 
     public List<ConnectedPlayer> connectedPlayers { get; private set; }
@@ -101,6 +103,8 @@ public class GameManager : MonoBehaviour {
             var judgeInfo = connectedPlayers[curJudge];
             bool isJudge = judgeInfo == playerInfo;
 
+            playerInfo.keepAlive = true;
+
             response.name = playerInfo.name;
             response.judge = judgeInfo.name;
             response.role = isJudge ? 1 : 0;
@@ -113,6 +117,10 @@ public class GameManager : MonoBehaviour {
 
                 var payload = JsonUtility.FromJson<UpdatePayload>(json);
                 if (payload != null) {
+                    if (payload.leaving) {
+                        playerInfo.left = true;
+                    }
+
                     if (!isJudge && insulting && (playerInfo.receivedInsult == null || playerInfo.receivedInsult.Length == 0)) {
                         playerInfo.receivedInsult = payload.insult;
                     } else if (isJudge && voting && winner == null && payload.vote != null && payload.vote.Length > 0) {
@@ -157,8 +165,14 @@ public class GameManager : MonoBehaviour {
         roundOver = false;
         voting = false;
         insulting = true;
+        InsultStacc.inst.Clear();
         insultExpiration.Set();
-        curJudge = (curJudge + 1) % connectedPlayers.Count;
+
+        if (connectedPlayers.Count > 0) {
+            curJudge = (curJudge + 1) % connectedPlayers.Count;
+        } else {
+            curJudge = 0;
+        }
     }
 
     public bool AllInsultsIn() {
@@ -203,6 +217,7 @@ public class GameManager : MonoBehaviour {
     public class UpdatePayload {
         public string insult;
         public string vote;
+        public bool leaving;
     }
 
     [Serializable]
@@ -247,10 +262,46 @@ public class GameManager : MonoBehaviour {
 
         for (int i = 0; i < connectedPlayers.Count; i++) {
             var con = connectedPlayers[i];
+
+            if (con.timeout == null) {
+                con.timeout = new ExpirationTimer(5);
+                con.timeout.Set();
+            }
+
+            if (con.keepAlive) {
+                con.timeout.Set();
+                con.keepAlive = false;
+            }
+
+            while (con.left || con.timeout.expired) {
+                Destroy(con.iconObject.GetComponent<Joint>());
+                Destroy(con.iconObject.GetComponent<Collider>());
+                Destroy(con.iconObject.gameObject, 10);
+
+                connectedPlayers.Remove(con);
+
+                for (int j = i; j < connectedPlayers.Count; j++) {
+                    connectedPlayers[i].iconObject.GetComponent<SpringJoint>().connectedAnchor += Vector3.left * 2;
+                }
+
+                if (i == curJudge || connectedPlayers.Count < 2) {
+                    curJudge--;
+                    NextRound();
+
+                    insulting = connectedPlayers.Count > 1;
+                    timer.gameObject.SetActive(false);
+                    return;
+                } else {
+                    con = connectedPlayers[i];
+                }
+            }
+
             if (!con.iconObject) {
-                con.iconObject = Instantiate(playerIconPrefab, new Vector2(0, -7), Quaternion.identity);
-                con.iconObject.GetComponent<MeshRenderer>().material.mainTexture = icons[i % icons.Length].texture;
-                con.iconObject.GetComponent<SpringJoint>().connectedAnchor = new Vector3(-5 + i * 2, 5.5f, 0);
+                con.iconObject = Instantiate(playerIconPrefab, new Vector2(0, -7), Quaternion.Euler(0, 0, 180));
+                con.iconObject.GetComponent<PlayerIcon>().Init(icons[nextIcon].texture, expr[nextIcon].texture);
+                con.iconObject.GetComponent<SpringJoint>().connectedAnchor = new Vector3(-6 + i * 2, 5.5f, 0);
+
+                nextIcon = (nextIcon + 1) % icons.Length;
             }
 
             if (con.insultViewObject) {
@@ -271,7 +322,9 @@ public class GameManager : MonoBehaviour {
                 }
             }
 
-            text += "\nwins: " + con.wins;
+            if (con.wins > 0) {
+                text += "\nwins: " + con.wins;
+            }
 
             con.iconObject.GetComponentInChildren<TextMesh>().text = text;
         }
@@ -286,6 +339,7 @@ public class GameManager : MonoBehaviour {
                 insulting = false;
                 voting = true;
                 voteExpiration.Set();
+                connectedPlayers[curJudge].iconObject.Express();
 
                 foreach (var c in connectedPlayers) {
                     if (c.receivedInsult != null && c.receivedInsult.Length > 0) {
@@ -313,7 +367,6 @@ public class GameManager : MonoBehaviour {
             }
 
             if (endExpiration.expired) {
-                InsultStacc.inst.Clear();
                 NextRound();
             }
         }

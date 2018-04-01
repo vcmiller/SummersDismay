@@ -1,0 +1,4870 @@
+﻿1
+00:04:32,038 --> 00:04:36,576
+Now, fair Hippolyta,
+our nuptial hour draws on apace.
+
+2
+00:04:36,710 --> 00:04:39,579
+Four happy days bring in another moon.
+
+3
+00:04:40,814 --> 00:04:45,285
+But, O, methinks how slow
+this old moon wanes!
+
+4
+00:04:45,418 --> 00:04:50,323
+She lingers my desires
+like to a step-dame or a dowager...
+
+5
+00:04:50,457 --> 00:04:52,626
+...long withering out
+a young man's revenue.
+
+6
+00:04:52,759 --> 00:04:55,462
+Four days will quickly
+steep themselves in night...
+
+7
+00:04:55,595 --> 00:04:58,899
+...four nights will quickly
+dream away the time.
+
+8
+00:05:00,467 --> 00:05:07,040
+And then the moon, like to
+a silver bow new bent in heaven...
+
+9
+00:05:07,374 --> 00:05:10,043
+...shall behold the night of our solemnities.
+
+10
+00:05:10,744 --> 00:05:13,580
+Happy be Theseus, our renowned Duke!
+
+11
+00:05:15,048 --> 00:05:19,953
+Thanks, good Egeus.
+What's the news with thee?
+
+12
+00:05:21,788 --> 00:05:28,795
+Full of vexation come I, with complaint
+against my child, my daughter Hermia.
+
+13
+00:05:32,999 --> 00:05:34,734
+Stand forth, Demetrius.
+
+14
+00:05:36,403 --> 00:05:39,806
+My noble lord,
+this man hath my consent to marry her.
+
+15
+00:05:40,373 --> 00:05:42,776
+Stand forth, Lysander.
+
+16
+00:05:43,510 --> 00:05:46,446
+This man hath bewitched
+the bosom of my child.
+
+17
+00:05:46,646 --> 00:05:50,083
+Thou, thou Lysander,
+thou hast given her rhymes...
+
+18
+00:05:50,417 --> 00:05:53,553
+...and interchanged love tokens
+with my child!
+
+19
+00:05:53,820 --> 00:05:56,756
+With cunning hast thou filched
+my daughter's heart...
+
+20
+00:05:56,890 --> 00:06:00,760
+...turned her obedience, which is due to me,
+to stubborn harshness.
+
+21
+00:06:04,631 --> 00:06:08,401
+And, my gracious Duke,
+be it so she will not here before Your Grace...
+
+22
+00:06:08,535 --> 00:06:13,807
+...consent to marry with Demetrius,
+I beg the ancient privilege of Athens:
+
+23
+00:06:16,042 --> 00:06:18,912
+As she is mine, I may dispose of her.
+
+24
+00:06:19,045 --> 00:06:23,683
+And that shall be either to this gentleman...
+
+25
+00:06:24,985 --> 00:06:26,453
+...or to her death...
+
+26
+00:06:27,420 --> 00:06:33,093
+...according to our law
+immediately provided in that case.
+
+27
+00:06:38,164 --> 00:06:39,633
+What say you, Hermia?
+
+28
+00:06:40,734 --> 00:06:45,538
+Relent, sweet Hermia. And Lysander,
+yield thy crazed title to my certain right.
+
+29
+00:06:45,672 --> 00:06:51,578
+You have her father's love, Demetrius,
+let me have Hermia's. Do you marry him?
+
+30
+00:06:54,547 --> 00:06:56,783
+Scornful Lysander!
+
+31
+00:06:56,916 --> 00:06:58,852
+True, he hath my love.
+
+32
+00:06:58,985 --> 00:07:02,122
+And what is mine,
+my love shall render him.
+
+33
+00:07:02,455 --> 00:07:03,757
+And she is mine!
+
+34
+00:07:04,724 --> 00:07:09,162
+And all my right of her
+I do estate unto Demetrius.
+
+35
+00:07:09,496 --> 00:07:13,566
+I am, my lord, as well derived as he,
+as well possessed.
+
+36
+00:07:13,700 --> 00:07:15,568
+My love is more than his.
+
+37
+00:07:15,702 --> 00:07:20,073
+And, which is more than all these boasts
+can be, I am beloved of beauteous Hermia.
+
+38
+00:07:20,206 --> 00:07:23,543
+Why should not I then prosecute my right?
+
+39
+00:07:24,511 --> 00:07:29,549
+Demetrius, I'll avouch it to his head,
+made love to Nedar's daughter, Helena.
+
+40
+00:07:30,817 --> 00:07:32,118
+And won her soul.
+
+41
+00:07:32,452 --> 00:07:36,823
+And she, sweet lady, dotes.
+
+42
+00:07:36,957 --> 00:07:42,228
+Devoutly dotes, dotes in idolatry,
+upon this spotted and inconstant man.
+
+43
+00:07:43,096 --> 00:07:45,598
+I must confess I have heard so much.
+
+44
+00:07:48,835 --> 00:07:51,504
+I do entreat Your Grace to pardon me.
+
+45
+00:07:52,038 --> 00:07:57,010
+I know not by what power I am made bold,
+nor how it may concern my modesty...
+
+46
+00:07:57,577 --> 00:08:00,547
+...in such a presence here
+to plead my thoughts.
+
+47
+00:08:01,181 --> 00:08:05,085
+But I beseech Your Grace that I may know
+the worst that may befall me in this case.
+
+48
+00:08:05,218 --> 00:08:08,788
+Either to die the death,
+or to abjure for ever the society of men.
+
+49
+00:08:09,622 --> 00:08:13,026
+Therefore, fair Hermia,
+question your desires.
+
+50
+00:08:13,159 --> 00:08:16,896
+Know of your youth.
+Examine well your blood.
+
+51
+00:08:17,030 --> 00:08:19,566
+Whether, if you yield not
+to your father's choice...
+
+52
+00:08:19,699 --> 00:08:21,801
+...you can endure the livery of a nun.
+
+53
+00:08:23,036 --> 00:08:27,073
+For, aye, to be in shady cloister mewed,
+to live a barren sister all your life...
+
+54
+00:08:27,207 --> 00:08:30,143
+...chanting faint hymns
+to the cold, fruitless moon.
+
+55
+00:08:31,511 --> 00:08:33,580
+So will I grow...
+
+56
+00:08:34,114 --> 00:08:36,549
+...so live, so die, my lord...
+
+57
+00:08:36,683 --> 00:08:39,519
+...ere I will yield my virgin patent up
+unto his lordship...
+
+58
+00:08:39,652 --> 00:08:42,956
+...whose unwished yoke
+my soul consents not to give sovereignty.
+
+59
+00:08:45,959 --> 00:08:48,161
+Take time to pause.
+
+60
+00:08:58,738 --> 00:09:02,208
+By the next new moon,
+upon that day either prepare to die...
+
+61
+00:09:02,542 --> 00:09:08,014
+...for disobedience to your father's will,
+or else to wed Demetrius, as he would.
+
+62
+00:09:08,748 --> 00:09:14,254
+Or on Diana's altar to protest
+for, aye, austerity and single life.
+
+63
+00:09:19,092 --> 00:09:24,297
+For you, fair Hermia, look you arm yourself
+to fit your fancies to your father's will.
+
+64
+00:09:29,235 --> 00:09:30,236
+Come, Hippolyta.
+
+65
+00:09:36,876 --> 00:09:40,246
+Demetrius, come. And come, Egeus.
+
+66
+00:09:40,580 --> 00:09:43,349
+I have some private schooling for you both.
+
+67
+00:09:53,059 --> 00:09:55,228
+How now, my love?
+
+68
+00:10:01,334 --> 00:10:06,806
+Why is your cheek so pale?
+How chance the roses there do fade so fast?
+
+69
+00:10:06,940 --> 00:10:13,379
+Belike for want of rain, which I could well
+beteem them from the tempest of my eyes.
+
+70
+00:10:13,880 --> 00:10:15,949
+Ay me!
+
+71
+00:10:19,352 --> 00:10:23,022
+For aught that I could ever read,
+could ever hear by tale or history...
+
+72
+00:10:23,156 --> 00:10:27,627
+...the course of true love
+never did run smooth.
+
+73
+00:10:28,628 --> 00:10:35,068
+If there were a sympathy in choice,
+war, death, or sickness did lay siege to it...
+
+74
+00:10:35,201 --> 00:10:40,140
+...making it momentary as a sound,
+swift as a shadow...
+
+75
+00:10:40,273 --> 00:10:42,709
+...short as any dream...
+
+76
+00:10:42,842 --> 00:10:45,678
+...as brief as the lightning
+in the collied night...
+
+77
+00:10:45,812 --> 00:10:48,214
+...that, in a spleen, unfolds
+both heaven and earth...
+
+78
+00:10:48,348 --> 00:10:51,718
+...and ere a man hath power
+to say "Behold!"...
+
+79
+00:10:52,051 --> 00:10:55,221
+...the jaws of darkness do devour it up.
+
+80
+00:10:56,689 --> 00:11:00,393
+So quick bright things come to confusion.
+
+81
+00:11:05,165 --> 00:11:07,433
+Therefore hear me, Hermia.
+
+82
+00:11:08,434 --> 00:11:11,838
+I have a widow aunt,
+a dowager of great revenue...
+
+83
+00:11:11,971 --> 00:11:13,973
+...and she respects me as her only son.
+
+84
+00:11:14,107 --> 00:11:15,375
+<i>Demetrius!</i>
+
+85
+00:11:17,343 --> 00:11:18,878
+Demetrius!
+
+86
+00:11:20,847 --> 00:11:22,982
+Demetrius!
+
+87
+00:11:28,888 --> 00:11:31,257
+Demetrius!
+
+88
+00:11:39,032 --> 00:11:44,704
+How happy some o'er other some can be.
+Through Athens I am thought as fair as she.
+
+89
+00:11:44,837 --> 00:11:48,708
+But what of that? Demetrius thinks not so.
+
+90
+00:11:48,841 --> 00:11:52,111
+He will not know what all but he do know.
+
+91
+00:11:52,245 --> 00:11:55,815
+Love looks not with the eyes,
+but with the mind...
+
+92
+00:11:55,949 --> 00:11:59,419
+...and therefore
+is winged Cupid painted blind.
+
+93
+00:12:00,053 --> 00:12:03,389
+God speed, fair Helena! Whither away?
+
+94
+00:12:05,959 --> 00:12:08,127
+Call you me fair?
+
+95
+00:12:08,261 --> 00:12:12,231
+That fair, again, unsay!
+Demetrius loves your fair.
+
+96
+00:12:14,100 --> 00:12:18,905
+O, happy fair!
+
+97
+00:12:21,240 --> 00:12:25,111
+Sickness is catching,
+O, were favor so.
+
+98
+00:12:25,244 --> 00:12:29,048
+Yours would I catch, fair Hermia, ere I go.
+
+99
+00:12:29,182 --> 00:12:35,121
+O, teach me how you look, and with what art
+you sway the motion of Demetrius' heart!
+
+100
+00:12:35,254 --> 00:12:37,357
+His folly, Helena, is no fault of mine.
+
+101
+00:12:37,490 --> 00:12:39,926
+None but your beauty.
+
+102
+00:12:40,893 --> 00:12:42,829
+Would that fault were mine!
+
+103
+00:12:43,062 --> 00:12:44,998
+Take comfort:
+
+104
+00:12:46,132 --> 00:12:47,533
+he no more shall see my face.
+
+105
+00:12:48,434 --> 00:12:51,137
+Lysander and myself shall fly this place.
+
+106
+00:12:51,270 --> 00:12:54,974
+Helen, to you our minds we will unfold.
+
+107
+00:12:55,108 --> 00:13:00,413
+Tomorrow night, when Phoebe doth behold
+her silver visage in the watery glass...
+
+108
+00:13:00,546 --> 00:13:03,182
+...a time that lovers' flights
+doth still conceal...
+
+109
+00:13:04,150 --> 00:13:06,519
+...through Athens' gates
+have we devised to steal.
+
+110
+00:13:06,853 --> 00:13:11,858
+And thence from Athens turn away our eyes
+to seek new friends and stranger companies.
+
+111
+00:13:11,991 --> 00:13:13,793
+Hermia!
+
+112
+00:13:14,894 --> 00:13:16,229
+Hermia!
+
+113
+00:13:18,097 --> 00:13:20,166
+Farewell, sweet playfellow.
+
+114
+00:13:20,299 --> 00:13:22,201
+Pray thou for us.
+
+115
+00:13:22,335 --> 00:13:24,504
+And good luck grant thee thy Demetrius.
+
+116
+00:13:24,837 --> 00:13:26,806
+Hermia!
+
+117
+00:13:29,008 --> 00:13:31,978
+-Keep word, Lysander.
+-I will, my Hermia.
+
+118
+00:13:41,954 --> 00:13:42,955
+Helena, adieu.
+
+119
+00:13:43,890 --> 00:13:47,126
+As you on him, Demetrius dote on you!
+
+120
+00:13:50,063 --> 00:13:52,832
+Oh, spite!
+
+121
+00:13:52,965 --> 00:13:55,201
+Oh, hell!
+
+122
+00:15:38,538 --> 00:15:41,340
+Where's my husband?
+Where's that worthless dreamer?
+
+123
+00:15:53,953 --> 00:15:57,223
+-Is all our company here?
+-Here, Peter Quince.
+
+124
+00:15:57,390 --> 00:16:02,395
+You were best to call them generally,
+man by man, according to the scrip.
+
+125
+00:16:06,566 --> 00:16:08,201
+Here, here. Here.
+
+126
+00:16:08,334 --> 00:16:12,271
+Here is the scroll of every man's name
+which is thought fit, through all our town...
+
+127
+00:16:12,405 --> 00:16:16,342
+...to play in our interlude before the Duke
+and Duchess on his wedding day at night.
+
+128
+00:16:16,476 --> 00:16:19,645
+First, good Peter Quince,
+say what the play treats on...
+
+129
+00:16:19,979 --> 00:16:23,182
+...then read the names of the actors,
+and so grow to a point.
+
+130
+00:16:23,316 --> 00:16:28,754
+Marry, our play is the most lamentable comedy
+and cruel death of Pyramus and Thisbe.
+
+131
+00:16:29,088 --> 00:16:32,492
+A very good piece of work,
+I assure you, and a merry.
+
+132
+00:16:33,526 --> 00:16:37,763
+Now, good Peter Quince,
+call forth your actors by the scroll.
+
+133
+00:16:38,130 --> 00:16:41,701
+Masters, spread yourselves.
+
+134
+00:16:42,034 --> 00:16:44,604
+So answer as I call you.
+
+135
+00:16:44,737 --> 00:16:48,074
+-Nick Bottom, the weaver.
+-Ready.
+
+136
+00:16:48,241 --> 00:16:50,042
+Name what part I am for, and proceed.
+
+137
+00:16:50,176 --> 00:16:53,179
+You, Nick Bottom, are set down for Pyramus.
+
+138
+00:16:55,014 --> 00:16:57,517
+What is Pyramus? A lover or a tyrant?
+
+139
+00:16:57,650 --> 00:17:01,354
+A lover, that kills himself
+most gallant for love.
+
+140
+00:17:02,388 --> 00:17:05,024
+That will ask some tears
+in the true performing of it.
+
+141
+00:17:05,157 --> 00:17:08,494
+If I do it, let the audience look to their eyes.
+
+142
+00:17:08,628 --> 00:17:10,630
+I will move storms.
+
+143
+00:17:10,763 --> 00:17:14,534
+I will condole in some measure.
+
+144
+00:17:15,535 --> 00:17:16,669
+-Now to the rest.
+-Well--
+
+145
+00:17:16,802 --> 00:17:20,640
+Yet my chief humor is for a tyrant.
+I could play Ercles rarely.
+
+146
+00:17:20,773 --> 00:17:25,444
+-Or a part to tear a cat in, to make all split.
+-Francis Flute....
+
+147
+00:17:25,578 --> 00:17:28,781
+<i>The raging rocks</i>
+<i>And shivering shocks</i>
+
+148
+00:17:29,115 --> 00:17:32,418
+<i>Shall break the locks</i>
+<i>Of prison gates;</i>
+
+149
+00:17:33,252 --> 00:17:34,787
+<i>And Phibbus' car</i>
+
+150
+00:17:35,121 --> 00:17:41,661
+<i>Shall shine from far</i>
+
+151
+00:17:43,396 --> 00:17:50,403
+<i>And make and mar</i>
+<i>The foolish Fates.</i>
+
+152
+00:17:57,243 --> 00:17:58,844
+This was lofty!
+
+153
+00:17:59,845 --> 00:18:00,846
+Pyramus.
+
+154
+00:18:02,181 --> 00:18:05,418
+-Francis Flute, the bellows-mender.
+-Here, Peter Quince.
+
+155
+00:18:05,551 --> 00:18:08,287
+Francis Flute, you must take Thisbe on you.
+
+156
+00:18:08,421 --> 00:18:13,225
+-What is Thisbe? A wandering knight?
+-It is the lady that Pyramus must love.
+
+157
+00:18:17,096 --> 00:18:19,799
+Nay, faith, let not me play a woman.
+I have a beard coming.
+
+158
+00:18:20,132 --> 00:18:23,169
+And I may hide my face.
+Let me play Thisbe too.
+
+159
+00:18:23,302 --> 00:18:27,506
+I'll speak in a monstrous little voice:
+"Thisne, Thisne."
+
+160
+00:18:28,374 --> 00:18:32,745
+"Pyramus, my lover dear!
+Thy Thisbe dear, and lady dear!"
+
+161
+00:18:33,579 --> 00:18:36,582
+No, no! You must play Pyramus.
+
+162
+00:18:36,716 --> 00:18:40,453
+Snout. And Flute, you Thisbe.
+
+163
+00:18:41,320 --> 00:18:44,790
+-Robin Starveling, the tailor.
+-Here, Peter Quince.
+
+164
+00:18:52,798 --> 00:18:56,469
+Snug the joiner, you, the lion's part.
+
+165
+00:18:57,136 --> 00:18:58,871
+And I hope we have a play well fitted.
+
+166
+00:18:59,205 --> 00:19:01,774
+Have you the lion's part written?
+
+167
+00:19:01,907 --> 00:19:05,444
+Pray you, if it be, give it me,
+for I am slow of study.
+
+168
+00:19:05,578 --> 00:19:08,681
+No, you may do it extempore,
+for it is nothing but roaring.
+
+169
+00:19:12,585 --> 00:19:13,919
+Let me play the lion too.
+
+170
+00:19:14,687 --> 00:19:17,456
+I will roar that I will do
+any man's heart good to hear me.
+
+171
+00:19:17,590 --> 00:19:22,361
+I will roar that I will make the Duke say
+"Let him roar again, let him roar again!"
+
+172
+00:19:22,495 --> 00:19:26,432
+No, you should do it too terribly that you
+would fright the Duchess and the ladies...
+
+173
+00:19:26,565 --> 00:19:30,236
+...and they would shriek,
+and that were enough to hang us all.
+
+174
+00:19:30,569 --> 00:19:33,839
+I grant you, friends, if I should fright
+the ladies out of their wits...
+
+175
+00:19:34,173 --> 00:19:36,509
+...they would have no more discretion
+but to hang us.
+
+176
+00:19:36,642 --> 00:19:41,747
+But I will aggravate my voice so that I will
+roar you as gently as any sucking dove.
+
+177
+00:19:41,881 --> 00:19:46,452
+I will roar you an 'twere any nightingale.
+
+178
+00:20:49,949 --> 00:20:53,352
+You can play no part but Pyramus.
+
+179
+00:20:53,519 --> 00:20:56,288
+Pyramus is a sweet-faced man.
+
+180
+00:20:56,555 --> 00:20:59,258
+A proper man,
+as one shall see in a summer's day.
+
+181
+00:20:59,391 --> 00:21:02,695
+A most lovely, gentleman-like man.
+
+182
+00:21:03,028 --> 00:21:06,432
+Therefore you must needs play Pyramus.
+
+183
+00:21:18,911 --> 00:21:20,646
+Well.
+
+184
+00:21:22,448 --> 00:21:24,450
+I will undertake it.
+
+185
+00:21:24,583 --> 00:21:27,386
+Masters, you have all your parts,
+and I am to entreat you...
+
+186
+00:21:27,520 --> 00:21:29,021
+...to con them by tomorrow night...
+
+187
+00:21:29,355 --> 00:21:33,025
+...and to meet in the palace wood, a mile
+without the town, there will we rehearse.
+
+188
+00:21:33,359 --> 00:21:38,330
+If we meet in the city, we will be dogged
+by company and our devices known.
+
+189
+00:21:38,464 --> 00:21:40,866
+I pray you, fail me not.
+
+190
+00:21:42,468 --> 00:21:44,303
+We will meet.
+
+191
+00:21:44,436 --> 00:21:49,608
+And there we may rehearse
+most obscenely and courageously.
+
+192
+00:21:49,742 --> 00:21:54,013
+Take pains. Be perfect!
+
+193
+00:21:55,381 --> 00:21:56,982
+Adieu.
+
+194
+00:23:38,050 --> 00:23:44,456
+Ere Demetrius looked on Hermia's eyne,
+he hailed down oaths that he was only mine.
+
+195
+00:23:44,590 --> 00:23:47,593
+And when this hail
+some heat from Hermia felt...
+
+196
+00:23:47,726 --> 00:23:52,665
+...so he dissolved,
+and showers of oaths did melt.
+
+197
+00:23:55,534 --> 00:23:58,804
+I will go tell him of fair Hermia's flight.
+
+198
+00:23:59,004 --> 00:24:02,775
+Then to the wood this very night
+will he pursue her.
+
+199
+00:25:40,973 --> 00:25:42,107
+How now, spirit.
+
+200
+00:25:42,841 --> 00:25:44,643
+Whither wander you?
+
+201
+00:25:44,777 --> 00:25:48,881
+Over hill, over dale,
+through bush, through briar...
+
+202
+00:25:49,014 --> 00:25:52,151
+...over park, over pale,
+through flood, through fire...
+
+203
+00:25:52,284 --> 00:25:53,952
+...I do wander everywhere.
+
+204
+00:25:55,053 --> 00:25:57,122
+Swifter than the moon's sphere.
+
+205
+00:25:57,856 --> 00:26:02,561
+And I serve the fairy queen,
+to dew her orbs upon the green.
+
+206
+00:26:04,963 --> 00:26:08,267
+Either I mistake your shape
+and making quite...
+
+207
+00:26:08,600 --> 00:26:12,037
+...or else you are that shrewd
+and knavish sprite called Robin Goodfellow.
+
+208
+00:26:12,871 --> 00:26:16,842
+Are not you he,
+that frights the maidens of the villagery?
+
+209
+00:26:17,309 --> 00:26:20,078
+Skims milk,
+and sometimes labors in the quern...
+
+210
+00:26:20,212 --> 00:26:24,016
+...and bootless makes the breathless
+housewife churn, are not you he?
+
+211
+00:26:25,217 --> 00:26:28,921
+Thou speak'st aright.
+I am that merry wanderer of the night.
+
+212
+00:26:29,188 --> 00:26:32,791
+I jest to Oberon and make him smile...
+
+213
+00:26:32,925 --> 00:26:35,227
+...when I a fat and bean-fed horse beguile...
+
+214
+00:26:35,360 --> 00:26:38,797
+...neighing in likeness of a filly foal.
+
+215
+00:26:43,368 --> 00:26:45,737
+And sometimes....
+
+216
+00:26:54,012 --> 00:26:57,649
+Farewell, thou lob of spirits!
+
+217
+00:26:57,783 --> 00:26:59,985
+I'll be gone.
+
+218
+00:27:00,285 --> 00:27:04,323
+The queen and all her elves come here anon.
+
+219
+00:27:04,656 --> 00:27:07,326
+The king doth keep his revels here tonight.
+
+220
+00:27:07,659 --> 00:27:10,896
+Take heed the queen
+come not within his sight.
+
+221
+00:27:15,968 --> 00:27:22,841
+For Oberon is passing fell and wrath.
+
+222
+00:28:12,925 --> 00:28:16,094
+Ill-met by moonlight, proud Titania.
+
+223
+00:28:16,228 --> 00:28:18,196
+What, jealous Oberon?
+
+224
+00:28:18,330 --> 00:28:22,234
+Fairies, skip hence:
+I have forsworn his bed and company.
+
+225
+00:28:22,367 --> 00:28:27,739
+Tarry, rash wanton. Am not I thy lord?
+
+226
+00:28:29,741 --> 00:28:32,411
+Then I must be thy lady.
+
+227
+00:28:39,051 --> 00:28:43,422
+Why art thou here,
+come from the farthest step of India...
+
+228
+00:28:43,755 --> 00:28:48,026
+...but that, forsooth, the bouncing Amazon...
+
+229
+00:28:48,160 --> 00:28:52,264
+...your buskined mistress
+and your warrior love...
+
+230
+00:28:52,397 --> 00:28:58,003
+...to Theseus must be wedded, and you
+come to give their bed joy and prosperity.
+
+231
+00:28:58,136 --> 00:29:02,841
+How canst thou thus, for shame, Titania,
+glance at my credit with Hippolyta...
+
+232
+00:29:02,975 --> 00:29:05,010
+...knowing I know thy love to Theseus?
+
+233
+00:29:05,143 --> 00:29:07,813
+These are the forgeries of jealousy.
+
+234
+00:29:07,946 --> 00:29:14,486
+And never since the middle summer's spring
+met we on hill, in dale, forest, or mead...
+
+235
+00:29:14,820 --> 00:29:16,822
+...by paved fountain, or by rushy brook...
+
+236
+00:29:17,055 --> 00:29:21,193
+...but with thy brawls
+thou hast disturbed our sport.
+
+237
+00:29:21,460 --> 00:29:24,896
+Therefore the winds, piping to us in vain...
+
+238
+00:29:25,030 --> 00:29:29,801
+...as in revenge have sucked up
+from the sea contagious fogs...
+
+239
+00:29:29,935 --> 00:29:32,170
+...which, falling in the land...
+
+240
+00:29:32,304 --> 00:29:37,109
+...hath every pelting river made so proud
+that they have overborne their continents.
+
+241
+00:29:38,377 --> 00:29:45,050
+And this same progeny of evils
+comes from our debate, from our dissension.
+
+242
+00:29:45,183 --> 00:29:48,387
+We are their parents and original.
+
+243
+00:29:48,520 --> 00:29:50,956
+Do you amend it, then.
+
+244
+00:29:52,824 --> 00:29:54,793
+It lies in you.
+
+245
+00:29:55,127 --> 00:29:58,163
+Why should Titania cross her Oberon?
+
+246
+00:29:58,330 --> 00:30:01,233
+I do but beg a little changeling boy
+to be my henchman.
+
+247
+00:30:01,366 --> 00:30:07,973
+Set your heart at rest:
+the fairy land buys not the child of me.
+
+248
+00:30:08,106 --> 00:30:11,443
+His mother was a votaress of my order...
+
+249
+00:30:11,576 --> 00:30:18,583
+...and in the spiced Indian air, by night
+full often hath she gossiped by my side.
+
+250
+00:30:19,151 --> 00:30:22,554
+And sat with me
+on Neptune's yellow sands...
+
+251
+00:30:23,422 --> 00:30:26,958
+...marking the embarked traders
+on the flood...
+
+252
+00:30:27,459 --> 00:30:30,562
+...when we have laughed
+to see the sails conceive...
+
+253
+00:30:30,896 --> 00:30:35,267
+...and grow big-bellied
+with the wanton wind.
+
+254
+00:30:37,069 --> 00:30:40,972
+But she, being mortal, of that boy did die.
+
+255
+00:30:41,139 --> 00:30:45,277
+And for her sake do I rear up her boy.
+
+256
+00:30:45,410 --> 00:30:49,848
+And for her sake I will not part with him.
+
+257
+00:30:50,615 --> 00:30:52,884
+How long within this wood intend you stay?
+
+258
+00:30:53,018 --> 00:30:56,488
+Perchance till after Theseus' wedding day.
+
+259
+00:30:58,290 --> 00:31:02,627
+If you will patiently dance in our round...
+
+260
+00:31:03,261 --> 00:31:07,299
+...and see our moonlight revels, go with us.
+
+261
+00:31:07,899 --> 00:31:09,868
+Give me that boy, and I will go with thee.
+
+262
+00:31:14,373 --> 00:31:16,942
+Not for thy fairy kingdom!
+
+263
+00:31:17,075 --> 00:31:18,410
+Fairies, away!
+
+264
+00:31:18,543 --> 00:31:22,180
+We shall chide downright if I longer stay.
+
+265
+00:31:26,084 --> 00:31:27,486
+Well, go thy way.
+
+266
+00:31:28,120 --> 00:31:32,457
+Thou shalt not from this grove
+till I torment thee for this injury.
+
+267
+00:31:33,258 --> 00:31:36,061
+My gentle Puck, come hither.
+
+268
+00:31:43,301 --> 00:31:47,372
+Thou rememb'rest
+since once I sat upon a promontory...
+
+269
+00:31:47,506 --> 00:31:50,041
+...and heard a mermaid on a dolphin's back...
+
+270
+00:31:50,175 --> 00:31:57,182
+...uttering such dulcet and harmonious breath
+that the rude sea grew civil at her song?
+
+271
+00:32:00,318 --> 00:32:03,155
+That very time I saw, but thou couldst not...
+
+272
+00:32:03,288 --> 00:32:08,660
+...flying between the cold moon and the earth,
+Cupid all armed.
+
+273
+00:32:09,494 --> 00:32:15,500
+<i>A certain aim he took,</i>
+<i>and loosed his love shaft smartly from his bow.</i>
+
+274
+00:32:15,634 --> 00:32:19,604
+<i>Yet, marked I where the bolt of Cupid fell.</i>
+
+275
+00:32:19,938 --> 00:32:22,707
+<i>It fell upon a little western flower...</i>
+
+276
+00:32:23,041 --> 00:32:27,012
+<i>...before, milk-white,</i>
+<i>now purple with love's wound.</i>
+
+277
+00:32:28,146 --> 00:32:30,048
+<i>Fetch me that flower.</i>
+
+278
+00:32:30,182 --> 00:32:32,250
+The juice of it on sleeping eyelids laid...
+
+279
+00:32:32,384 --> 00:32:38,089
+...will make or man or woman madly dote
+upon the next live creature that it sees.
+
+280
+00:32:40,459 --> 00:32:42,227
+Fetch me this herb...
+
+281
+00:32:42,360 --> 00:32:45,964
+...and be thou here again
+ere the leviathan can swim a league.
+
+282
+00:32:46,097 --> 00:32:49,267
+I'll put a girdle round about the earth
+in 40 minutes.
+
+283
+00:33:03,715 --> 00:33:09,387
+Having once this juice,
+I'll watch Titania when she is asleep...
+
+284
+00:33:09,721 --> 00:33:13,358
+...and drop the liquor of it in her eyes.
+
+285
+00:33:15,760 --> 00:33:19,164
+The next thing then
+she waking looks upon...
+
+286
+00:33:19,297 --> 00:33:23,735
+...she shall pursue it with the soul of love.
+
+287
+00:33:24,569 --> 00:33:27,706
+And ere I take this charm from off her sight...
+
+288
+00:33:28,340 --> 00:33:30,709
+...I'll make her render up her page to me.
+
+289
+00:33:31,543 --> 00:33:34,513
+I love thee not, therefore pursue me not!
+
+290
+00:33:43,488 --> 00:33:45,624
+Where is Lysander and fair Hermia?
+
+291
+00:33:45,757 --> 00:33:48,260
+Thou told'st me they were stolen
+unto this wood...
+
+292
+00:33:48,393 --> 00:33:53,164
+...and here am I, and wood within this wood,
+because I cannot meet my Hermia!
+
+293
+00:33:56,568 --> 00:34:01,239
+Hence! Get thee gone
+and follow me no more!
+
+294
+00:34:10,682 --> 00:34:12,517
+Do I entice you?
+
+295
+00:34:12,817 --> 00:34:14,753
+Do I speak you fair?
+
+296
+00:34:15,086 --> 00:34:21,059
+Or rather, do I not in plainest truth
+tell you I do not, nor I cannot, love you?
+
+297
+00:34:21,326 --> 00:34:23,795
+And even for that do I love you the more.
+
+298
+00:34:25,764 --> 00:34:31,503
+I am your spaniel. And, Demetrius,
+the more you beat me, I will fawn on you.
+
+299
+00:34:31,636 --> 00:34:34,239
+Use me but as your spaniel.
+
+300
+00:34:34,372 --> 00:34:37,609
+Spurn me, strike me, neglect me, lose me...
+
+301
+00:34:37,742 --> 00:34:41,179
+...but give me leave,
+unworthy as I am, to follow you.
+
+302
+00:34:41,580 --> 00:34:45,584
+What worser place can I beg in your love
+than to be used as you use your dog?
+
+303
+00:34:46,585 --> 00:34:51,790
+Tempt not too much the hatred of my spirit,
+for I am sick when I do look on thee.
+
+304
+00:34:52,123 --> 00:34:54,759
+And I am sick when I look not on you!
+
+305
+00:34:55,560 --> 00:35:00,298
+You do impeach your modesty too much!
+
+306
+00:35:00,432 --> 00:35:05,303
+To leave the city and commit yourself
+into the hands of one that loves you not.
+
+307
+00:35:05,870 --> 00:35:09,541
+To trust the opportunity of night...
+
+308
+00:35:10,308 --> 00:35:13,645
+...and the ill counsel of a desert place...
+
+309
+00:35:14,179 --> 00:35:17,716
+...with the rich worth of your virginity.
+
+310
+00:35:18,650 --> 00:35:22,654
+Your virtue is my privilege.
+
+311
+00:35:23,788 --> 00:35:28,326
+For that it is not night
+when I do see your face...
+
+312
+00:35:28,460 --> 00:35:30,629
+...therefore I think I am not in the night.
+
+313
+00:35:30,762 --> 00:35:36,368
+Nor doth this wood lack worlds of company,
+for you, in my respect, are all the world.
+
+314
+00:35:36,501 --> 00:35:42,540
+I'll run from thee and hide me in the brakes,
+and leave thee to the mercy of wild beasts!
+
+315
+00:35:42,674 --> 00:35:45,310
+The wildest hath not such a heart as you!
+
+316
+00:35:45,443 --> 00:35:47,812
+Run when you will.
+The story shall be changed:
+
+317
+00:35:48,146 --> 00:35:52,350
+Apollo flies, and Daphne holds the chase!
+The dove pursues the griffin!
+
+318
+00:35:52,484 --> 00:35:55,787
+I will not stay thy questions! Let me go!
+
+319
+00:35:55,920 --> 00:35:59,691
+Or, if thou follow me, do not believe
+but I shall do thee mischief in the wood!
+
+320
+00:35:59,824 --> 00:36:04,295
+Ay, in the temple, in the town, in the field
+you do me mischief!
+
+321
+00:36:04,663 --> 00:36:07,666
+Fie, Demetrius!
+
+322
+00:36:07,866 --> 00:36:12,771
+Your wrongs do set a scandal on my sex!
+
+323
+00:36:13,638 --> 00:36:18,443
+We cannot fight for love, as men may do.
+
+324
+00:36:21,646 --> 00:36:26,951
+We should be wooed,
+and were not made to woo.
+
+325
+00:36:32,691 --> 00:36:37,195
+I'll follow thee, and make a heaven of hell...
+
+326
+00:36:37,328 --> 00:36:41,833
+...to die upon the hand I love so well.
+
+327
+00:36:47,205 --> 00:36:48,540
+Fare thee well, nymph.
+
+328
+00:36:49,874 --> 00:36:55,647
+Ere he shall leave this grove, thou shalt fly him,
+and he shall seek thy love.
+
+329
+00:36:59,284 --> 00:37:01,419
+Hast thou the flower there?
+
+330
+00:37:16,267 --> 00:37:20,505
+I know a bank where the wild thyme blows...
+
+331
+00:37:20,705 --> 00:37:24,342
+...where oxlips
+and the nodding violet grows...
+
+332
+00:37:24,476 --> 00:37:29,581
+...quite over-canopied
+with luscious woodbine...
+
+333
+00:37:29,714 --> 00:37:33,451
+...with sweet musk roses and with eglantine.
+
+334
+00:37:34,319 --> 00:37:38,389
+There sleeps Titania sometime of the night...
+
+335
+00:37:38,523 --> 00:37:42,427
+...lulled in these flowers
+with dances and delight.
+
+336
+00:37:42,560 --> 00:37:46,831
+<i>And there the snake</i>
+<i>throws her enameled skin...</i>
+
+337
+00:37:46,965 --> 00:37:50,368
+<i>...weed wide enough to wrap a fairy in.</i>
+
+338
+00:37:50,502 --> 00:37:53,938
+<i>And with the juice of this</i>
+<i>I'll streak her eyes...</i>
+
+339
+00:37:54,272 --> 00:37:57,842
+<i>...and make her full of hateful fantasies.</i>
+
+340
+00:38:02,347 --> 00:38:05,483
+Take thou some of it,
+and seek through this grove.
+
+341
+00:38:05,717 --> 00:38:11,589
+A sweet Athenian lady is in love
+with a disdainful youth: anoint his eyes.
+
+342
+00:38:11,723 --> 00:38:16,594
+But do it when the next thing
+he espies may be the lady.
+
+343
+00:38:17,629 --> 00:38:20,799
+Thou shalt know the man
+by the Athenian garments he hath on.
+
+344
+00:38:20,932 --> 00:38:22,600
+And look...
+
+345
+00:38:22,967 --> 00:38:25,336
+...thou meet me ere the first cock crow.
+
+346
+00:38:25,470 --> 00:38:29,374
+Fear not, my lord. Your servant shall do so.
+
+347
+00:39:37,642 --> 00:39:40,044
+Sing me now asleep.
+
+348
+00:39:40,612 --> 00:39:43,815
+Then to thy offices and let me rest.
+
+349
+00:40:17,949 --> 00:40:24,455
+Hence away. Now all is well.
+One aloof stand sentinel.
+
+350
+00:41:00,892 --> 00:41:06,864
+What thou seest when thou dost wake,
+do it for thy true love take.
+
+351
+00:41:08,066 --> 00:41:12,937
+Love and languish for his sake.
+
+352
+00:41:14,772 --> 00:41:20,979
+Be it ounce, or cat, or bear,
+pard, or boar with bristled hair...
+
+353
+00:41:22,213 --> 00:41:27,919
+...in thy eye that doth appear
+when thou waks't, it is thy dear.
+
+354
+00:41:34,092 --> 00:41:37,095
+Wake when some vile thing is near.
+
+355
+00:41:47,538 --> 00:41:49,107
+Fair love.
+
+356
+00:41:50,041 --> 00:41:52,210
+You faint with wandering in the wood.
+
+357
+00:41:52,543 --> 00:41:56,748
+And to speak truth, I have forgot our way.
+
+358
+00:41:58,649 --> 00:42:03,521
+We'll rest us, Hermia, if you think it good,
+and tarry for the comfort of the day.
+
+359
+00:42:03,654 --> 00:42:05,690
+Be it so, Lysander.
+
+360
+00:42:12,630 --> 00:42:17,135
+Well, find you out a bed,
+for I upon this bank shall rest my head.
+
+361
+00:42:49,600 --> 00:42:51,102
+Lysander!
+
+362
+00:42:51,235 --> 00:42:53,237
+One turf shall serve as pillow for us both.
+
+363
+00:42:53,571 --> 00:42:56,207
+One heart, one bed,
+two bosoms, and one troth.
+
+364
+00:42:56,340 --> 00:43:00,645
+Nay, good Lysander. For my sake, my dear,
+lie further off yet, do not lie so near.
+
+365
+00:43:00,778 --> 00:43:04,215
+O take the sense, sweet, of my innocence!
+
+366
+00:43:05,583 --> 00:43:12,123
+I mean that my heart unto yours is knit,
+so that but one heart we can make of it.
+
+367
+00:43:13,091 --> 00:43:18,896
+Two bosoms interchained with an oath,
+so, then, two bosoms and a single troth.
+
+368
+00:43:19,197 --> 00:43:24,302
+Then by your side no bed-room me deny...
+
+369
+00:43:24,735 --> 00:43:28,005
+...for lying so, Hermia, I do not lie.
+
+370
+00:43:31,676 --> 00:43:34,612
+Lysander riddles very prettily.
+
+371
+00:43:45,790 --> 00:43:47,892
+Nay, gentle friend.
+
+372
+00:43:50,695 --> 00:43:53,998
+For love and courtesy, lie further off!
+
+373
+00:43:55,633 --> 00:43:57,935
+In human modesty!
+
+374
+00:43:59,971 --> 00:44:05,109
+Such separation as may well be said
+becomes a virtuous bachelor and a maid.
+
+375
+00:44:06,844 --> 00:44:09,213
+So far be distant.
+
+376
+00:44:09,747 --> 00:44:12,016
+And good night, sweet friend.
+
+377
+00:44:13,050 --> 00:44:16,387
+-Thy love ne'er alter, till thy sweet life end!
+-Amen.
+
+378
+00:44:16,954 --> 00:44:23,060
+Amen to that fair prayer, say I.
+And then, end life, when I end loyalty.
+
+379
+00:44:30,168 --> 00:44:31,936
+Here is my bed.
+
+380
+00:44:32,837 --> 00:44:34,839
+Sleep give thee all his rest.
+
+381
+00:44:34,972 --> 00:44:37,308
+With half that wish,
+the wisher's eyes be pressed.
+
+382
+00:44:57,194 --> 00:45:00,731
+Through the forest have I gone,
+but Athenian found I none...
+
+383
+00:45:00,865 --> 00:45:06,270
+...on whose eyes I might approve
+this flower's force in stirring love.
+
+384
+00:45:10,808 --> 00:45:15,046
+Night and silence.
+
+385
+00:45:18,449 --> 00:45:20,785
+But who is here?
+
+386
+00:45:23,721 --> 00:45:26,123
+Weeds of Athens he doth wear!
+
+387
+00:45:26,257 --> 00:45:30,227
+This is he my master said
+despised the Athenian maid!
+
+388
+00:46:27,318 --> 00:46:34,091
+And there the maiden, sleeping sound
+on the dank and dirty ground.
+
+389
+00:46:40,331 --> 00:46:42,800
+Pretty soul.
+
+390
+00:46:43,367 --> 00:46:48,839
+She durst not lie near this lack-love,
+this kill-courtesy.
+
+391
+00:46:51,342 --> 00:46:57,882
+Churl, upon thy eyes I throw
+all the power this charm doth owe.
+
+392
+00:46:58,015 --> 00:47:03,087
+When thou wak'st, let love forbid
+sleep his seat on thy eyelid.
+
+393
+00:47:03,888 --> 00:47:10,895
+And so awake when I am gone,
+for I must now to Oberon!
+
+394
+00:47:12,963 --> 00:47:16,033
+I charge thee hence!
+And do not haunt me thus!
+
+395
+00:47:16,167 --> 00:47:18,235
+Would thou darkling leave me? Do not so!
+
+396
+00:47:18,369 --> 00:47:22,339
+Stay, on thy peril. I alone will go!
+
+397
+00:47:29,947 --> 00:47:34,285
+O, I am out of breath in this fond chase!
+
+398
+00:47:35,419 --> 00:47:39,156
+The more my prayer, the lesser is my grace.
+
+399
+00:47:41,292 --> 00:47:47,932
+Happy is Hermia, wheresoe'er she lies,
+for she hath blessed and attractive eyes.
+
+400
+00:47:51,035 --> 00:47:54,371
+How came her eyes so bright?
+
+401
+00:47:54,605 --> 00:48:00,611
+Not with salt tears, if so,
+my eyes are oftener washed than hers.
+
+402
+00:48:02,580 --> 00:48:04,248
+No.
+
+403
+00:48:04,615 --> 00:48:07,284
+No, no, no.
+
+404
+00:48:07,418 --> 00:48:13,290
+I am as ugly as a bear.
+
+405
+00:48:14,125 --> 00:48:17,895
+For beasts that meet me run away for fear.
+
+406
+00:48:26,604 --> 00:48:28,539
+Lysander?
+
+407
+00:48:36,413 --> 00:48:38,549
+Dead or asleep?
+
+408
+00:48:38,682 --> 00:48:41,952
+Lysander, if you live, good sir, awake!
+
+409
+00:48:43,988 --> 00:48:46,490
+And run through fire I will
+for thy sweet sake!
+
+410
+00:48:46,624 --> 00:48:48,192
+Where is Demetrius?
+
+411
+00:48:48,325 --> 00:48:52,196
+O how fit a word is that vile name
+to perish on my sword!
+
+412
+00:48:52,329 --> 00:48:55,332
+Do not say so, Lysander! Say not so!
+
+413
+00:48:55,466 --> 00:49:00,304
+What, though he love your Hermia?
+Lord, what though?
+
+414
+00:49:00,437 --> 00:49:03,440
+Yet Hermia still loves you, then be content.
+
+415
+00:49:03,574 --> 00:49:05,276
+Content with Hermia?
+
+416
+00:49:05,409 --> 00:49:09,446
+No! I do repent the tedious minutes
+I with her have spent!
+
+417
+00:49:09,580 --> 00:49:12,650
+Not Hermia, but Helena I love.
+
+418
+00:49:12,983 --> 00:49:15,686
+Who will not change a raven for a dove?
+
+419
+00:49:18,055 --> 00:49:21,158
+Wherefore was I to this keen mockery born?
+
+420
+00:49:21,292 --> 00:49:24,028
+When at your hands
+did I deserve such scorn?
+
+421
+00:49:24,161 --> 00:49:27,264
+Is't not enough,
+is't not enough, young man...
+
+422
+00:49:27,398 --> 00:49:31,535
+...that I did never, no, nor never can,
+deserve a sweet look from Demetrius' eye...
+
+423
+00:49:31,669 --> 00:49:34,438
+...but you must flout my insufficiency?
+
+424
+00:49:35,706 --> 00:49:38,209
+But fare you well!
+
+425
+00:49:38,342 --> 00:49:44,181
+Perforce, I must confess
+I thought you lord of more true gentleness!
+
+426
+00:49:45,082 --> 00:49:46,984
+She sees not Hermia.
+
+427
+00:49:47,985 --> 00:49:53,023
+Hermia, sleepst thou there,
+and never mayst thou come Lysander near!
+
+428
+00:49:53,257 --> 00:49:59,530
+And, all my powers,
+address your love and might...
+
+429
+00:50:00,130 --> 00:50:05,369
+...to honor Helen, and to be her knight!
+
+430
+00:50:11,175 --> 00:50:13,010
+Ay me!
+
+431
+00:50:13,611 --> 00:50:16,180
+For pity, what a dream was here!
+
+432
+00:50:18,449 --> 00:50:23,287
+Lysander, look how I do quake with fear.
+
+433
+00:50:23,554 --> 00:50:25,623
+Lysander?
+
+434
+00:50:28,492 --> 00:50:30,394
+Lysander?
+
+435
+00:50:32,363 --> 00:50:34,498
+Lysander?
+
+436
+00:50:45,175 --> 00:50:48,245
+Here's a marvelous convenient place
+for our rehearsal.
+
+437
+00:50:48,379 --> 00:50:54,485
+This green plot shall be our stage,
+this hawthorn-brake our tiring-house.
+
+438
+00:50:54,618 --> 00:50:59,823
+And we will do it in action,
+as we will do it before the Duke.
+
+439
+00:51:00,557 --> 00:51:03,060
+-Peter Quince?
+-What sayest thou, bully Bottom?
+
+440
+00:51:03,193 --> 00:51:07,464
+There are things in this comedy
+of Pyramus and...
+
+441
+00:51:08,132 --> 00:51:10,301
+-Thisbe.
+-...Thisbe that will never please.
+
+442
+00:51:10,434 --> 00:51:14,171
+First, Pyramus must draw a sword
+to kill himself...
+
+443
+00:51:14,305 --> 00:51:15,839
+...which the ladies cannot abide.
+
+444
+00:51:16,173 --> 00:51:17,441
+By Our Lady, a parlous fear.
+
+445
+00:51:17,574 --> 00:51:20,778
+I believe we must leave the killing out,
+when all is done.
+
+446
+00:51:21,111 --> 00:51:25,649
+Not a whit. I have a device to make all well.
+
+447
+00:51:25,783 --> 00:51:27,618
+Write me a prologue...
+
+448
+00:51:27,751 --> 00:51:31,322
+...and let the prologue seem to say
+we will do no harm with our swords...
+
+449
+00:51:31,455 --> 00:51:33,390
+...and that Pyramus is not killed indeed.
+
+450
+00:51:33,524 --> 00:51:37,261
+And, for the more better assurance,
+tell them that I, Pyramus, am not Pyramus...
+
+451
+00:51:37,394 --> 00:51:40,531
+...but Bottom the weaver.
+This will put them out of fear.
+
+452
+00:51:40,664 --> 00:51:45,469
+Ah, well, we will have such a prologue.
+And it shall be written in eight and six.
+
+453
+00:51:45,602 --> 00:51:48,372
+No, make it two more.
+Let it be written in eight and eight.
+
+454
+00:51:48,505 --> 00:51:53,844
+But there is two hard things: that is,
+to bring the moonlight into a chamber...
+
+455
+00:51:54,178 --> 00:51:56,580
+...for, you know, Pyramus and Thisbe
+meet by moonlight.
+
+456
+00:51:56,714 --> 00:51:58,849
+Doth the moon shine
+that night we play our play?
+
+457
+00:51:59,183 --> 00:52:00,851
+A calendar. A calendar!
+
+458
+00:52:01,185 --> 00:52:04,388
+Look in the almanac, find out moonshine.
+
+459
+00:52:05,322 --> 00:52:07,157
+It doth shine that night.
+
+460
+00:52:07,291 --> 00:52:09,660
+It doth shine that night.
+
+461
+00:52:12,529 --> 00:52:18,135
+Why, then may you leave a casement of the
+great chamber window open, where we play...
+
+462
+00:52:18,268 --> 00:52:21,305
+...and the moon may shine in
+at the casement.
+
+463
+00:52:22,206 --> 00:52:26,377
+Two hard things,
+we must have a wall in the great chamber.
+
+464
+00:52:26,510 --> 00:52:31,215
+For Pyramus and Thisbe, says the story,
+did talk through the chink of a wall.
+
+465
+00:52:31,348 --> 00:52:33,684
+You can never bring in a wall!
+
+466
+00:52:33,817 --> 00:52:36,253
+What say you, Bottom?
+
+467
+00:52:37,788 --> 00:52:43,494
+Some man or other must present Wall.
+
+468
+00:52:44,261 --> 00:52:45,295
+Snout. Snout.
+
+469
+00:52:45,429 --> 00:52:50,768
+And let him have some plaster, or some loam,
+or some rough-cast about him...
+
+470
+00:52:50,901 --> 00:52:53,904
+...to signify Wall.
+
+471
+00:52:56,673 --> 00:52:58,909
+And let him hold his fingers thus...
+
+472
+00:52:59,243 --> 00:53:03,614
+...and through that cranny
+shall Pyramus and...
+
+473
+00:53:03,747 --> 00:53:06,250
+-Thisbe.
+-...Thisbe whisper.
+
+474
+00:53:06,383 --> 00:53:10,587
+-You can never bring in a wall.
+-And if this may be, then all is well.
+
+475
+00:53:10,721 --> 00:53:14,491
+Pyramus, you begin, and when you have
+spoken your speech, enter into that brake.
+
+476
+00:53:14,625 --> 00:53:16,894
+Thisbe, stand forth.
+
+477
+00:53:17,361 --> 00:53:20,464
+Left foot forward, and then antique gesture.
+
+478
+00:53:20,631 --> 00:53:22,433
+Pyramus, speak.
+
+479
+00:53:22,800 --> 00:53:25,469
+What hempen home-spuns
+have we swaggering here...
+
+480
+00:53:25,602 --> 00:53:27,838
+...so near the cradle of the fairy queen?
+
+481
+00:53:28,605 --> 00:53:29,706
+-Line?
+-"Thisbe."
+
+482
+00:53:29,840 --> 00:53:34,611
+Thisbe, the flowers
+of odious savors sweet--
+
+483
+00:53:34,745 --> 00:53:36,447
+Odours. Odours.
+
+484
+00:53:37,381 --> 00:53:42,319
+Odours savors sweet,
+so hath thy breath, my dearest Thisbe dear.
+
+485
+00:53:42,453 --> 00:53:45,355
+But hark! A voice!
+
+486
+00:53:45,622 --> 00:53:50,260
+Stay thou but here a while,
+and by and by I will to thee appear.
+
+487
+00:53:51,228 --> 00:53:53,464
+A stranger Pyramus than e'er played here.
+
+488
+00:53:54,765 --> 00:53:55,899
+Must I speak now?
+
+489
+00:53:56,233 --> 00:54:01,271
+Ay, marry, must you, for he goes but to see
+a noise that he heard, and is to come again.
+
+490
+00:54:02,372 --> 00:54:05,008
+-Most radiant--
+-"Most radiant."
+
+491
+00:54:05,542 --> 00:54:06,944
+Most radiant--
+
+492
+00:54:07,277 --> 00:54:10,814
+Most radiant Pyramus, most...
+
+493
+00:54:12,549 --> 00:54:14,885
+...lily-white of hue....
+
+494
+00:54:15,018 --> 00:54:19,890
+If I were fair, Thisbe, I were only thine....
+
+495
+00:55:02,032 --> 00:55:05,836
+I'll meet thee, Pyramus, at Ninny's tomb.
+
+496
+00:55:05,969 --> 00:55:07,871
+That's "Ninus' tomb," man!
+
+497
+00:55:08,005 --> 00:55:13,343
+Why, you must not speak that yet,
+that you answer to Pyramus.
+
+498
+00:55:13,477 --> 00:55:15,879
+You speak all your part at once, cues and all.
+
+499
+00:55:16,013 --> 00:55:18,382
+Enter Pyramus!
+
+500
+00:55:20,884 --> 00:55:23,654
+Your cue is past. It is "never tire."
+
+501
+00:55:23,787 --> 00:55:27,357
+If I were fair, Thisbe.... If I were fair, Thisbe....
+
+502
+00:55:27,491 --> 00:55:31,795
+If I were fair, Thisbe, I were only thine....
+
+503
+00:55:34,097 --> 00:55:36,700
+O, monstrous! O, strange! Fly, masters!
+
+504
+00:55:36,833 --> 00:55:38,735
+We are haunted!
+
+505
+00:55:40,337 --> 00:55:43,807
+Bottom, thou art changed.
+What do I see on thee?
+
+506
+00:55:43,941 --> 00:55:45,642
+What do you see?
+
+507
+00:55:45,842 --> 00:55:49,446
+What, you see an ass-head of your own,
+do you?
+
+508
+00:55:50,447 --> 00:55:54,718
+Bless thee, Bottom, bless thee!
+Thou art translated!
+
+509
+00:56:02,893 --> 00:56:04,928
+Why do they run away?
+
+510
+00:56:06,830 --> 00:56:09,533
+I see their knavery!
+
+511
+00:56:09,666 --> 00:56:14,071
+This is to make an ass of me,
+to fright me, if they could.
+
+512
+00:56:14,404 --> 00:56:18,375
+But I will not stir from this place,
+do what they can.
+
+513
+00:56:18,508 --> 00:56:21,979
+And I will sing,
+that they shall hear I am not afraid.
+
+514
+00:56:24,848 --> 00:56:27,884
+<i>The ousel cock, so black of hue</i>
+
+515
+00:56:28,385 --> 00:56:30,120
+<i>With orange-tawny bill</i>
+
+516
+00:56:30,454 --> 00:56:33,657
+<i>The throstle with his note so true</i>
+
+517
+00:56:34,524 --> 00:56:39,863
+<i>The wren with little quill</i>
+
+518
+00:56:40,998 --> 00:56:45,102
+What angel wakes me from my flowery bed?
+
+519
+00:56:45,435 --> 00:56:49,072
+<i>The finch, the sparrow, and the lark</i>
+<i>The plain-song cuckoo gray</i>
+
+520
+00:56:49,406 --> 00:56:52,709
+<i>Whose note, full many a man doth mark</i>
+
+521
+00:56:53,110 --> 00:56:56,980
+<i>And dares not answer nay</i>
+
+522
+00:56:57,114 --> 00:56:59,583
+I pray thee, gentle mortal, sing again.
+
+523
+00:57:00,083 --> 00:57:03,553
+Mine ear is much enamored of thy note.
+
+524
+00:57:03,887 --> 00:57:07,124
+So is mine eye enthralled to thy shape.
+
+525
+00:57:07,457 --> 00:57:14,464
+And thy fair virtue's force perforce
+doth move me on the first view, to say...
+
+526
+00:57:14,865 --> 00:57:18,468
+...to swear, I love thee.
+
+527
+00:57:24,574 --> 00:57:28,211
+Methinks, mistress,
+you should have little reason for that.
+
+528
+00:57:28,545 --> 00:57:35,552
+And yet, to say the truth, reason and love
+keep little company together nowadays.
+
+529
+00:57:37,120 --> 00:57:39,723
+Nay, I can gleek upon occasion!
+
+530
+00:57:42,192 --> 00:57:45,228
+Thou art as wise as thou art beautiful.
+
+531
+00:57:46,530 --> 00:57:48,598
+Not so, neither.
+
+532
+00:57:56,940 --> 00:58:00,777
+If I had wit enough to get out of this wood,
+I have enough to serve mine own turn.
+
+533
+00:58:00,911 --> 00:58:03,780
+Out of this wood do not desire to go!
+
+534
+00:58:13,824 --> 00:58:17,027
+Thou shalt remain here,
+whether thou wilt or no.
+
+535
+00:58:20,497 --> 00:58:24,901
+I'll give thee fairies to attend on thee.
+
+536
+00:58:25,035 --> 00:58:30,107
+And they shall fetch thee jewels
+from the deep...
+
+537
+00:58:30,240 --> 00:58:35,779
+...and sing, while thou
+on pressed flowers dost sleep.
+
+538
+00:58:36,046 --> 00:58:41,585
+And I will purge thy mortal grossness so...
+
+539
+00:58:41,718 --> 00:58:46,857
+...that thou shalt like an airy spirit go!
+
+540
+00:58:48,892 --> 00:58:51,028
+Peaseblossom! Cobweb!
+
+541
+00:58:51,161 --> 00:58:52,596
+-Ready.
+-And I.
+
+542
+00:58:52,729 --> 00:58:54,531
+Moth, and Mustardseed!
+
+543
+00:58:54,664 --> 00:58:56,066
+-And I.
+-And I.
+
+544
+00:59:01,204 --> 00:59:03,607
+Where shall we go?
+
+545
+00:59:09,679 --> 00:59:13,016
+Be kind and courteous to this gentleman.
+
+546
+00:59:13,150 --> 00:59:17,054
+Hop in his walks, and gambol in his eyes.
+
+547
+00:59:17,187 --> 00:59:20,690
+Feed him with apricocks and dewberries...
+
+548
+00:59:20,824 --> 00:59:24,661
+...with purple grapes,
+green figs and mulberries.
+
+549
+00:59:25,162 --> 00:59:28,565
+Nod to him, elves, and do him courtesies.
+
+550
+00:59:28,765 --> 00:59:33,603
+I cry your worship's mercy heartily.
+I beseech your worship's name?
+
+551
+00:59:33,737 --> 00:59:35,338
+Cobweb.
+
+552
+00:59:35,806 --> 00:59:39,142
+I shall desire you of more acquaintance,
+good Cobweb.
+
+553
+00:59:39,276 --> 00:59:42,846
+If I cut my finger, I shall make bold with you.
+Your name, I pray you?
+
+554
+00:59:42,979 --> 00:59:43,980
+Mustardseed.
+
+555
+00:59:44,114 --> 00:59:45,882
+Ah, I know your patience well.
+
+556
+00:59:46,016 --> 00:59:49,019
+Your kindred hath made my eyes
+water ere now.
+
+557
+00:59:49,152 --> 00:59:52,355
+I shall desire you of more acquaintance,
+Mustardseed.
+
+558
+01:00:13,844 --> 01:00:15,011
+Hail, mortal.
+
+559
+01:00:15,812 --> 01:00:17,714
+Hail, mortal.
+
+560
+01:00:18,181 --> 01:00:20,183
+Hail, mortal.
+
+561
+01:00:20,317 --> 01:00:24,621
+Hail. Hail. Hail.
+
+562
+01:00:52,649 --> 01:00:55,118
+I wonder if Titania be awaked...
+
+563
+01:00:55,252 --> 01:01:02,058
+...and what it was that next came in her eye,
+which she must dote on in extremity.
+
+564
+01:01:04,094 --> 01:01:09,900
+How now, mad spirit.
+What night-rule now about this haunted grove?
+
+565
+01:01:10,033 --> 01:01:13,770
+My mistress with a monster is in love.
+
+566
+01:01:21,711 --> 01:01:25,215
+This falls out better than I could devise.
+
+567
+01:01:26,082 --> 01:01:30,153
+But hast thou yet latched the Athenian's eyes
+with the love-juice, as I did bid thee do?
+
+568
+01:01:30,287 --> 01:01:33,089
+I took him sleeping, that is finished too.
+
+569
+01:01:34,157 --> 01:01:35,292
+Stand close.
+
+570
+01:01:35,425 --> 01:01:40,297
+Now I but chide! But I should use thee worse,
+for thou, I fear, hast given me cause to curse.
+
+571
+01:01:40,430 --> 01:01:44,034
+If thou hast slain Lysander in his sleep,
+being o'er shoes in blood...
+
+572
+01:01:44,167 --> 01:01:46,970
+...plunge in the deep and kill me too!
+
+573
+01:01:47,103 --> 01:01:49,306
+This is the same Athenian.
+
+574
+01:01:49,906 --> 01:01:53,210
+This is the woman. But not this the man.
+
+575
+01:01:53,343 --> 01:01:57,013
+The sun was not so true
+unto the day as he to me!
+
+576
+01:01:57,948 --> 01:02:01,218
+Would he have stolen away
+from sleeping Hermia?
+
+577
+01:02:01,484 --> 01:02:03,753
+Where is he?
+
+578
+01:02:04,020 --> 01:02:06,256
+Good Demetrius, wilt thou give him me?
+
+579
+01:02:06,389 --> 01:02:09,326
+I had rather give his carcass to my hounds!
+
+580
+01:02:09,459 --> 01:02:13,263
+Out, dog! Out, cur!
+
+581
+01:02:15,232 --> 01:02:19,002
+Thou drivest me past
+the bounds of maiden's patience.
+
+582
+01:02:19,135 --> 01:02:22,439
+And hast thou killed him while sleeping?
+O brave touch!
+
+583
+01:02:22,772 --> 01:02:25,075
+Could not a worm, an adder, do so much?
+
+584
+01:02:25,208 --> 01:02:27,277
+You spend your passion
+on a misprised mood!
+
+585
+01:02:27,410 --> 01:02:30,247
+I am not guilty of Lysander's blood!
+
+586
+01:02:30,380 --> 01:02:34,985
+-Nor is he dead, for aught that I can tell.
+-I pray thee, tell me then that he is well.
+
+587
+01:02:35,118 --> 01:02:39,256
+And if I could, what should I get therefore?
+
+588
+01:02:39,389 --> 01:02:42,459
+A privilege never to see me more!
+
+589
+01:02:48,331 --> 01:02:52,068
+There is no following her in this fierce vein.
+
+590
+01:02:54,004 --> 01:02:57,073
+Here, therefore, for a while I will remain.
+
+591
+01:02:58,141 --> 01:03:00,510
+What hast thou done?
+Thou hast mistaken quite...
+
+592
+01:03:00,844 --> 01:03:04,314
+...and laid the love-juice
+on some true-love's sight!
+
+593
+01:03:05,348 --> 01:03:11,788
+About the woods go swifter than the wind,
+and Helena of Athens look thou find.
+
+594
+01:03:11,921 --> 01:03:14,457
+By some illusion look thou bring her here.
+
+595
+01:03:14,791 --> 01:03:17,427
+I'll charm his eyes against she do appear.
+
+596
+01:03:17,560 --> 01:03:20,530
+I go, I go! Look how I go!
+
+597
+01:03:20,864 --> 01:03:25,468
+Swifter than arrow from the Tartar's bow!
+
+598
+01:04:18,455 --> 01:04:23,093
+The moon, methinks,
+looks with a watery eye...
+
+599
+01:04:23,893 --> 01:04:27,864
+...and when she weeps,
+weeps every little flower...
+
+600
+01:04:27,997 --> 01:04:32,402
+...lamenting some enforced chastity.
+
+601
+01:04:56,259 --> 01:04:59,295
+Come, lead him to my bower.
+
+602
+01:05:00,530 --> 01:05:04,401
+Tie up my love's tongue. Bring him silently.
+
+603
+01:05:36,232 --> 01:05:41,571
+Flower of this purple dye,
+hit with Cupid's archery...
+
+604
+01:05:42,105 --> 01:05:45,675
+...sink in apple of his eye.
+
+605
+01:05:46,943 --> 01:05:53,483
+When his love he doth espy, let her shine
+as gloriously as the Venus of the sky.
+
+606
+01:05:57,587 --> 01:06:03,159
+When thou ask'st, if she be by,
+beg of her for remedy.
+
+607
+01:06:03,293 --> 01:06:06,162
+Captain of our fairy band,
+Helena is here at hand...
+
+608
+01:06:06,296 --> 01:06:09,399
+...and the youth, mistook by me,
+pleading for a lover's fee.
+
+609
+01:06:09,532 --> 01:06:12,168
+Shall we their fond pageant see?
+
+610
+01:06:13,369 --> 01:06:15,972
+Lord, what fools these mortals be!
+
+611
+01:06:16,105 --> 01:06:18,975
+Why do you think
+that I should woo in scorn?
+
+612
+01:06:19,108 --> 01:06:21,978
+Scorn and derision never come in tears!
+
+613
+01:06:22,111 --> 01:06:23,680
+Look!
+
+614
+01:06:24,180 --> 01:06:26,349
+When I vow, I weep!
+
+615
+01:06:26,483 --> 01:06:31,154
+And vows so born in their nativity
+all truth appears!
+
+616
+01:06:32,355 --> 01:06:35,258
+How can these things in me
+seem scorn to you...
+
+617
+01:06:35,391 --> 01:06:37,994
+...bearing the badge of faith
+to prove them true?
+
+618
+01:06:38,127 --> 01:06:40,296
+You do advance your cunning
+more and more.
+
+619
+01:06:40,430 --> 01:06:43,132
+When truth kills truth, O devilish-holy fray!
+
+620
+01:06:43,266 --> 01:06:46,302
+These vows are Hermia's!
+Will you give her o'er?
+
+621
+01:06:46,436 --> 01:06:48,738
+Weigh oath with oath,
+and you will nothing weigh!
+
+622
+01:06:49,072 --> 01:06:51,508
+I had no judgment when to her I swore!
+
+623
+01:06:51,641 --> 01:06:53,776
+Nor none in my mind, now you give her o'er.
+
+624
+01:06:54,110 --> 01:06:57,547
+Demetrius loves her. And he loves not you!
+
+625
+01:06:58,414 --> 01:06:59,782
+Helen.
+
+626
+01:07:00,617 --> 01:07:01,618
+Goddess!
+
+627
+01:07:03,453 --> 01:07:04,621
+Nymph!
+
+628
+01:07:05,188 --> 01:07:08,091
+Perfect. Divine.
+
+629
+01:07:08,458 --> 01:07:12,462
+To what, my love, shall I compare thine eyne?
+Crystal is muddy!
+
+630
+01:07:12,595 --> 01:07:18,601
+O how ripe in show thy lips,
+those kissing cherries, tempting grow!
+
+631
+01:07:19,502 --> 01:07:24,407
+-Helen!
+-O spite! O hell!
+
+632
+01:07:24,541 --> 01:07:28,244
+I see you all are bent
+to set against me for your merriment!
+
+633
+01:07:28,378 --> 01:07:33,383
+Can you not hate me, as I know you do,
+but you must join in souls to mock me too?
+
+634
+01:07:33,516 --> 01:07:37,086
+Helen! Helen, it's not so!
+
+635
+01:07:37,453 --> 01:07:39,055
+Helen!
+
+636
+01:07:40,723 --> 01:07:43,426
+Oh, Lysander!
+
+637
+01:07:43,560 --> 01:07:46,396
+Lysander! Love!
+
+638
+01:07:47,130 --> 01:07:49,399
+Why unkindly didst thou leave me so?
+
+639
+01:07:49,532 --> 01:07:52,201
+Why should he stay
+whom love doth press to go?
+
+640
+01:07:52,335 --> 01:07:54,404
+What love could press Lysander
+from my side?
+
+641
+01:07:54,537 --> 01:07:57,674
+Lysander's love, that would not let him bide.
+
+642
+01:07:58,608 --> 01:08:00,343
+Why seek'st thou me?
+
+643
+01:08:00,476 --> 01:08:04,347
+Could not this make thee know
+the hate I bear thee made me leave thee so?
+
+644
+01:08:04,480 --> 01:08:06,716
+You speak not as you think, it cannot be!
+
+645
+01:08:06,849 --> 01:08:09,552
+Lo, she is one of this confederacy!
+
+646
+01:08:09,686 --> 01:08:13,856
+Injurious Hermia, most ungrateful maid!
+
+647
+01:08:14,190 --> 01:08:19,529
+Have you conspired? Have you, with these,
+contrived to bait me with this foul derision?
+
+648
+01:08:20,129 --> 01:08:22,198
+Is all the counsel that we two have shared...
+
+649
+01:08:22,332 --> 01:08:24,667
+...the sisters' vows,
+the hours that we have spent...
+
+650
+01:08:24,801 --> 01:08:27,537
+...when we have chid the hasty-footed time
+for parting us.
+
+651
+01:08:27,670 --> 01:08:31,341
+O, is all forgot?
+
+652
+01:08:31,474 --> 01:08:35,745
+And will you rent our ancient love asunder
+to join with men in scorning your poor friend?
+
+653
+01:08:35,878 --> 01:08:38,181
+It is not friendly! 'Tis not maidenly!
+
+654
+01:08:38,314 --> 01:08:42,418
+Our sex, as well as I, may chide you for it,
+though I alone do feel the injury!
+
+655
+01:08:42,552 --> 01:08:45,154
+I understand not what you mean by this.
+
+656
+01:08:45,288 --> 01:08:47,857
+Ay, do.
+
+657
+01:08:48,191 --> 01:08:50,560
+Persever. Counterfeit sad looks.
+
+658
+01:08:50,693 --> 01:08:53,129
+Make mouths upon me when I turn my back.
+
+659
+01:08:53,262 --> 01:08:57,433
+If you have any pity, grace, or manners,
+you would not make me such an argument!
+
+660
+01:08:57,567 --> 01:08:59,268
+But fare you well.
+
+661
+01:08:59,402 --> 01:09:03,539
+'Tis partly my own fault,
+which death or absence soon shall remedy.
+
+662
+01:09:03,673 --> 01:09:06,342
+Helena, I love thee! By my life, I do!
+
+663
+01:09:06,476 --> 01:09:10,213
+-O, excellent!
+-I say I love thee more than he can do!
+
+664
+01:09:10,346 --> 01:09:13,416
+-Lysander, do you not jest?!
+-Yes, sooth, and so do you!
+
+665
+01:09:16,552 --> 01:09:19,589
+Am not I Hermia?
+I am as fair now as I was erewhile!
+
+666
+01:09:19,722 --> 01:09:22,291
+Why, then you left me in earnest, shall I say?
+
+667
+01:09:22,425 --> 01:09:24,494
+I never did desire to see thee more.
+
+668
+01:09:24,627 --> 01:09:30,466
+Be certain, nothing truer, 'tis no jest,
+that I hate thee, and love Helena.
+
+669
+01:09:34,570 --> 01:09:36,372
+O me!
+
+670
+01:09:38,775 --> 01:09:42,512
+You juggler!
+
+671
+01:09:42,645 --> 01:09:43,946
+You canker-blossom!
+
+672
+01:09:45,481 --> 01:09:48,418
+You thief of love!
+
+673
+01:09:49,252 --> 01:09:52,622
+What, have you come by night
+and stolen my love's heart from him?
+
+674
+01:09:52,755 --> 01:09:54,290
+O, fine, i'faith!
+
+675
+01:09:54,424 --> 01:09:58,661
+Have you no modesty, no maiden shame,
+no touch of bashfulness?
+
+676
+01:09:58,795 --> 01:10:02,498
+What, will you tear impatient answers
+from my gentle tongue? Fie!
+
+677
+01:10:02,632 --> 01:10:04,967
+Fie, you counterfeit, you puppet, you!
+
+678
+01:10:05,301 --> 01:10:08,471
+"Puppet"? Why so?
+
+679
+01:10:09,572 --> 01:10:11,407
+Ah, that way goes the game.
+
+680
+01:10:11,541 --> 01:10:14,977
+Now I perceive that she hath
+made compare between our statures!
+
+681
+01:10:15,311 --> 01:10:18,948
+She hath urged her height,
+and with her personage, her tall personage...
+
+682
+01:10:19,282 --> 01:10:22,351
+...her height, forsooth,
+she hath prevailed with him!
+
+683
+01:10:22,485 --> 01:10:25,855
+And are you grown so high in his esteem...
+
+684
+01:10:25,988 --> 01:10:29,692
+...because I am so dwarfish and so low?
+
+685
+01:10:29,926 --> 01:10:33,396
+Well, how low am I, thou painted maypole?
+
+686
+01:10:33,529 --> 01:10:36,299
+Speak! How low am I?
+
+687
+01:10:36,432 --> 01:10:41,871
+I am not yet so low
+but that my nails can reach into thine eyes!
+
+688
+01:10:45,808 --> 01:10:49,679
+O, I pray you, though you mock me,
+gentlemen, do not let her hurt me!
+
+689
+01:10:51,013 --> 01:10:52,315
+You perhaps may think...
+
+690
+01:10:52,448 --> 01:10:55,518
+...because she is somewhat lower
+than myself that I can match her!
+
+691
+01:10:55,651 --> 01:10:57,720
+"Lower"? Hark, again!
+
+692
+01:10:59,422 --> 01:11:01,858
+Good Hermia, do not be so bitter with me.
+
+693
+01:11:01,991 --> 01:11:03,993
+And now, so you will let me quiet go...
+
+694
+01:11:04,327 --> 01:11:07,430
+...to Athens will I bear my folly back,
+and follow you no further.
+
+695
+01:11:07,563 --> 01:11:11,400
+Let me go.
+You see how simple and how fond I am.
+
+696
+01:11:11,634 --> 01:11:14,470
+Why, get you gone! Who is it hinders you?
+
+697
+01:11:14,604 --> 01:11:17,874
+A foolish heart, that I do leave here behind.
+
+698
+01:11:18,007 --> 01:11:20,777
+-What, with Lysander?
+-With Demetrius!
+
+699
+01:11:20,910 --> 01:11:23,312
+Be not afraid,
+she shall not harm thee, Helena.
+
+700
+01:11:23,446 --> 01:11:26,816
+No, sir, she shall not,
+though you take her part!
+
+701
+01:11:27,483 --> 01:11:30,987
+She was a vixen when she went to school,
+and though she be but little...
+
+702
+01:11:31,320 --> 01:11:33,422
+-"Little"?
+-...she is fierce!
+
+703
+01:11:33,556 --> 01:11:37,827
+Little? Little again?
+Nothing but "low" and "little"?
+
+704
+01:11:37,960 --> 01:11:41,831
+Why will you suffer her to flout me thus?
+Let me come to her!
+
+705
+01:11:41,964 --> 01:11:47,503
+Get you gone, you dwarf!
+You minimus, of hindering knotgrass made!
+
+706
+01:11:47,637 --> 01:11:50,006
+You bead, you acorn!
+
+707
+01:11:50,339 --> 01:11:52,475
+Now she holds me not.
+
+708
+01:11:52,809 --> 01:11:58,414
+Now follow, if thou dar'st, to try whose right,
+of thine or mine, is most in Helena.
+
+709
+01:11:58,581 --> 01:12:02,919
+Follow? Nay, I'll go with thee cheek by jowl!
+
+710
+01:12:05,822 --> 01:12:07,657
+You, mistress...
+
+711
+01:12:08,624 --> 01:12:10,793
+...all this coil is 'long of you.
+
+712
+01:12:11,761 --> 01:12:15,031
+Nay, go not back.
+
+713
+01:12:18,601 --> 01:12:23,773
+I will not trust you, I,
+nor longer stay in your curst company.
+
+714
+01:12:23,906 --> 01:12:28,511
+Your hands than mine are quicker for a fray.
+My legs longer, though, to run away!
+
+715
+01:12:37,486 --> 01:12:40,456
+I am amazed, and know not what to say!
+
+716
+01:12:49,832 --> 01:12:51,801
+This is thy negligence!
+
+717
+01:12:51,934 --> 01:12:55,471
+Still, still, still thou mistak'st! Or else...
+
+718
+01:12:56,005 --> 01:12:59,375
+...committ'st thy knaveries willfully.
+
+719
+01:12:59,508 --> 01:13:01,677
+Believe me, king of shadows, I mistook.
+
+720
+01:13:01,811 --> 01:13:06,449
+Did not you tell me I would know the man
+by the Athenian garments that he had on?
+
+721
+01:13:08,718 --> 01:13:10,953
+Thou seest these lovers
+seek a place to fight.
+
+722
+01:13:11,954 --> 01:13:14,423
+Hie, therefore, Robin, overcast the night.
+
+723
+01:13:14,557 --> 01:13:18,761
+The starry welkin cover thou anon
+with drooping fog as black as Acheron...
+
+724
+01:13:18,895 --> 01:13:24,166
+...and lead these testy rivals so astray
+that one come not within the other's way.
+
+725
+01:13:24,500 --> 01:13:28,170
+Then crush this herb...
+
+726
+01:13:28,504 --> 01:13:30,573
+...into Lysander's....
+
+727
+01:13:30,706 --> 01:13:33,409
+-Lysander's eye.
+-Lysander.
+
+728
+01:13:34,043 --> 01:13:37,680
+Whiles I in this affair do thee employ,
+I'll to my queen...
+
+729
+01:13:38,581 --> 01:13:41,083
+...and beg her Indian boy.
+
+730
+01:13:42,952 --> 01:13:47,523
+Then I will her charmed eye release
+from monster's view...
+
+731
+01:13:48,758 --> 01:13:51,527
+...and all things shall be peace.
+
+732
+01:13:58,034 --> 01:14:01,771
+Up and down, up and down,
+I will lead them up and down.
+
+733
+01:14:01,904 --> 01:14:07,109
+I am feared in field and town.
+Goblin, lead them up and down!
+
+734
+01:14:09,512 --> 01:14:11,180
+Here comes one.
+
+735
+01:14:11,514 --> 01:14:14,050
+Where art thou, proud Demetrius?
+
+736
+01:14:14,183 --> 01:14:18,154
+-Here, villain! Where art thou?
+-I'll be with thee straight!
+
+737
+01:14:19,121 --> 01:14:22,792
+Lysander? Speak again!
+
+738
+01:14:23,192 --> 01:14:26,529
+Thou runaway! Thou coward!
+
+739
+01:14:26,662 --> 01:14:28,564
+Art thou fled?
+
+740
+01:14:28,698 --> 01:14:31,233
+Come, recreant. Come, thou child.
+
+741
+01:14:31,567 --> 01:14:34,003
+Yea! Art thou there?
+
+742
+01:14:34,136 --> 01:14:36,072
+Follow my voice.
+
+743
+01:14:36,205 --> 01:14:38,841
+We'll try no manhood here.
+
+744
+01:14:41,177 --> 01:14:47,516
+Oh, the villain is much lighter-heeled than I.
+I followed fast, but faster he did fly.
+
+745
+01:14:48,684 --> 01:14:52,555
+Then fallen am I in dark, uneven way.
+
+746
+01:14:52,722 --> 01:14:54,924
+And here will rest me.
+
+747
+01:14:58,694 --> 01:15:00,563
+Oh, come, thou gentle day.
+
+748
+01:15:00,696 --> 01:15:04,700
+Come hither! I am here!
+
+749
+01:15:05,868 --> 01:15:08,771
+Nay, then, thou mock'st me.
+
+750
+01:15:08,904 --> 01:15:12,875
+Thou shalt buy this dear,
+if ever I thy face by daylight see!
+
+751
+01:15:18,114 --> 01:15:20,282
+Now go thy way.
+
+752
+01:15:21,751 --> 01:15:27,089
+Faintness constraineth me
+to measure out my length on this cold bed.
+
+753
+01:15:29,725 --> 01:15:34,563
+By day's approach, look to be visited.
+
+754
+01:15:38,868 --> 01:15:42,038
+Never so weary.
+
+755
+01:15:42,772 --> 01:15:45,041
+Never so in woe.
+
+756
+01:15:45,808 --> 01:15:49,678
+I can no further crawl, no further go.
+
+757
+01:15:55,951 --> 01:15:58,921
+Here I will rest me till the break of day.
+
+758
+01:16:00,990 --> 01:16:04,226
+Heavens, shield Lysander,
+if they mean a fray!
+
+759
+01:16:06,162 --> 01:16:11,834
+O weary night, O long and tedious night...
+
+760
+01:16:11,967 --> 01:16:14,904
+...abate thy hours.
+
+761
+01:16:15,037 --> 01:16:20,309
+Shine comforts from the east
+that I may back to Athens by daylight...
+
+762
+01:16:20,643 --> 01:16:24,113
+...from these that my poor company detest.
+
+763
+01:16:24,947 --> 01:16:30,820
+And sleep, that sometimes
+shuts up sorrow's eye...
+
+764
+01:16:31,153 --> 01:16:36,158
+...steal me awhile from mine own company.
+
+765
+01:17:03,686 --> 01:17:07,623
+Come, sit thee down upon this flowery bed...
+
+766
+01:17:07,756 --> 01:17:11,861
+...while I thy amiable cheeks do coy...
+
+767
+01:17:11,994 --> 01:17:16,932
+...and stick musk roses
+in thy sleek, smooth head...
+
+768
+01:17:17,066 --> 01:17:23,139
+...and kiss thy fair large ears, my gentle joy.
+
+769
+01:17:23,272 --> 01:17:27,343
+I must to the barber's.
+Methinks I am marvelous hairy about the face.
+
+770
+01:17:27,676 --> 01:17:33,349
+And I am such a tender ass,
+if my hair do but tickle me, I must scratch.
+
+771
+01:17:34,750 --> 01:17:39,155
+What, wilt thou hear some music,
+my sweet love?
+
+772
+01:17:39,655 --> 01:17:42,324
+Or say, sweet love,
+what thou desirest to eat?
+
+773
+01:17:44,860 --> 01:17:50,366
+Truly, a peck of provender.
+I could munch your good dry oats.
+
+774
+01:17:50,699 --> 01:17:54,170
+Methinks I have a great desire
+to a bottle of hay.
+
+775
+01:17:54,303 --> 01:17:57,773
+Good hay, sweet hay, hath no fellow.
+
+776
+01:17:57,907 --> 01:18:00,943
+But I pray you,
+let none of your people stir me:
+
+777
+01:18:01,076 --> 01:18:04,980
+I have an exposition of sleep come upon me.
+
+778
+01:18:05,114 --> 01:18:11,687
+Sleep thou, and I will wind thee in my arms.
+
+779
+01:18:12,855 --> 01:18:16,992
+Fairies, be gone, and be all ways away.
+
+780
+01:18:22,698 --> 01:18:29,004
+So doth the woodbine
+the sweet honeysuckle gently entwist;
+
+781
+01:18:29,405 --> 01:18:36,412
+the female ivy so enrings
+the barky fingers of the elm.
+
+782
+01:18:38,080 --> 01:18:43,719
+O, how I love thee! How I dote on thee!
+
+783
+01:18:56,031 --> 01:18:59,268
+On the ground, sleep sound.
+
+784
+01:18:59,401 --> 01:19:02,004
+I'll apply to....
+
+785
+01:19:05,841 --> 01:19:07,943
+Your eye...
+
+786
+01:19:08,244 --> 01:19:12,014
+...gentle lover, remedy.
+
+787
+01:19:13,449 --> 01:19:20,456
+When thou wak'st, thou tak'st true delight
+in the sight of thy former lady's eye.
+
+788
+01:19:25,294 --> 01:19:29,164
+Jack shall have Jill, naught shall go ill...
+
+789
+01:19:29,298 --> 01:19:32,134
+...the man shall have his mare again...
+
+790
+01:19:33,235 --> 01:19:35,804
+...and all shall be well.
+
+791
+01:19:45,881 --> 01:19:47,783
+Welcome, good Robin.
+
+792
+01:19:47,916 --> 01:19:50,486
+Seest thou this sweet sight?
+
+793
+01:19:52,121 --> 01:19:54,890
+Her dotage now I do begin to pity.
+
+794
+01:19:55,791 --> 01:19:59,028
+I shall undo this hateful imperfection
+of her eyes.
+
+795
+01:20:01,497 --> 01:20:04,933
+Be as thou wast wont to be.
+
+796
+01:20:05,301 --> 01:20:09,571
+See as thou wast wont to see.
+
+797
+01:20:10,939 --> 01:20:16,211
+Now, my Titania, wake you,
+my sweet Queen.
+
+798
+01:20:20,215 --> 01:20:22,351
+My Oberon!
+
+799
+01:20:22,918 --> 01:20:28,190
+What visions have I seen!
+Methought I was enamored of an ass!
+
+800
+01:20:28,457 --> 01:20:30,926
+There lies your love.
+
+801
+01:20:32,928 --> 01:20:34,997
+How came these things to pass?
+
+802
+01:20:37,099 --> 01:20:38,334
+Silence awhile.
+
+803
+01:21:10,499 --> 01:21:14,970
+Fairy King, attend and mark.
+I do hear the morning lark.
+
+804
+01:21:15,104 --> 01:21:20,376
+Then, my Queen, in silence sad
+trip we after night's shade.
+
+805
+01:21:20,509 --> 01:21:26,615
+We the globe can compass soon,
+swifter than the wandering moon.
+
+806
+01:21:27,416 --> 01:21:33,956
+Come, my lord, and in our flight
+tell me how it came this night...
+
+807
+01:21:34,089 --> 01:21:40,496
+...that I sleeping here was found
+with these mortals on the ground.
+
+808
+01:22:22,571 --> 01:22:25,974
+We will, fair Queen,
+up to the mountain's top...
+
+809
+01:22:26,108 --> 01:22:30,612
+...and mark the musical confusion of hounds,
+and echo in conjunction.
+
+810
+01:22:30,946 --> 01:22:33,248
+My hounds are bred out
+of the Spartan kind...
+
+811
+01:22:33,382 --> 01:22:37,252
+...so flewed, so sanded,
+and their heads are hung...
+
+812
+01:22:38,086 --> 01:22:40,022
+...with ears.
+
+813
+01:23:21,763 --> 01:23:25,701
+But soft, what nymphs are these?
+
+814
+01:23:26,168 --> 01:23:30,005
+My lord, this is my daughter here asleep.
+
+815
+01:23:30,138 --> 01:23:36,411
+And this Lysander, this Demetrius is,
+this Helena, old Nedar's Helena.
+
+816
+01:23:36,645 --> 01:23:38,680
+I wonder of them being here together.
+
+817
+01:23:39,014 --> 01:23:43,151
+No doubt they rose up early
+to observe the rite of May!
+
+818
+01:23:47,389 --> 01:23:48,423
+Good morrow, friends.
+
+819
+01:23:50,325 --> 01:23:56,365
+Saint Valentine is past.
+Begin these wood birds but to couple now?
+
+820
+01:23:57,666 --> 01:24:01,403
+I pray you all, stand up.
+
+821
+01:24:11,213 --> 01:24:13,715
+I know you two are rival enemies.
+
+822
+01:24:14,049 --> 01:24:16,652
+How comes this gentle concord
+in the world...
+
+823
+01:24:16,785 --> 01:24:22,090
+...that hatred is so far from jealousy
+to sleep by hate and fear no enmity?
+
+824
+01:24:22,224 --> 01:24:26,061
+My lord, I shall reply amazedly,
+half sleep, half waking.
+
+825
+01:24:26,194 --> 01:24:30,732
+But as I think, for truly would I speak,
+I came with Hermia hither.
+
+826
+01:24:31,066 --> 01:24:33,569
+Our intent was to be gone from Athens,
+where we might...
+
+827
+01:24:33,702 --> 01:24:38,140
+-...without the peril of the Athenian law--
+-Enough! My lord, you have heard enough.
+
+828
+01:24:38,273 --> 01:24:42,544
+I beg the law, the law, upon his head!
+They would have stolen away.
+
+829
+01:24:42,678 --> 01:24:45,581
+They would, Demetrius,
+thereby to have defeated you and me...
+
+830
+01:24:45,714 --> 01:24:50,118
+...you of your wife, and me of my consent,
+of my consent that she should be your wife.
+
+831
+01:24:51,587 --> 01:24:57,392
+My good lord, I wot not by what power,
+but by some power it is...
+
+832
+01:24:57,526 --> 01:25:00,762
+...my love to Hermia melted as the snow.
+
+833
+01:25:01,697 --> 01:25:05,434
+And all the faith, the virtue of my heart...
+
+834
+01:25:05,567 --> 01:25:09,705
+...the object and the pleasure of mine eye...
+
+835
+01:25:10,372 --> 01:25:12,374
+...is only Helena.
+
+836
+01:25:47,376 --> 01:25:50,479
+Fair lovers, you are fortunately met.
+
+837
+01:25:54,883 --> 01:25:57,386
+Egeus, I will overbear your will.
+
+838
+01:25:57,653 --> 01:26:01,456
+For in the temple, by and by,
+with us these couples shall eternally be knit.
+
+839
+01:26:01,590 --> 01:26:04,826
+Away with us to Athens, three and three.
+
+840
+01:26:05,160 --> 01:26:08,330
+We'll hold a feast in great solemnity!
+
+841
+01:26:08,630 --> 01:26:10,599
+Come, Hippolyta.
+
+842
+01:26:41,530 --> 01:26:44,666
+When my cue comes,
+call me and I will answer.
+
+843
+01:26:44,800 --> 01:26:47,669
+My next is "Most fair Pyramus."
+
+844
+01:26:51,239 --> 01:26:52,774
+Heigh-ho.
+
+845
+01:26:53,575 --> 01:26:54,576
+Peter Quince?
+
+846
+01:26:56,945 --> 01:26:58,580
+Flute?
+
+847
+01:26:59,781 --> 01:27:00,849
+Snout the tinker!
+
+848
+01:27:02,451 --> 01:27:03,585
+Starveling!
+
+849
+01:27:04,986 --> 01:27:08,623
+God's my life!
+Stolen hence and left me asleep!
+
+850
+01:27:13,895 --> 01:27:16,932
+I have had a most rare vision.
+
+851
+01:27:20,836 --> 01:27:22,904
+I have had a dream...
+
+852
+01:27:24,639 --> 01:27:28,276
+...past the wit of man
+to say what dream it was.
+
+853
+01:27:41,723 --> 01:27:45,794
+Man is but an ass
+if he go about to expound this dream.
+
+854
+01:27:47,796 --> 01:27:49,798
+Methought I was....
+
+855
+01:27:50,699 --> 01:27:53,034
+There is no man can tell what.
+
+856
+01:28:00,542 --> 01:28:02,544
+Methought I was....
+
+857
+01:28:06,014 --> 01:28:08,450
+And methought I had....
+
+858
+01:28:13,555 --> 01:28:17,926
+But man is but a patched fool
+if he will offer to say what methought I had.
+
+859
+01:28:18,059 --> 01:28:21,863
+The eye of man hath not heard,
+the ear of man hath not seen...
+
+860
+01:28:21,997 --> 01:28:27,869
+...man's hand is not able to taste,
+his tongue to conceive...
+
+861
+01:28:28,003 --> 01:28:33,408
+...nor his heart to report,
+what my dream was.
+
+862
+01:28:34,843 --> 01:28:39,014
+I will get Peter Quince
+to write a ballad of this dream.
+
+863
+01:28:39,648 --> 01:28:42,951
+It shall be called "Bottom's...
+
+864
+01:28:46,955 --> 01:28:48,790
+...Dream."
+
+865
+01:28:50,425 --> 01:28:52,794
+Because it hath no bottom.
+
+866
+01:28:54,896 --> 01:28:59,634
+And I will sing it in the latter end of a play,
+before the Duke.
+
+867
+01:28:59,768 --> 01:29:03,872
+Peradventure, to make it the more gracious,
+I shall sing it at her death.
+
+868
+01:29:07,475 --> 01:29:10,045
+Have you sent to Bottom's house?
+Is he come home yet?
+
+869
+01:29:10,378 --> 01:29:14,783
+He cannot be heard of.
+Out of doubt he is transported.
+
+870
+01:29:15,650 --> 01:29:21,723
+If he come not, then the play is marred.
+It goes not forward, doth it?
+
+871
+01:29:22,757 --> 01:29:26,628
+Masters,
+the Duke is coming from the temple.
+
+872
+01:29:26,995 --> 01:29:30,465
+And there is two or three
+lords and ladies more married.
+
+873
+01:29:30,599 --> 01:29:35,437
+If our sport had gone forward,
+we had all been made men!
+
+874
+01:29:36,938 --> 01:29:38,874
+O, sweet bully Bottom!
+
+875
+01:29:39,007 --> 01:29:43,144
+Thus hath he lost sixpence a day
+during his life!
+
+876
+01:29:43,545 --> 01:29:47,616
+And the Duke had not given him sixpence
+for playing Pyramus, I'll be hanged.
+
+877
+01:29:47,749 --> 01:29:51,786
+-He would have deserved it.
+-Sixpence a day in Pyramus, or nothing.
+
+878
+01:29:56,992 --> 01:29:58,793
+Where are these lads?
+
+879
+01:29:58,927 --> 01:30:00,662
+Bottom!
+
+880
+01:30:00,795 --> 01:30:02,764
+Where are these hearts?
+
+881
+01:30:08,403 --> 01:30:10,839
+O, most happy hour!
+
+882
+01:30:12,440 --> 01:30:17,012
+Masters, I am to discourse wonders,
+but ask me not what.
+
+883
+01:30:17,145 --> 01:30:20,148
+-Let us hear, sweet Bottom.
+-Not a word of me.
+
+884
+01:30:20,482 --> 01:30:23,985
+All I will tell you is that the Duke hath dined.
+
+885
+01:30:24,185 --> 01:30:28,723
+Get your apparel together!
+Every man look o'er his part!
+
+886
+01:30:28,857 --> 01:30:30,825
+Let Thisbe have clean linen.
+
+887
+01:30:30,959 --> 01:30:37,098
+Let not him that plays the lion pare his nails,
+for they shall hang out for the lion's claws!
+
+888
+01:31:39,861 --> 01:31:41,663
+If it please you!
+
+889
+01:32:23,872 --> 01:32:26,574
+These things seem
+small and indistinguishable...
+
+890
+01:32:26,708 --> 01:32:29,878
+...like far-off mountains turning into cloud.
+
+891
+01:32:30,011 --> 01:32:36,184
+And I have found my Demetrius,
+like a jewel, mine own and not mine own.
+
+892
+01:32:49,164 --> 01:32:52,300
+'Tis strange, my Theseus,
+that these lovers speak of.
+
+893
+01:32:52,634 --> 01:32:54,736
+More strange than true.
+
+894
+01:32:56,137 --> 01:33:00,341
+I never may believe these antique fables
+nor these fairy toys.
+
+895
+01:33:00,675 --> 01:33:04,946
+Lovers and madmen have such
+seething brains, such shaping fantasies...
+
+896
+01:33:05,079 --> 01:33:07,916
+...that apprehend more
+than cool reason ever comprehends.
+
+897
+01:33:08,716 --> 01:33:13,154
+Such tricks hath strong imagination
+that, if it would but apprehend some joy...
+
+898
+01:33:13,288 --> 01:33:16,591
+...it comprehends some bringer of the joy.
+
+899
+01:33:16,724 --> 01:33:21,362
+But all the story of the night told over,
+and all their minds transfigured so together...
+
+900
+01:33:21,696 --> 01:33:28,136
+...more witnesseth than fancy's images,
+and grows to something of great constancy.
+
+901
+01:33:28,336 --> 01:33:33,141
+But howsoever, strange and admirable.
+
+902
+01:33:45,019 --> 01:33:46,321
+Joy, gentle friends.
+
+903
+01:33:47,088 --> 01:33:50,992
+Joy and fresh days of love
+accompany your hearts.
+
+904
+01:33:52,627 --> 01:33:57,365
+More than to us, wait in your royal walks,
+your board, your bed!
+
+905
+01:34:14,048 --> 01:34:17,018
+Come now, what masques,
+what dances shall we have...
+
+906
+01:34:17,151 --> 01:34:23,024
+...to wear away this long age of three hours
+between our aftersupper and bedtime?
+
+907
+01:34:24,025 --> 01:34:27,662
+-Where is our usual manager of mirth?
+-Here, mighty Theseus.
+
+908
+01:34:27,795 --> 01:34:31,432
+What revels are in hand? Is there no play
+to ease the anguish of a torturing hour?
+
+909
+01:34:31,766 --> 01:34:34,802
+There is a brief how many sports are ripe.
+
+910
+01:34:37,372 --> 01:34:42,076
+"'The Battle with the Centaurs', to be sung
+by an Athenian eunuch to the harp."
+
+911
+01:34:42,210 --> 01:34:45,313
+-Yes.
+-We'll none of that.
+
+912
+01:34:46,147 --> 01:34:50,451
+"The riot of the tipsy Bacchanals,
+tearing the Thracian singer in their rage."
+
+913
+01:34:50,785 --> 01:34:55,223
+That is an old device, and it was played
+when I from Thebes came last a conqueror.
+
+914
+01:34:56,357 --> 01:34:57,992
+"The thrice three Muses...
+
+915
+01:34:58,126 --> 01:35:03,031
+<i>...mourning for the death of learning,</i>
+<i>late deceased in beggary."</i>
+
+916
+01:35:03,164 --> 01:35:08,369
+<i>Now that is some satire, keen and critical,</i>
+<i>not sorting with a nuptial ceremony.</i>
+
+917
+01:35:09,037 --> 01:35:16,044
+<i>"A tedious brief scene of young Pyramus</i>
+<i>and his love Thisbe. Very tragical mirth."</i>
+
+918
+01:35:17,812 --> 01:35:20,381
+Merry and tragical? Tedious and brief?
+
+919
+01:35:20,715 --> 01:35:23,952
+That is hot ice and wondrous strange snow.
+
+920
+01:35:24,152 --> 01:35:25,453
+What are they that do play it?
+
+921
+01:35:26,020 --> 01:35:30,158
+<i>Hard-handed men, that work in Athens here,</i>
+<i>which never labored in their minds till now...</i>
+
+922
+01:35:30,291 --> 01:35:33,461
+...and now have toiled their unbreathed
+memories with the same play...
+
+923
+01:35:33,795 --> 01:35:35,196
+...against your nuptial.
+
+924
+01:35:35,330 --> 01:35:38,333
+-We will hear it.
+-No, no, my lord.
+
+925
+01:35:38,866 --> 01:35:42,904
+I did hear it over, and it is nothing.
+Nothing in the world.
+
+926
+01:35:43,037 --> 01:35:45,073
+I will hear that play.
+
+927
+01:36:00,421 --> 01:36:03,458
+The short and long is...
+
+928
+01:36:03,791 --> 01:36:06,227
+...our play is preferred.
+
+929
+01:36:12,200 --> 01:36:16,904
+For never anything can be amiss
+when simpleness and duty tender it.
+
+930
+01:36:54,075 --> 01:36:56,110
+Go, bring them in.
+
+931
+01:37:11,025 --> 01:37:15,063
+Moonshine shall shine in at the casement.
+
+932
+01:37:21,269 --> 01:37:24,839
+So please Your Grace,
+the prologue is addressed.
+
+933
+01:37:24,972 --> 01:37:26,974
+Let him approach.
+
+934
+01:37:32,513 --> 01:37:35,149
+Courage, man! Hurry!
+
+935
+01:37:45,927 --> 01:37:50,064
+In this same interlude it doth befall that I...
+
+936
+01:37:50,198 --> 01:37:53,401
+...one Snout by name, present a wall:
+
+937
+01:37:54,469 --> 01:38:00,408
+and such a wall, as I would have you think,
+that had in it a crannied hole or chink...
+
+938
+01:38:01,442 --> 01:38:03,644
+...through which the lovers....
+
+939
+01:38:08,616 --> 01:38:10,918
+Through which the lovers....
+
+940
+01:38:13,454 --> 01:38:14,989
+Pyramus and Thisbe.
+
+941
+01:38:19,494 --> 01:38:21,028
+Pyramus and Thisbe.
+
+942
+01:38:27,468 --> 01:38:29,036
+Pyramus and Thisbe!
+
+943
+01:38:29,170 --> 01:38:31,572
+Pyramus and Thisbe,
+did whisper often, very secretly.
+
+944
+01:38:31,906 --> 01:38:35,076
+And this the cranny is, right and sinister...
+
+945
+01:38:35,209 --> 01:38:38,980
+...through which the fearful lovers
+are to whisper.
+
+946
+01:38:40,047 --> 01:38:42,216
+Would you desire lime and hair
+to speak better?
+
+947
+01:38:42,350 --> 01:38:45,920
+It is the wittiest partition
+that ever I heard discourse, my lord.
+
+948
+01:38:46,053 --> 01:38:48,556
+Pyramus draws near the wall. Silence.
+
+949
+01:38:48,689 --> 01:38:53,227
+O grim-looked night!
+
+950
+01:38:53,361 --> 01:38:57,632
+O night with hue so black!
+
+951
+01:38:57,965 --> 01:39:03,371
+O night, which ever art when day is not!
+
+952
+01:39:03,504 --> 01:39:06,574
+O night, O night...
+
+953
+01:39:06,707 --> 01:39:09,443
+...alack, alack, alack...
+
+954
+01:39:09,577 --> 01:39:12,613
+...I fear my Thisbe's promise is forgot!
+
+955
+01:39:13,281 --> 01:39:18,186
+And thou O wall, O sweet, O lovely wall...
+
+956
+01:39:18,319 --> 01:39:21,656
+...that stand'st between
+her father's ground and mine...
+
+957
+01:39:21,989 --> 01:39:24,258
+...thou wall, O wall...
+
+958
+01:39:25,359 --> 01:39:28,196
+...O sweet and lovely wall...
+
+959
+01:39:28,329 --> 01:39:32,500
+...show me thy chink,
+to blink through with mine eyne.
+
+960
+01:39:33,301 --> 01:39:35,570
+Thanks, courteous wall.
+
+961
+01:39:35,703 --> 01:39:38,506
+Jove shield thee well for this!
+
+962
+01:39:38,639 --> 01:39:42,410
+But what see I? No Thisbe do I see.
+
+963
+01:39:42,543 --> 01:39:49,550
+O wicked wall, through whom I see no bliss,
+cursed be thy stones for thus deceiving me!
+
+964
+01:39:49,684 --> 01:39:52,587
+The wall, methinks, being sensible,
+should curse again.
+
+965
+01:39:52,720 --> 01:39:56,390
+No, in truth, sire, he should not.
+
+966
+01:39:56,524 --> 01:39:58,426
+"Deceiving me" is Thisbe's cue.
+
+967
+01:39:59,093 --> 01:40:02,563
+He-- she is to enter now,
+and I am to spy her through the wall.
+
+968
+01:40:02,697 --> 01:40:06,000
+You shall see, it will fall pat, as I told you.
+
+969
+01:40:06,634 --> 01:40:08,469
+Yonder she comes.
+
+970
+01:40:16,577 --> 01:40:22,516
+O wall, full often hast thou
+heard my moans...
+
+971
+01:40:22,650 --> 01:40:24,685
+...for....
+
+972
+01:40:25,386 --> 01:40:31,492
+For parting my fair Pyramus and me.
+
+973
+01:40:40,034 --> 01:40:44,772
+My cherry lips have often kissed thy stones...
+
+974
+01:40:45,106 --> 01:40:50,278
+...thy stones with lime and hair
+knit up in thee.
+
+975
+01:40:50,411 --> 01:40:55,816
+I see a voice! Now will I to the chink,
+to spy and I can hear my Thisbe's face.
+
+976
+01:40:56,717 --> 01:40:58,052
+Thisbe!
+
+977
+01:40:58,185 --> 01:41:00,655
+My love! Thou art my love, I think!
+
+978
+01:41:00,788 --> 01:41:06,494
+Think what thou wilt, I am thy lover's grace,
+and like Limander am I trusty still.
+
+979
+01:41:06,627 --> 01:41:10,097
+And I like Helen, till the Fates me kill.
+
+980
+01:41:10,231 --> 01:41:14,535
+O, kiss me through the hole of this vile wall!
+
+981
+01:41:15,836 --> 01:41:19,240
+I kiss the wall's hole, not your lips at all!
+
+982
+01:41:19,373 --> 01:41:21,542
+Wilt thou at Ninny's tomb....
+
+983
+01:41:21,676 --> 01:41:23,444
+That's Ninus' tomb!
+
+984
+01:41:23,577 --> 01:41:26,547
+That's Ninus' tomb, meet me straightway?
+
+985
+01:41:26,681 --> 01:41:30,818
+'Tide life, 'tide death, I come without delay!
+
+986
+01:41:33,554 --> 01:41:40,394
+Thus have I, Wall, my part discharged so,
+and being done, thus Wall away doth go.
+
+987
+01:41:46,634 --> 01:41:51,172
+Ah, here come two noble beasts in,
+a man and a lion.
+
+988
+01:41:57,244 --> 01:42:01,515
+You, ladies, you,
+whose gentle hearts do fear...
+
+989
+01:42:01,782 --> 01:42:06,420
+...the smallest monstrous mouse
+that creeps on floor...
+
+990
+01:42:06,554 --> 01:42:10,324
+...may now, perchance,
+both quake and tremble here...
+
+991
+01:42:10,458 --> 01:42:14,662
+...when Lion rough in wildest rage doth roar.
+
+992
+01:42:20,634 --> 01:42:27,308
+For know that I as Snug the joiner
+am a lion fell, nor else no lion's dam.
+
+993
+01:42:27,441 --> 01:42:33,314
+For if I should as Lion come in strife
+into this place, 'twere pity on my life.
+
+994
+01:42:49,730 --> 01:42:51,399
+Moonshine.
+
+995
+01:42:51,532 --> 01:42:52,533
+-Moonshine.
+-Moonshine.
+
+996
+01:43:00,408 --> 01:43:02,376
+Let me play the moon.
+
+997
+01:43:05,846 --> 01:43:09,383
+This lantern doth the horned moon present.
+
+998
+01:43:11,252 --> 01:43:14,321
+This lantern doth the horned moon present.
+
+999
+01:43:14,455 --> 01:43:18,826
+Myself, the Man in the Moon do seem to be.
+
+1000
+01:43:20,227 --> 01:43:24,231
+All I have to say is to tell you
+that this lantern is the moon...
+
+1001
+01:43:24,365 --> 01:43:28,369
+...I'm the Man in the Moon,
+this thornbush, my thornbush...
+
+1002
+01:43:28,502 --> 01:43:32,373
+...and this dog, my dog.
+
+1003
+01:43:33,541 --> 01:43:35,509
+Oh, silence, here comes Thisbe.
+
+1004
+01:43:39,680 --> 01:43:41,982
+Where is my love?
+
+1005
+01:43:44,452 --> 01:43:46,854
+-Well roared, Lion.
+-Well run, Thisbe!
+
+1006
+01:43:46,987 --> 01:43:49,924
+-Well shone, Moon.
+-And then came Pyramus.
+
+1007
+01:43:51,759 --> 01:43:55,996
+Sweet Moon,
+I thank thee for thy sunny beams.
+
+1008
+01:43:56,931 --> 01:44:01,302
+I thank thee, Moon,
+for shining now so bright.
+
+1009
+01:44:01,435 --> 01:44:07,741
+For by thy gracious, golden, glittering gleams,
+I trust to take of truest Thisbe sight.
+
+1010
+01:44:11,011 --> 01:44:12,813
+But stay!
+
+1011
+01:44:13,347 --> 01:44:15,616
+O spite!
+
+1012
+01:44:15,749 --> 01:44:22,490
+But mark, poor knight,
+what dreadful dole is here?
+
+1013
+01:44:23,023 --> 01:44:26,794
+Eyes, do you see?
+
+1014
+01:44:27,294 --> 01:44:29,763
+How can it be?
+
+1015
+01:44:29,964 --> 01:44:33,968
+O dainty duck! O dear!
+
+1016
+01:44:34,735 --> 01:44:40,908
+Thy mantle good, what, stained with blood?
+
+1017
+01:44:42,009 --> 01:44:44,778
+Approach, ye Furies fell!
+
+1018
+01:44:49,416 --> 01:44:52,753
+O Fates, come, come!
+
+1019
+01:44:54,922 --> 01:44:58,559
+Cut thread and thrum!
+
+1020
+01:44:59,360 --> 01:45:03,731
+Quail, crush, conclude...
+
+1021
+01:45:03,864 --> 01:45:06,667
+...and quell!
+
+1022
+01:45:18,479 --> 01:45:20,881
+O wherefore, Nature, didst thou lions frame...
+
+1023
+01:45:21,615 --> 01:45:26,520
+...since lion vile hath
+here deflower'd my dear?
+
+1024
+01:45:26,654 --> 01:45:27,655
+"Devoured!"
+
+1025
+01:45:29,623 --> 01:45:33,827
+Which is.... No, no.
+
+1026
+01:45:33,961 --> 01:45:39,533
+Which was the fairest dame that lived--
+That loved-- That licked-- That liked-- That line?
+
+1027
+01:45:39,667 --> 01:45:42,870
+-That looked!
+-That looked with cheer.
+
+1028
+01:45:43,704 --> 01:45:46,440
+Come tears, confound!
+
+1029
+01:45:46,574 --> 01:45:51,412
+Out, sword, and wound the pap of Pyramus!
+
+1030
+01:45:51,545 --> 01:45:56,450
+Ay, that left pap, where heart doth hop.
+
+1031
+01:45:56,584 --> 01:46:00,521
+Thus die I.
+
+1032
+01:46:00,654 --> 01:46:02,389
+Thus!
+
+1033
+01:46:03,791 --> 01:46:05,492
+Thus!
+
+1034
+01:46:08,929 --> 01:46:10,831
+Thus.
+
+1035
+01:46:16,537 --> 01:46:18,739
+Now am I dead.
+
+1036
+01:46:19,640 --> 01:46:21,575
+Now am I fled.
+
+1037
+01:46:21,709 --> 01:46:22,710
+No.
+
+1038
+01:46:22,843 --> 01:46:26,413
+My soul is in the sky.
+
+1039
+01:46:27,648 --> 01:46:31,952
+Tongue, lose thy light, Moon, take thy flight!
+
+1040
+01:46:32,086 --> 01:46:35,155
+Now die!
+
+1041
+01:46:35,589 --> 01:46:37,458
+Die!
+
+1042
+01:46:38,158 --> 01:46:40,461
+-Die!
+-Oh, my God.
+
+1043
+01:46:40,995 --> 01:46:42,930
+Die!
+
+1044
+01:46:45,599 --> 01:46:47,101
+Die.
+
+1045
+01:47:02,516 --> 01:47:04,752
+Asleep, my love?
+
+1046
+01:47:09,590 --> 01:47:11,425
+What, dead, my dove?
+
+1047
+01:47:32,546 --> 01:47:35,749
+O Pyramus, arise.
+
+1048
+01:47:35,883 --> 01:47:38,152
+Speak. Speak.
+
+1049
+01:47:38,485 --> 01:47:40,521
+Quite dumb?
+
+1050
+01:47:40,754 --> 01:47:43,724
+Dead? Dead?
+
+1051
+01:47:44,191 --> 01:47:50,731
+A tomb must cover thy sweet eyes.
+
+1052
+01:47:51,031 --> 01:47:54,201
+These lily lips, this cherry nose...
+
+1053
+01:47:54,535 --> 01:48:00,674
+...these yellow cowslip cheeks
+are gone, are gone....
+
+1054
+01:48:03,043 --> 01:48:07,715
+His eyes were green as leeks.
+
+1055
+01:48:10,584 --> 01:48:17,591
+O Sisters Three, come, come to me,
+with hands as pale as milk.
+
+1056
+01:48:20,194 --> 01:48:24,498
+Lay them in gore, since you have shore...
+
+1057
+01:48:24,631 --> 01:48:27,801
+...with shears his thread of silk.
+
+1058
+01:48:29,570 --> 01:48:31,939
+Tongue, not a word.
+
+1059
+01:48:33,240 --> 01:48:36,110
+Come, trusty sword.
+
+1060
+01:48:37,511 --> 01:48:42,249
+Come, blade, my breast imbrue.
+
+1061
+01:48:46,086 --> 01:48:50,924
+And farewell, friends, thus Thisbe ends.
+
+1062
+01:48:51,058 --> 01:48:52,993
+Adieu...
+
+1063
+01:48:53,927 --> 01:48:55,729
+...adieu...
+
+1064
+01:48:57,297 --> 01:48:59,066
+...adieu.
+
+1065
+01:49:22,122 --> 01:49:24,858
+Moonshine and Lion are left
+to bury the dead.
+
+1066
+01:49:24,992 --> 01:49:27,194
+Ay, and Wall too.
+
+1067
+01:49:27,327 --> 01:49:32,800
+No! I assure you, the wall is down
+that parted their fathers.
+
+1068
+01:49:32,933 --> 01:49:34,902
+Will it please you to see the epilogue?
+
+1069
+01:49:35,035 --> 01:49:38,939
+Or to hear a Bergomask dance
+between two of our company?
+
+1070
+01:49:39,573 --> 01:49:43,010
+No epilogue, I pray you,
+for your play needs no excuse.
+
+1071
+01:49:44,011 --> 01:49:49,283
+Never excuse, for when the players are all dead,
+there need none to be blamed.
+
+1072
+01:49:56,790 --> 01:50:00,694
+-"When the players are all dead--"
+-"There need none to be blamed."
+
+1073
+01:50:00,828 --> 01:50:02,729
+No, no....
+
+1074
+01:50:18,378 --> 01:50:21,048
+"Very notably discharged."
+
+1075
+01:50:38,198 --> 01:50:40,634
+O happy hour!
+
+1076
+01:50:40,767 --> 01:50:43,837
+The iron tongue of midnight hath told 12.
+
+1077
+01:50:44,338 --> 01:50:47,641
+Lovers, to bed.
+
+1078
+01:50:47,774 --> 01:50:50,878
+'Tis almost fairy time.
+
+1079
+01:51:08,328 --> 01:51:13,800
+<i>Now until the break of day,</i>
+<i>through this house each fairy stray.</i>
+
+1080
+01:51:14,701 --> 01:51:19,239
+<i>To the best bride-bed will we,</i>
+<i>which by us shall blessed be...</i>
+
+1081
+01:51:20,841 --> 01:51:26,246
+<i>...and the issue there create</i>
+<i>ever shall be fortunate.</i>
+
+1082
+01:51:27,781 --> 01:51:32,185
+<i>So shall all the couples three</i>
+<i>ever true in loving be.</i>
+
+1083
+01:51:32,819 --> 01:51:39,293
+<i>And each several chamber bless,</i>
+<i>through this palace, with sweet peace.</i>
+
+1084
+01:51:40,928 --> 01:51:46,033
+<i>And the owner of it blest,</i>
+<i>ever shall in safety rest.</i>
+
+1085
+01:51:48,969 --> 01:51:52,406
+<i>Trip away, make no stay...</i>
+
+1086
+01:51:52,739 --> 01:51:55,275
+<i>...meet me all by break of day.</i>
+
+1087
+01:52:23,103 --> 01:52:28,075
+Very notably discharged!
+
+1088
+01:52:54,468 --> 01:53:00,040
+If we shadows have offended,
+think but this, and all is mended:
+
+1089
+01:53:00,307 --> 01:53:05,112
+that you have but slumbered here,
+while these visions did appear...
+
+1090
+01:53:05,545 --> 01:53:08,949
+...and this weak and idle theme...
+
+1091
+01:53:09,082 --> 01:53:13,487
+...no more yielding but a dream.
+
+1092
+01:53:17,958 --> 01:53:21,928
+Gentles, do not reprehend:
+
+1093
+01:53:22,062 --> 01:53:24,798
+if you pardon, we will mend.
+
+1094
+01:53:24,931 --> 01:53:27,501
+Else the Puck a liar call.
+
+1095
+01:54:36,336 --> 01:54:39,506
+And so, good night unto you all.
+
+1096
+01:54:43,410 --> 01:54:50,250
+Give me your hands, if we be friends,
+and Robin shall restore amends.
+
