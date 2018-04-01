@@ -1,11 +1,11 @@
 
-var start_nouns = ["thy mother", "thy child", "thy father", "thy pet", "a villain", "a hog", "a three-inch fool", "a coward", "an icicle", "a Dutchman's beard", "the remaining biscuit after voyage", "broken meats", "ripe grapes"];
-var verbs = ["is", "hast no more brain than", "has in their elbows", "is like", "has", "should lick", "tickles", "smells of", "sours", "butters"];
+var start_nouns = ["thy mother", "thy child", "thy father", "thy pet", "a villain", "a hog", "a three-inch fool", "a coward", "an icicle", "a Dutchman's beard", "the remaining biscuit after voyage", "broken meats", "ripe grapes", "a moonlight flit"];
+var verbs = ["is", "hast no more brain than", "has in their elbows", "is like", "may strike", "should lick", "tickles", "smells of", "sours", "butters"];
 var adjectives = ["rooting", "plague-sore", "rankest", "compound of", "much like a cheese", "saucy", "stewed", "tart-faced", "unnecessary"];
 var interjectives = ["you elf-skin!", "you dried neat's-tongue!", "you stock-fish!", "ye fat guts!"];
-var conjoiners = ["and", "but", "and with", "and no less", "and shall be"];
+var conjoiners = ["and", "but", "and with", "and no less", "and shall be", "and they"];
 
-var bag_of_insults = shuffle(start_nouns.concat(verbs, adjectives, interjectives, conjoiners));
+var bag_of_insults = shuffle(start_nouns.concat(verbs, adjectives, interjectives, conjoiners, conjoiners));
 var og_boi = [].concat(bag_of_insults);
 function shuffle(array) {
     var currentIndex = array.length, temporaryValue, randomIndex;
