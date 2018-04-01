@@ -9,10 +9,9 @@ public class ConnectedPlayer {
     public string name { get; private set; }
     public IPAddress remote { get; private set; }
     public GameObject iconObject;
+    public GameObject insultViewObject;
     public string receivedInsult;
-    public ConnectedPlayer votedFor;
-
-    public int recievedVotes = 0;
+    public int wins;
 
     public ConnectedPlayer(string name, IPAddress remote) {
         this.name = name;
