@@ -25,7 +25,7 @@ public class ServerManager : MonoBehaviour {
         inst = this;
     }
 
-    public void StartServer() {
+    public void Start() {
         server = new SimpleHTTPServer(path);
 
         showURL.text = server.IP.Replace("\n", ":" + server.Port + "\n") + ":" + server.Port;
