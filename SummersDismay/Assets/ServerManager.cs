@@ -32,7 +32,6 @@ public class ServerManager : MonoBehaviour {
         showURLBG.sizeDelta = new Vector2(showURLBG.sizeDelta.x, 20 * (1 + showURL.text.Count((c) => c == '\n')));
         connectionInfo.SetActive(true);
         joinButton.SetActive(true);
-        GameManager.inst.timer.gameObject.SetActive(true);
     }
 
     public void JoinInBrowser() {

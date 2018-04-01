@@ -41,8 +41,28 @@ public class GameManager : MonoBehaviour {
 
     public void StartGame() {
         if (!(insulting || voting || roundOver)) {
+            timer.gameObject.SetActive(true);
             insulting = true;
         }
+    }
+
+    public static string ToRoman(int number) {
+        if ((number < 0) || (number > 3999)) throw new ArgumentOutOfRangeException("insert value betwheen 1 and 3999");
+        if (number < 1) return string.Empty;
+        if (number >= 1000) return "M" + ToRoman(number - 1000);
+        if (number >= 900) return "CM" + ToRoman(number - 900);
+        if (number >= 500) return "D" + ToRoman(number - 500);
+        if (number >= 400) return "CD" + ToRoman(number - 400);
+        if (number >= 100) return "C" + ToRoman(number - 100);
+        if (number >= 90) return "XC" + ToRoman(number - 90);
+        if (number >= 50) return "L" + ToRoman(number - 50);
+        if (number >= 40) return "XL" + ToRoman(number - 40);
+        if (number >= 10) return "X" + ToRoman(number - 10);
+        if (number >= 9) return "IX" + ToRoman(number - 9);
+        if (number >= 5) return "V" + ToRoman(number - 5);
+        if (number >= 4) return "IV" + ToRoman(number - 4);
+        if (number >= 1) return "I" + ToRoman(number - 1);
+        throw new ArgumentOutOfRangeException("something bad happened");
     }
 
     public void HandleNewConnection(HttpListenerContext context) {
@@ -53,11 +73,11 @@ public class GameManager : MonoBehaviour {
 
         if (name != null) {
             if (GetPlayerInfo(context.Request.RemoteEndPoint.Address) == null) {
-                int i = 1;
+                int i = 2;
 
                 var actName = name;
                 while (GetPlayerInfo(actName) != null) {
-                    actName = name + " (" + i + ")";
+                    actName = name + " " + ToRoman(i);
                 }
 
                 connectedPlayers.Add(new ConnectedPlayer(actName, context.Request.RemoteEndPoint.Address));
@@ -229,7 +249,7 @@ public class GameManager : MonoBehaviour {
             var con = connectedPlayers[i];
             if (!con.iconObject) {
                 con.iconObject = Instantiate(playerIconPrefab, new Vector2(0, -7), Quaternion.identity);
-                con.iconObject.GetComponent<SpriteRenderer>().sprite = icons[i % icons.Length];
+                con.iconObject.GetComponent<MeshRenderer>().material.mainTexture = icons[i % icons.Length].texture;
                 con.iconObject.GetComponent<SpringJoint>().connectedAnchor = new Vector3(-5 + i * 2, 5.5f, 0);
             }
 
