@@ -607,13 +607,14 @@ GameObject:
   m_Component:
   - component: {fileID: 416646772}
   - component: {fileID: 416646771}
+  - component: {fileID: 416646773}
   m_Layer: 0
   m_Name: Menu_Theme_Summer's Dismay
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!82 &416646771
 AudioSource:
   m_ObjectHideFlags: 0
@@ -707,6 +708,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &416646773
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 416646770}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ec1ca5976bb0eb46bc391de66dc5394, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clips:
+  - {fileID: 8300000, guid: 5ce6fc038b48ec64a94a87e6a07a869f, type: 3}
+  - {fileID: 8300000, guid: d6b5423145ec18941a751ed4203e76b9, type: 3}
+  - {fileID: 8300000, guid: d8bd969e9a859b0418fd256c77dfa575, type: 3}
 --- !u!1 &425558835
 GameObject:
   m_ObjectHideFlags: 0
