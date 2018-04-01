@@ -18,7 +18,7 @@ public class GameManager : MonoBehaviour {
     public GameObject playerIconPrefab;
 
     private ConnectedPlayer winner;
-    private bool voting, insulting;
+    private bool voting, insulting, roundOver;
     private ExpirationTimer insultExpiration;
     private ExpirationTimer voteExpiration;
     private ExpirationTimer endExpiration;
@@ -82,9 +82,9 @@ public class GameManager : MonoBehaviour {
 
                 var payload = JsonUtility.FromJson<UpdatePayload>(json);
                 if (payload != null) {
-                    if (!isJudge && (playerInfo.receivedInsult == null || playerInfo.receivedInsult.Length == 0)) {
+                    if (!isJudge && insulting && (playerInfo.receivedInsult == null || playerInfo.receivedInsult.Length == 0)) {
                         playerInfo.receivedInsult = payload.insult;
-                    } else if (playerInfo.votedFor == null && payload.vote != null && payload.vote.Length > 0 && AllInsultsIn()) {
+                    } else if (isJudge && voting && playerInfo.votedFor == null && payload.vote != null && payload.vote.Length > 0) {
                         playerInfo.votedFor = GetPlayerInfo(payload.vote);
 
                         if (playerInfo.votedFor != null) {
@@ -97,11 +97,13 @@ public class GameManager : MonoBehaviour {
             }
         }
 
+        response.running = insulting || voting || roundOver;
+
         if (insulting) {
 
         } else if (voting) {
             response.insults = GetInsultsArray();
-        } else {
+        } else if (roundOver) {
             response.insults = GetInsultsArray();
 
             winner = GetWinner();
@@ -120,6 +122,7 @@ public class GameManager : MonoBehaviour {
             c.recievedVotes = 0;
         }
 
+        roundOver = false;
         voting = false;
         insulting = true;
         insultExpiration.Set();
@@ -195,6 +198,7 @@ public class GameManager : MonoBehaviour {
         public int role;
         public string judge;
         public bool voted;
+        public bool running;
         public Insult[] insults;
         public Insult winner;
     }
@@ -267,9 +271,10 @@ public class GameManager : MonoBehaviour {
             timer.text = ((int)voteExpiration.remaining) + "";
             if (voteExpiration.expired || AllVotesIn()) {
                 voting = false;
+                roundOver = true;
                 endExpiration.Set();
             }
-        } else {
+        } else if (roundOver) {
             timer.text = ((int)endExpiration.remaining) + "";
             if (endExpiration.expired) {
                 NextRound();
