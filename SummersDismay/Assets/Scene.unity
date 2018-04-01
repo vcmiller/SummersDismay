@@ -861,6 +861,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 5ce6fc038b48ec64a94a87e6a07a869f, type: 3}
   - {fileID: 8300000, guid: d6b5423145ec18941a751ed4203e76b9, type: 3}
   - {fileID: 8300000, guid: d8bd969e9a859b0418fd256c77dfa575, type: 3}
+  fadeAfter: 90
   PlayAutomatically: 1
 --- !u!1 &425558835
 GameObject:
@@ -2272,6 +2273,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: c00c0f74ea271fd4caf6a3b35e3942d8, type: 3}
   - {fileID: 8300000, guid: 95159a8d81fd34244adb10be5d45c6e3, type: 3}
   - {fileID: 8300000, guid: b891f7a4d0d5a7642ad978658ab776e9, type: 3}
+  fadeAfter: -1
   PlayAutomatically: 0
 --- !u!114 &1367151838
 MonoBehaviour:
@@ -2295,6 +2297,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 152245808fb37374fa2d8aed6d3717ad, type: 3}
   - {fileID: 8300000, guid: 5423394ae656bdc41bc08fc461323789, type: 3}
   - {fileID: 8300000, guid: bc73114f0c8f38746be11fd7fd6b252d, type: 3}
+  fadeAfter: -1
   PlayAutomatically: 0
 --- !u!114 &1367151839
 MonoBehaviour:
@@ -2312,6 +2315,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: a5d1f794ef5e25548a9ceb6b166aba6b, type: 3}
   - {fileID: 8300000, guid: 82f3df73dc7f0924092cd43194b4cb9c, type: 3}
   - {fileID: 8300000, guid: ed1e886872f3fe44e9bba53d694f7391, type: 3}
+  fadeAfter: -1
   PlayAutomatically: 0
 --- !u!82 &1367151840
 AudioSource:
