@@ -1,7 +1,8 @@
 
-var start_nouns = ["thy mother", "thy child", "thy father", "thy pet", "a villain", "a hog", "a three-inch fool", "a coward", "an icicle", "a Dutchman's beard", "the remaining biscuit after voyage", "broken meats", "ripe grapes", "a moonlight flit"];
+var start_nouns = ["thy mother", "thy child", "thy father", "thy pet", "a villain", "a hog", "a three-inch fool", "a coward",
+    "an icicle", "a Dutchman's beard", "the remaining biscuit after voyage", "a pound of broken meats", "ripe grapes", "a moonlight flit", "a tallow catch", "a lump of foul deformity"];
 var verbs = ["is", "hast no more brain than", "has in their elbows", "is like", "may strike", "should lick", "tickles", "smells of", "sours", "butters"];
-var adjectives = ["rooting", "plague-sore", "rankest", "compound of", "much like a cheese", "saucy", "stewed", "tart-faced", "unnecessary"];
+var adjectives = ["rooting", "plague-sore", "rankest", "compound of", "much like a cheese", "saucy", "stewed", "tart-faced", "unnecessary", "clay-brained", "cream-faced"];
 var interjectives = ["you elf-skin!", "you dried neat's-tongue!", "you stock-fish!", "ye fat guts!"];
 var conjoiners = ["and", "but", "and with", "and no less", "and shall be", "and they"];
 
@@ -32,6 +33,7 @@ function refreshBag() {
     }
 }
 var sentence = "";
+var rerolls = {current:3, max:3};
 
 //HTTP Shit
 
@@ -154,11 +156,25 @@ function startGame() {
             sentence += $(this).text() + " ";
             $("#sentence_display").text(sentence);
             $(this).text(bag_of_insults.pop());
+
+            rerolls.current = Math.min(rerolls.current + 1, rerolls.max);
+            $("#reroll_text").text("Rerolls: "+rerolls.current);
+            [1,2,3,4].forEach(function (t) {
+                $("#magic_"+t).hidden = false;
+            });
             refreshBag();
         });
 
         $("#magic_"+t).click(function () {
             button.text(bag_of_insults.pop());
+
+            rerolls.current--;
+            $("#reroll_text").text("Rerolls: "+rerolls.current);
+            if(rerolls.current == 0){
+                [1,2,3,4].forEach(function (t) {
+                    $("#magic_"+t).hidden = true;
+                });
+            }
             refreshBag();
         });
     });
