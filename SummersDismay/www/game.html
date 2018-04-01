@@ -13,37 +13,90 @@
 
         <link rel="stylesheet" href="css/normalize.css">
         <link rel="stylesheet" href="css/main.css">
+
+        <style>
+            button {
+                padding:10px;
+                margin:5px;
+            }
+
+            body {
+                background-color: #c19c5c;
+                background-image: url("back_curtains.png");
+                background-repeat: no-repeat;
+                background-size:cover;
+            }
+
+            .game_area {
+                background-image: url("parchment.png");
+                background-size: 100%;
+                background-repeat:repeat-y;
+                align-content: center;
+                align-self: center;
+                margin-left: auto;
+                margin-right: auto;
+                margin-top: 20px;
+                padding-top:10px;
+                margin-bottom:auto;
+            }
+
+            .killbtn {
+                background: #d93434;
+                background-image: -webkit-linear-gradient(top, #d93434, #850000);
+                background-image: -moz-linear-gradient(top, #d93434, #850000);
+                background-image: -ms-linear-gradient(top, #d93434, #850000);
+                background-image: -o-linear-gradient(top, #d93434, #850000);
+                background-image: linear-gradient(to bottom, #d93434, #850000);
+                -webkit-border-radius: 28;
+                -moz-border-radius: 28;
+                border-radius: 28px;
+                border-width: 0px;
+                font-family: Arial;
+                color: #ffffff;
+                font-size: 20px;
+                padding: 10px 20px 10px 20px;
+                text-decoration: none;
+            }
+
+                .killbtn:hover {
+                    background: #ff4517;
+                    background-image: -webkit-linear-gradient(top, #ff4517, #ff4747);
+                    background-image: -moz-linear-gradient(top, #ff4517, #ff4747);
+                    background-image: -ms-linear-gradient(top, #ff4517, #ff4747);
+                    background-image: -o-linear-gradient(top, #ff4517, #ff4747);
+                    background-image: linear-gradient(to bottom, #ff4517, #ff4747);
+                    text-decoration: none;
+                }
+        </style>
     </head>
     <body onload="startGame()">
-        <!--[if lte IE 9]>
-            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
-        <![endif]-->
+        <div class="game_area"style="width:75%;">
+           
+            <button onclick="backToStart()" class="killbtn">Not To Be</button>
+            <h2 id="show_name" style="margin:5px"></h2>
+            <p id="show_role"></p>
+            <p id="reroll_text">Rerolls: 3</p>
 
-        <!-- Add your site or application content here -->
-        <p id="show_name"></p>
-        <button onclick="backToStart()" style="background-color:red;">Not To Be</button>
-        <p id="show_role"></p>
-        <p id="reroll_text">Rerolls: 3</p>
+            <div id="insult_area" style="display:none">
+                <p>Enter your insult:</p>
+                <p id="sentence_display" style="width:90%; margin-left:auto; margin-right:auto"></p>
+                <button id="particle_1" style="width:50%;">Meme</button><button id="magic_1">↺</button><br>
+                <button id="particle_2" style="width:50%;">Meme1</button><button id="magic_2">↺</button><br>
+                <button id="particle_3" style="width:50%;">Meme2</button><button id="magic_3">↺</button><br>
+                <button id="particle_4" style="width:50%;">Meme3</button><button id="magic_4">↺</button><br>
+                <button onclick="clearInsult()" style="width:50%">Clear</button><br>
 
-        <div id="insult_area" style="display:none">
-            <p>Enter your insult:</p>
-            <p id="sentence_display"></p>
-            <button id="particle_1" style="width:33%;">Meme</button><button id="magic_1">↺</button><br>
-            <button id="particle_2" style="width:33%;">Meme1</button><button id="magic_2">↺</button><br>
-            <button id="particle_3" style="width:33%;">Meme2</button><button id="magic_3">↺</button><br>
-            <button id="particle_4" style="width:33%;">Meme3</button><button id="magic_4">↺</button><br>
-            <!--<button id="magic">Magic</button><br>-->
-            <!--<input id="enter_insult" />-->
-            <button onclick="sendInsult()">Send!</button>
+                <button onclick="sendInsult()">Send!</button>
+            </div>
+
+            <div id="show_insults_area" style="display:none">
+                <p id="all_insults"></p>
+            </div>
+
+
+            <br>
         </div>
-
-        <div id="show_insults_area" style="display:none">
-            <p id="all_insults"></p>
-        </div>
-
-
-        <br>
-
+        
 
         <script src="js/vendor/modernizr-3.5.0.min.js"></script>
         <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>

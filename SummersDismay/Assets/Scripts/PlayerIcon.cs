@@ -12,6 +12,8 @@ public class PlayerIcon : MonoBehaviour {
     private Material mat;
     private ExpirationTimer expressionExpiration;
 
+    private float spinMeRightRound;
+
 	// Use this for initialization
 	void Start () {
         line = GetComponent<LineRenderer>();
@@ -39,9 +41,22 @@ public class PlayerIcon : MonoBehaviour {
         if (mainTex && altTex) {
             mat.mainTexture = expressionExpiration.expired ? mainTex : altTex;
         }
+
+        if (spinMeRightRound > 0) {
+            float f = Mathf.Min(Time.deltaTime * 720, spinMeRightRound);
+
+            spinMeRightRound -= f;
+            transform.Rotate(0, 0, f);
+        } else {
+            transform.eulerAngles = new Vector3(0, 0, 180);
+        }
 	}
 
     public void Express() {
         expressionExpiration.Set();
+    }
+
+    public void SpinMeRightRound() {
+        spinMeRightRound = 720;
     }
 }

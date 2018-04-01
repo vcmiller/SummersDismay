@@ -625,8 +625,8 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 6102b62a714fa694d87a2750246924de, type: 3}
-  m_PlayOnAwake: 1
-  m_Volume: 1
+  m_PlayOnAwake: 0
+  m_Volume: 0.09
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -716,13 +716,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 416646770}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6ec1ca5976bb0eb46bc391de66dc5394, type: 3}
+  m_Script: {fileID: 11500000, guid: cfd595bdb889490418f663605a404f68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   clips:
   - {fileID: 8300000, guid: 5ce6fc038b48ec64a94a87e6a07a869f, type: 3}
   - {fileID: 8300000, guid: d6b5423145ec18941a751ed4203e76b9, type: 3}
   - {fileID: 8300000, guid: d8bd969e9a859b0418fd256c77dfa575, type: 3}
+  PlayAutomatically: 1
 --- !u!1 &425558835
 GameObject:
   m_ObjectHideFlags: 0
@@ -1973,6 +1974,10 @@ GameObject:
   - component: {fileID: 1367151835}
   - component: {fileID: 1367151834}
   - component: {fileID: 1367151836}
+  - component: {fileID: 1367151840}
+  - component: {fileID: 1367151839}
+  - component: {fileID: 1367151838}
+  - component: {fileID: 1367151837}
   m_Layer: 0
   m_Name: Manage
   m_TagString: Untagged
@@ -2025,6 +2030,9 @@ MonoBehaviour:
   insultViewPrefab: {fileID: 1847263875210740, guid: 92f25dd2d96c0f24787a749a949c3ef5,
     type: 2}
   startGameButton: {fileID: 1869077593}
+  joinSound: {fileID: 1367151839}
+  shockSound: {fileID: 1367151838}
+  winSound: {fileID: 1367151837}
   icons:
   - {fileID: 21300000, guid: fcb57cca6165a834086b0fabcbd39a21, type: 3}
   - {fileID: 21300000, guid: 4d6cca8e7d14fdb4fba59690546e9bc7, type: 3}
@@ -2036,6 +2044,143 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 17671d478f2e34d4fa228a8a9d5f91f4, type: 3}
   - {fileID: 21300000, guid: 27a665efdbb23b14a90649f0db278c2b, type: 3}
   timer: {fileID: 875009722}
+--- !u!114 &1367151837
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1367151833}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfd595bdb889490418f663605a404f68, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clips:
+  - {fileID: 8300000, guid: 24d6b6cd64f5ffa459f9d8334ff3f627, type: 3}
+  - {fileID: 8300000, guid: c00c0f74ea271fd4caf6a3b35e3942d8, type: 3}
+  - {fileID: 8300000, guid: 95159a8d81fd34244adb10be5d45c6e3, type: 3}
+  - {fileID: 8300000, guid: b891f7a4d0d5a7642ad978658ab776e9, type: 3}
+  PlayAutomatically: 0
+--- !u!114 &1367151838
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1367151833}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfd595bdb889490418f663605a404f68, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clips:
+  - {fileID: 8300000, guid: c6e3179e8d8a0c142bf18e4315f73c67, type: 3}
+  - {fileID: 8300000, guid: 387b481a374450c4ebd0b781716c5e34, type: 3}
+  - {fileID: 8300000, guid: f9deb91d72a90294aab2302d74edb904, type: 3}
+  - {fileID: 8300000, guid: 3d4be1f0018b83842a5aab124ce10ce5, type: 3}
+  - {fileID: 8300000, guid: 8be12ed1dca5d7a4fa1deb23b4f1b557, type: 3}
+  - {fileID: 8300000, guid: 3d1bd857e1cc5b047b4f132a41a79c9a, type: 3}
+  - {fileID: 8300000, guid: 5350d1835dbbd4d48b28158aed46a58f, type: 3}
+  - {fileID: 8300000, guid: 152245808fb37374fa2d8aed6d3717ad, type: 3}
+  - {fileID: 8300000, guid: 5423394ae656bdc41bc08fc461323789, type: 3}
+  - {fileID: 8300000, guid: bc73114f0c8f38746be11fd7fd6b252d, type: 3}
+  PlayAutomatically: 0
+--- !u!114 &1367151839
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1367151833}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfd595bdb889490418f663605a404f68, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clips:
+  - {fileID: 8300000, guid: 788b80e87bf467e42a18f41532b4d506, type: 3}
+  - {fileID: 8300000, guid: a5d1f794ef5e25548a9ceb6b166aba6b, type: 3}
+  - {fileID: 8300000, guid: 82f3df73dc7f0924092cd43194b4cb9c, type: 3}
+  - {fileID: 8300000, guid: ed1e886872f3fe44e9bba53d694f7391, type: 3}
+  PlayAutomatically: 0
+--- !u!82 &1367151840
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1367151833}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!1 &1389946573
 GameObject:
   m_ObjectHideFlags: 0
@@ -2103,7 +2248,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 3. Enter a nickname and play!
+  m_Text: 3. Enter a stage name and play!
 --- !u!222 &1389946576
 CanvasRenderer:
   m_ObjectHideFlags: 0

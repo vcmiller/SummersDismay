@@ -87,14 +87,13 @@ function showUpdateResponse(text) {
         document.getElementById("show_name").innerHTML = json.name;
 
         if (json.role == 0) {
-            roleP.innerHTML = "You are a participant.<br>";
-            roleP.innerHTML += "The judge is " + json.judge + ".";
+            roleP.innerHTML = "Judge: " + json.judge;
             insultDiv.style.display = "block";
         } else if (json.role == 1) {
-            roleP.innerHTML = "You are the judge.";
+            roleP.innerHTML = "Judge: YOU";
             insultDiv.style.display = "none";
         } else {
-            roleP.innerHTML = "You are in the audience.";
+            roleP.innerHTML = "(In audience)";
             insultDiv.style.display = "none";
         }
 
@@ -154,6 +153,11 @@ function sendInsult() {
     httpPostAsync(getUpdateUrl(), showUpdateResponse, JSON.stringify(obj));
 }
 
+function clearInsult() {
+    sentence = "";
+    $("#sentence_display").text("");
+}
+
 function startGame() {
     httpPostAsync(getUpdateUrl(), showUpdateResponse, null);
     window.setInterval(function () {
@@ -171,8 +175,8 @@ function startGame() {
 
             rerolls.current = Math.min(rerolls.current + 1, rerolls.max);
             $("#reroll_text").text("Rerolls: "+rerolls.current);
-            [1,2,3,4].forEach(function (t) {
-                $("#magic_"+t).hidden = false;
+            [1, 2, 3, 4].forEach(function (t) {
+                $("#magic_" + t).show();
             });
             refreshBag();
 
@@ -187,8 +191,8 @@ function startGame() {
             rerolls.current--;
             $("#reroll_text").text("Rerolls: "+rerolls.current);
             if(rerolls.current == 0){
-                [1,2,3,4].forEach(function (t) {
-                    $("#magic_"+t).hidden = true;
+                [1, 2, 3, 4].forEach(function (t) {
+                    $("#magic_" + t).hide();
                 });
             }
             refreshBag();

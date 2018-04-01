@@ -19,6 +19,10 @@ public class GameManager : MonoBehaviour {
     public GameObject insultViewPrefab;
     public Button startGameButton;
 
+    public MultiSound joinSound;
+    public MultiSound shockSound;
+    public MultiSound winSound;
+
     private int nextIcon;
     private ConnectedPlayer winner;
     private bool voting, insulting, roundOver;
@@ -264,7 +268,7 @@ public class GameManager : MonoBehaviour {
             var con = connectedPlayers[i];
 
             if (con.timeout == null) {
-                con.timeout = new ExpirationTimer(5);
+                con.timeout = new ExpirationTimer(10);
                 con.timeout.Set();
             }
 
@@ -300,6 +304,7 @@ public class GameManager : MonoBehaviour {
                 con.iconObject = Instantiate(playerIconPrefab, new Vector2(0, -7), Quaternion.Euler(0, 0, 180));
                 con.iconObject.GetComponent<PlayerIcon>().Init(icons[nextIcon].texture, expr[nextIcon].texture);
                 con.iconObject.GetComponent<SpringJoint>().connectedAnchor = new Vector3(-6 + i * 2, 5.5f, 0);
+                joinSound.Play();
 
                 nextIcon = (nextIcon + 1) % icons.Length;
             }
@@ -340,6 +345,7 @@ public class GameManager : MonoBehaviour {
                 voting = true;
                 voteExpiration.Set();
                 connectedPlayers[curJudge].iconObject.Express();
+                shockSound.Play();
 
                 foreach (var c in connectedPlayers) {
                     if (c.receivedInsult != null && c.receivedInsult.Length > 0) {
@@ -358,6 +364,11 @@ public class GameManager : MonoBehaviour {
                 voting = false;
                 roundOver = true;
                 endExpiration.Set();
+
+                if (winner != null) {
+                    winner.iconObject.SpinMeRightRound();
+                    winSound.Play();
+                }
             }
         } else if (roundOver) {
             timer.text = ((int)endExpiration.remaining) + "";
