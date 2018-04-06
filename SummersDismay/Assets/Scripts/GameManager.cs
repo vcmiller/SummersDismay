@@ -15,7 +15,7 @@ public class GameManager : MonoBehaviour {
     public int curJudge { get; private set; }
     public static GameManager inst { get; private set; }
 
-    public PlayerIcon playerIconPrefab;
+    public GameObject playerIconPrefab;
     public GameObject insultViewPrefab;
     public Button startGameButton;
 
@@ -317,9 +317,11 @@ public class GameManager : MonoBehaviour {
             }
 
             if (!con.iconObject) {
-                con.iconObject = Instantiate(playerIconPrefab, new Vector2(0, -7), Quaternion.Euler(0, 0, 180));
-                con.iconObject.GetComponent<PlayerIcon>().Init(icons[nextIcon].texture, expr[nextIcon].texture);
-                con.iconObject.GetComponent<SpringJoint>().connectedAnchor = new Vector3(-6 + i * 2, 5.5f, 0);
+                var obj = Instantiate(playerIconPrefab, new Vector2(0, -7), Quaternion.Euler(0, 0, 0)).GetComponent<RectTransform>();
+                con.iconObject = obj.GetComponentInChildren<PlayerIcon>();
+                con.iconObject.Init(icons[nextIcon], expr[nextIcon]);
+                obj.SetParent(FindObjectOfType<Canvas>().transform, false);
+                obj.anchoredPosition = new Vector2(-300 + 100 * i, 0);
                 joinSound.Play();
 
                 nextIcon = (nextIcon + 1) % icons.Length;
@@ -347,7 +349,9 @@ public class GameManager : MonoBehaviour {
                 text += "\nwins: " + con.wins;
             }
 
-            con.iconObject.GetComponentInChildren<TextMesh>().text = text;
+            con.iconObject.GetComponentInChildren<Text>().text = text;
+
+            con.iconObject.SetSubmitted(con.receivedInsult != null && con.receivedInsult.Length > 0);
         }
 
         if (!insulting && !voting && !roundOver) {
@@ -382,7 +386,7 @@ public class GameManager : MonoBehaviour {
                 endExpiration.Set();
 
                 if (winner != null) {
-                    winner.iconObject.SpinMeRightRound();
+                    winner.iconObject.Win();
                     winSound.Play();
                 }
             }

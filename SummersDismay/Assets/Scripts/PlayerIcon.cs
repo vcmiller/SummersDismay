@@ -1,27 +1,27 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using SBR;
 
 public class PlayerIcon : MonoBehaviour {
-    private LineRenderer line;
 
-    private Texture mainTex;
-    private Texture altTex;
+    private Sprite mainTex;
+    private Sprite altTex;
 
-    private Material mat;
+    private Image image;
+    private Animator anim;
+    
     private ExpirationTimer expressionExpiration;
 
-    private float spinMeRightRound;
-
 	// Use this for initialization
-	void Start () {
-        line = GetComponent<LineRenderer>();
+	void Awake () {
         expressionExpiration = new ExpirationTimer(10);
-        mat = GetComponent<MeshRenderer>().material;
+        image = GetComponent<Image>();
+        anim = GetComponent<Animator>();
 	}
 
-    public void Init(Texture mainTex, Texture altTex) {
+    public void Init(Sprite mainTex, Sprite altTex) {
         this.mainTex = mainTex;
         this.altTex = altTex;
     }
@@ -29,34 +29,21 @@ public class PlayerIcon : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         var joint = GetComponent<SpringJoint>();
-
-        if (joint) {
-            line.SetPosition(0, transform.position);
-            line.SetPosition(1, joint.connectedAnchor);
-            line.enabled = true;
-        } else {
-            line.enabled = false;
-        }
-
+        
         if (mainTex && altTex) {
-            mat.mainTexture = expressionExpiration.expired ? mainTex : altTex;
-        }
-
-        if (spinMeRightRound > 0) {
-            float f = Mathf.Min(Time.deltaTime * 720, spinMeRightRound);
-
-            spinMeRightRound -= f;
-            transform.Rotate(0, 0, f);
-        } else {
-            transform.eulerAngles = new Vector3(0, 0, 180);
+            image.sprite = expressionExpiration.expired ? mainTex : altTex;
         }
 	}
 
-    public void Express() {
-        expressionExpiration.Set();
+    public void Win() {
+        anim.SetTrigger("Win");
     }
 
-    public void SpinMeRightRound() {
-        spinMeRightRound = 720;
+    public void SetSubmitted(bool value) {
+        anim.SetBool("Submitted", value);
+    }
+
+    public void Express() {
+        expressionExpiration.Set();
     }
 }

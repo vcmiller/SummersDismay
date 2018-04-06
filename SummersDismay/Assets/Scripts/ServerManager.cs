@@ -28,7 +28,14 @@ public class ServerManager : MonoBehaviour {
     public void Start() {
         server = new SimpleHTTPServer(path);
 
-        showURL.text = server.IP.Replace("\n", ":" + server.Port + "\n") + ":" + server.Port;
+        for (int i = 0; i < server.IPs.Count; i++) {
+            showURL.text += server.IPs[i];
+
+            if (i < server.IPs.Count - 1) {
+                showURL.text += "\n";
+            }
+        }
+
         showURLBG.sizeDelta = new Vector2(showURLBG.sizeDelta.x, 20 * (1 + showURL.text.Count((c) => c == '\n')));
         connectionInfo.SetActive(true);
         joinButton.SetActive(true);
