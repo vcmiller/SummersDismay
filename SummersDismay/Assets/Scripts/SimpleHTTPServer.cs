@@ -142,10 +142,12 @@ public class SimpleHTTPServer {
         while (true) {
             try {
                 HttpListenerContext context = _listener.GetContext();
-                Process(context);
-            } catch (Exception ex) {
-                UnityEngine.Debug.LogException(ex);
-            }
+                try {
+                    Process(context);
+                } catch (Exception ex) {
+                    UnityEngine.Debug.Log(ex);
+                }
+            } catch { }
         }
     }
 

@@ -39,6 +39,10 @@ public class PlayerIcon : MonoBehaviour {
         anim.SetTrigger("Win");
     }
 
+    public void Leave() {
+        anim.Play("PlayerLeave");
+    }
+
     public void SetSubmitted(bool value) {
         anim.SetBool("Submitted", value);
     }

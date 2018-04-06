@@ -294,14 +294,13 @@ public class GameManager : MonoBehaviour {
             }
 
             while (con.left || con.timeout.expired) {
-                Destroy(con.iconObject.GetComponent<Joint>());
-                Destroy(con.iconObject.GetComponent<Collider>());
+                con.iconObject.Leave();
                 Destroy(con.iconObject.gameObject, 10);
 
                 connectedPlayers.Remove(con);
 
                 for (int j = i; j < connectedPlayers.Count; j++) {
-                    connectedPlayers[i].iconObject.GetComponent<SpringJoint>().connectedAnchor += Vector3.left * 2;
+                    connectedPlayers[i].iconObject.transform.parent.GetComponent<RectTransform>().anchoredPosition += Vector2.left * 100;
                 }
 
                 if (i == curJudge || connectedPlayers.Count < 2) {
