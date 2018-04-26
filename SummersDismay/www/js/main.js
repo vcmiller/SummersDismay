@@ -1,13 +1,13 @@
 
-var start_nouns = ["thy mother", "thy child", "thy father", "thy pet", "a villain", "a hog", "a three-inch fool", "a coward",
-    "an icicle", "a Dutchman's beard", "the remaining biscuit after voyage", "a pound of broken meats", "ripe grapes", "a moonlight flit", "a tallow catch", "a lump of foul deformity"];
+var start_nouns = ["thy mother", "thy child", "thy father", "thy pet", "thy brother", "thy sister", "thy wife", "thy husband", "thy tongue", "thy imaginary friend", "thy face", "you", "thy ass"];
+var other_nouns = ["a villain", "a hog", "thy three-inch fool", "a coward", "an icicle", "a Dutchman's beard", "the remaining biscuit after voyage", "a pound of broken meats", "ripe grapes", "a moonlight flit", "a tallow catch", "a lump of foul deformity"];
 var verbs = ["is", "hast no more brain than", "has in their elbows", "is like", "may strike", "should lick", "tickles", "smells of", "sours", "butters"];
 var adjectives = ["rooting", "plague-sore", "rankest", "compound of", "much like a cheese", "saucy", "stewed", "tart-faced", "unnecessary", "clay-brained", "cream-faced"];
 adjectives = adjectives.map(function (t) { return "is " + t; });
 var interjectives = ["you elf-skin!", "you dried neat's-tongue!", "you stock-fish!", "ye fat guts!"];
 var conjoiners = ["and", "but", "and with", "and no less", "and shall be", "and they"];
 
-var bag_of_insults = shuffle(start_nouns.concat(start_nouns, verbs, verbs, adjectives, interjectives, conjoiners, conjoiners));
+var bag_of_insults = createBag();// shuffle(start_nouns.concat(start_nouns, verbs, verbs, adjectives, interjectives, conjoiners, conjoiners));
 var og_boi = [].concat(bag_of_insults);
 function shuffle(array) {
     var currentIndex = array.length, temporaryValue, randomIndex;
@@ -28,6 +28,30 @@ function shuffle(array) {
 
     return array;
 }
+
+function createBag() {
+    var ratio = (start_nouns.length + other_nouns.length) / (start_nouns.length + verbs.length + verbs.length + adjectives.length + interjectives.length + conjoiners.length + conjoiners.length);
+    start_nouns = shuffle(start_nouns);
+    var output = [start_nouns[0]];
+
+    var nounpool = start_nouns.slice(1).concat(shuffle(other_nouns));
+    var rest = verbs.concat(verbs,adjectives,interjectives,conjoiners,conjoiners);
+    rest = shuffle(rest);
+
+    do{
+        var randomToAdd = Math.floor(Math.random() * 3 + 2);
+        for(var i = 0 ; i < randomToAdd; i++){
+            if(rest.length === 0) break;
+            output.push(rest.pop());
+        }
+        output.push(nounpool.pop());
+    }while (nounpool.length > 0);
+
+    output = output.concat(rest);
+    return output;
+}
+
+
 function refreshBag() {
     if(bag_of_insults.length < 4){
         bag_of_insults = bag_of_insults.concat(shuffle(og_boi));
