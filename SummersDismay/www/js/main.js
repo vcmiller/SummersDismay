@@ -30,13 +30,14 @@ function shuffle(array) {
 }
 
 function createBag() {
-    start_nouns = shuffle(start_nouns);
+    shuffle(start_nouns);
     var output = [start_nouns[0]];
     console.log(output);
 
-    var nounpool = shuffle(start_nouns.slice(1).concat(other_nouns));
+    var nounpool = (start_nouns.slice(1).concat(other_nouns));
+    shuffle(nounpool);
     var rest = verbs.concat(verbs,adjectives,interjectives,conjoiners,conjoiners);
-    rest = shuffle(rest);
+    shuffle(rest);
 
     do{
         var randomToAdd = Math.floor(Math.random() * 3 + 2);
