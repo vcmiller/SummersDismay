@@ -1,11 +1,11 @@
 
-var start_nouns = ["thy mother", "thy child", "thy father", "thy pet", "thy brother", "thy sister", "thy wife", "thy husband", "thy tongue", "thy imaginary friend", "thy face", "you", "thy ass"];
+var start_nouns = ["thy mother", "thy child", "thy father", "thy pet", "thy brother", "thy sister", "thy wife", "thy husband", "thy tongue", "thy imaginary friend", "thy face", "your being", "thy ass"];
 var other_nouns = ["a villain", "a hog", "thy three-inch fool", "a coward", "an icicle", "a Dutchman's beard", "the remaining biscuit after voyage", "a pound of broken meats", "ripe grapes", "a moonlight flit", "a tallow catch", "a lump of foul deformity"];
-var verbs = ["is", "hast no more brain than", "has in their elbows", "is like", "may strike", "should lick", "tickles", "smells of", "sours", "butters"];
-var adjectives = ["rooting", "plague-sore", "rankest", "compound of", "much like a cheese", "saucy", "stewed", "tart-faced", "unnecessary", "clay-brained", "cream-faced"];
+var verbs = ["is", "hast no more brain than", "has in their elbows", "is like", "may strike", "should lick", "tickles", "smells of", "sours", "butters", "fears", "regrets", "runs through"];
+var adjectives = ["rooting", "plague-sore", "unrefined", "rankest", "compounded", "confounded", "much like a cheese", "saucy", "stewed", "tart-faced", "unnecessary", "clay-brained", "cream-faced", "hornswoggled"];
 adjectives = adjectives.map(function (t) { return "is " + t; });
 var interjectives = ["you elf-skin!", "you dried neat's-tongue!", "you stock-fish!", "ye fat guts!"];
-var conjoiners = ["and", "but", "and with", "and no less", "and shall be", "and they"];
+var conjoiners = ["and", "but", "and with", "and no less", "and shall be", "and they", "in the way of"];
 
 var bag_of_insults = createBag();// shuffle(start_nouns.concat(start_nouns, verbs, verbs, adjectives, interjectives, conjoiners, conjoiners));
 var og_boi = [].concat(bag_of_insults);
@@ -40,7 +40,7 @@ function createBag() {
     shuffle(rest);
 
     do{
-        var randomToAdd = Math.floor(Math.random() * 3 + 2);
+        var randomToAdd = Math.floor(Math.random() * 3 + 1);
         for(var i = 0 ; i < randomToAdd; i++){
             if(rest.length === 0) break;
             output.push(rest.pop());
