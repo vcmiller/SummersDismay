@@ -231,5 +231,5 @@ function startGame() {
 }
 
 function die() {
-    window.location.href = window.location.protocol + "//" + window.location.host + "/dunwich/game.html";
+    window.location.href = "https://www.google.com";
 }
