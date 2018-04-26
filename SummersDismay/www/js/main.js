@@ -30,11 +30,11 @@ function shuffle(array) {
 }
 
 function createBag() {
-    var ratio = (start_nouns.length + other_nouns.length) / (start_nouns.length + verbs.length + verbs.length + adjectives.length + interjectives.length + conjoiners.length + conjoiners.length);
     start_nouns = shuffle(start_nouns);
     var output = [start_nouns[0]];
+    console.log(output);
 
-    var nounpool = start_nouns.slice(1).concat(shuffle(other_nouns));
+    var nounpool = shuffle(start_nouns.slice(1).concat(other_nouns));
     var rest = verbs.concat(verbs,adjectives,interjectives,conjoiners,conjoiners);
     rest = shuffle(rest);
 
@@ -46,6 +46,7 @@ function createBag() {
         }
         output.push(nounpool.pop());
     }while (nounpool.length > 0);
+    console.log(output);
 
     output = output.concat(rest);
     return output;
