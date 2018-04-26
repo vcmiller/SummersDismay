@@ -148,7 +148,7 @@ public class GameManager : MonoBehaviour {
 
             if (winner == null) {
                 do {
-                    winner = connectedPlayers[UnityEngine.Random.Range(0, connectedPlayers.Count)];
+                    winner = connectedPlayers[new System.Random().Next(connectedPlayers.Count)];
                 } while (winner == connectedPlayers[curJudge]);
             }
 
