@@ -129,7 +129,7 @@ public class GameManager : MonoBehaviour {
                         playerInfo.left = true;
                     }
 
-                    if (!isJudge && insulting && payload.insult != null && payload.insult.Length > 0) {
+                    if (!isJudge && insulting && (playerInfo.receivedInsult == null || playerInfo.receivedInsult.Length == 0)) {
                         playerInfo.receivedInsult = payload.insult;
                     } else if (isJudge && voting && winner == null && payload.vote != null && payload.vote.Length > 0) {
                         winner = GetPlayerInfo(payload.vote);
@@ -139,6 +139,8 @@ public class GameManager : MonoBehaviour {
             } catch (Exception ex) {
                 UnityEngine.Debug.Log(ex);
             }
+
+            response.insulted = playerInfo.receivedInsult != null && playerInfo.receivedInsult.Length > 0;
         }
 
         response.running = insulting || voting || roundOver;
@@ -233,6 +235,7 @@ public class GameManager : MonoBehaviour {
         public string name;
         public int role;
         public string judge;
+        public bool insulted;
         public bool voted;
         public bool running;
         public Insult[] insults;
@@ -304,7 +307,7 @@ public class GameManager : MonoBehaviour {
                 connectedPlayers.RemoveAt(i);
 
                 for (int j = i; j < connectedPlayers.Count; j++) {
-                    connectedPlayers[i].iconObject.transform.parent.GetComponent<RectTransform>().anchoredPosition += Vector2.left * 100;
+                    connectedPlayers[j].iconObject.transform.parent.GetComponent<RectTransform>().anchoredPosition += Vector2.left * 100;
                 }
 
                 if (i == curJudge || connectedPlayers.Count < 2) {
@@ -314,13 +317,19 @@ public class GameManager : MonoBehaviour {
                     insulting = connectedPlayers.Count > 1;
                     timer.gameObject.SetActive(false);
                     return;
-                } else {
+                } else if (i < connectedPlayers.Count - 1) {
                     con = connectedPlayers[i];
 
                     if (curJudge > i) {
                         curJudge--;
                     }
+                } else {
+                    break;
                 }
+            }
+
+            if (con == null) {
+                continue;
             }
 
             if (!con.iconObject) {
@@ -338,13 +347,13 @@ public class GameManager : MonoBehaviour {
                 var r = con.insultViewObject.GetComponent<RectTransform>();
                 var r2 = con.insultViewObject.GetComponentInChildren<Text>().rectTransform;
 
-                r.sizeDelta = new Vector2(0, Mathf.Min(r2.rect.height + 10, 100));
+                r.sizeDelta = new Vector2(0, r2.rect.height + 10);
             }
 
             string text = con.name;
             if (insulting) {
                 if (curJudge == i) {
-                    text += "\njudge";
+                    text += "\nvictim";
                 } else if (con.receivedInsult != null) {
                     text += "\nready!";
                 } else {
@@ -378,7 +387,11 @@ public class GameManager : MonoBehaviour {
                     if (c.receivedInsult != null && c.receivedInsult.Length > 0) {
                         var t = Instantiate(insultViewPrefab).GetComponent<RectTransform>();
                         var t2 = t.GetComponentInChildren<Text>();
-                        t2.text = c.receivedInsult + "\n\t-" + c.name;
+                        t2.text = c.receivedInsult;
+
+                        if (t2.text.Length > 300) {
+                            t2.text = t2.text.Substring(0, 300) + "...";
+                        }
 
                         InsultStacc.inst.Push(t);
                         c.insultViewObject = t.gameObject;

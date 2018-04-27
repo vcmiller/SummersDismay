@@ -1,10 +1,70 @@
 
-var start_nouns = ["thy mother", "thy child", "thy father", "thy pet", "thy brother", "thy sister", "thy wife", "thy husband", "thy tongue", "thy imaginary friend", "thy face", "you", "thy ass"];
-var other_nouns = ["a villain", "a hog", "thy three-inch fool", "a coward", "an icicle", "a Dutchman's beard", "the remaining biscuit after voyage", "a pound of broken meats", "ripe grapes", "a moonlight flit", "a tallow catch", "a lump of foul deformity"];
-var verbs = ["is", "hast no more brain than", "has in their elbows", "is like", "may strike", "should lick", "tickles", "smells of", "sours", "butters"];
-var isAdjectives = ["is rooting", "is plague-sore", "is rankest", "is compound of", "is much like a cheese", "is saucy", "is stewed", "is tart-faced", "is unnecessary", "is clay-brained", "is cream-faced"];
-var interjectives = ["you elf-skin!", "you dried neat's-tongue!", "you stock-fish!", "ye fat guts!"];
-var conjoiners = ["and", "but", "and with", "and no less", "and shall be", "and they"];
+var pre_nouns = [
+    "the tartness of", "the owner of", "the face of",
+    "the likeness of", "the company of", "a friend of",
+    "plenty of", "more of", "as much brain as", "the cap of",
+    "the garden of", "such a deal of", "the rankness of", "any but"
+]
+
+var start_nouns = [
+    "thy mother", "thy child", "thy father",
+    "thy pet", "thy brother", "thy sister",
+    "thy wife", "thy husband", "thy tongue", "thy lover", "thy wit",
+    "thy imaginary friend", "thy face", "thy person",
+    "thy ass", "thy friend", "thy brain", "your conversation", "none but thine self"
+];
+
+var other_nouns = [
+    "a villain", "a hog", "thy three-inch fool",
+    "a coward", "an icicle", "a Dutchman's beard",
+    "the remaining biscuit after voyage",
+    "a pound of broken meats", "ripe grapes",
+    "a moonlight flit", "a tallow catch",
+    "a lump of foul deformity", "a Tewkesbury mustard",
+    "a flesh-monger", "a mountain goat", "the king",
+    "a worm of Nile", "ear-wax", "a cheese",
+    "a rare parrot-teacher", "a weasel", "an easy glove",
+    "mites", "pudding", "a roasted Manningtree ox", "a flea",
+    "a worsted-stocking knave"
+];
+
+var verbs = [
+    "is", "hast no more brain than", "has in their elbows",
+    "is like", "may strike", "should lick", "tickles",
+    "smells of", "sours", "butters", "is as thick as",
+    "sours ripe grapes", "is as fat as", "is as loathsome as",
+    "is unfit for", "outvenoms", "has done", "enjoys",
+    "prefers", "is as dry as", "has known", "is as saucy as",
+    "has seen", "is not worth", "desires", "believes that", "is much like",
+    "is as", "has trodden in", "does wish that", "hath not",
+    "hath", "hath no more hair than", "doth look upon",
+    "hath infected", "breeds", "is unfit for"
+];
+
+var isAdjectives = [
+    "is rooting", "is plague-sore", "is rankest",
+    "is compound of", "is much like",
+    "is saucy", "is stewed", "is tart-faced",
+    "is unnecessary", "is clay-brained", "is cream-faced",
+    "is pigeon-liver’d", "is not for all markets",
+    "is beef-witted", "is ill-breading", "is half-faced",
+    "sodden-witted", "is festering", "is lily-liver’d", "is incontinent"
+];
+
+var interjectives = [
+    "thou elf-skin!", "thou dried neat's-tongue!",
+    "thou stock-fish!", "thou fat guts!", "thou scoundrel!",
+    "thou froward and unable worm!", "thou poisonous bunch-backed toad!",
+    "thou beast!", "thou bolting-hutch of beastliness!", "thou huge bombard of sack!",
+    "thou obscene greasy tallow-catch!", "thou knotty-pated fool!", "thou foot-licker!",
+    "thou gudgeon!", "thou withered hag!", "thou artless barnicle!", "thou vile worm!"
+];
+
+var conjoiners = [
+    "and", "but", "and with", "and no less,",
+    "and shall be", "and he", "and she",
+    ", my lord,", "and furthermore,", ", nay,", "and yet"
+];
 
 var curState = null;
 var curOptions = [ ];
@@ -20,7 +80,7 @@ var states = [
     },
     { // 2
         words: verbs,
-        transitions: [ 0, 1 ],
+        transitions: [ 0, 1, 6 ],
     },
     { // 3
         words: isAdjectives,
@@ -28,26 +88,68 @@ var states = [
     },
     { // 4
         words: interjectives,
-        transitions: [ 5, 0, 1 ],
+        transitions: [ 5, 0, 1, 6 ],
     },
     { // 5
         words: conjoiners,
-        transitions: [ 0, 1, 3 ],
+        transitions: [ 0, 1, 2, 3, 6 ],
     },
+    { // 6
+        words: pre_nouns,
+        transitions: [ 0, 1, 6 ]
+    }
 ];
 
+function isOption(word) {
+    for (let i = 0; i < curOptions.length; i++) {
+        if (curOptions[i].word === word) {
+            return true;
+        }
+    }
 
+    return false;
+}
+
+function isSetOption(set) {
+    for (let i = 0; i < curOptions.length; i++) {
+        if (curOptions[i].set === set) {
+            return true;
+        }
+    }
+
+    return false;
+}
+
+function chooseSet() {
+    let set = -1;
+
+    do {
+        set = curState.transitions[Math.floor(Math.random() * curState.transitions.length)];
+    } while (isSetOption(set) && curState.transitions.length > curOptions.length);
+
+    return set;
+}
+
+function chooseWord(state) {
+    let word = "";
+
+    do {
+        word = state.words[Math.floor(Math.random() * state.words.length)];
+    } while (isOption(word));
+
+    return word;
+}
 
 function enterState(index) {
     curState = states[index];
     curOptions = [ ];
 
     for (var i = 0; i < 4; i++) {
-        var set = curState.transitions[i % curState.transitions.length];
+        var set = chooseSet();
 
         var destState = states[set];
 
-        var word = destState.words[Math.floor(Math.random() * destState.words.length)];
+        var word = chooseWord(destState);
         curOptions.push({ set: set, word: word });
     }
 
@@ -83,7 +185,7 @@ function updateOptionButtons() {
         magic.click(function () {
             rerolls.current--;
             $("#reroll_text").text("Rerolls: " + rerolls.current);
-            if (rerolls.current == 0) {
+            if (rerolls.current === 0) {
                 [1, 2, 3, 4].forEach(function (t) {
                     $("#magic_" + t).hide();
                 });
@@ -91,7 +193,7 @@ function updateOptionButtons() {
 
             var set = curState.transitions[Math.floor(Math.random() * curState.transitions.length)];
             curOptions[index].set = set;
-            curOptions[index].word = states[set].words[Math.floor(Math.random() * states[set].words.length)];
+            curOptions[index].word = chooseWord(states[set]);
 
             updateOptionButtons();
         });
@@ -119,7 +221,8 @@ function shuffle(array) {
 }
 
 var sentence = "";
-var rerolls = {current:3, max:3};
+var rerolls = { current: 3, max: 3 };
+var prevRoll = 0;
 
 //HTTP Shit
 
@@ -151,7 +254,7 @@ function getUpdateUrl() {
 function httpPostAsync(theUrl, callback, params) {
     var xmlHttp = new XMLHttpRequest();
     xmlHttp.onreadystatechange = function () {
-        if (xmlHttp.readyState == 4 && xmlHttp.status == 200)
+        if (xmlHttp.readyState === 4 && xmlHttp.status === 200)
             callback(xmlHttp.responseText);
     }
     xmlHttp.open("POST", theUrl, true);
@@ -171,18 +274,24 @@ function showUpdateResponse(text) {
     if (json) {
         document.getElementById("show_name").innerHTML = json.name;
 
-        if (json.role == 0) {
-            roleP.innerHTML = "Judge: " + json.judge;
-            insultDiv.style.display = "block";
-        } else if (json.role == 1) {
-            roleP.innerHTML = "Judge: YOU";
+        if (json.role === 0) {
+            roleP.innerHTML = "Victim: " + json.judge;
+            insultDiv.style.display = json.insulted ? "none" : "block";
+
+            if (prevRoll !== 0) {
+                enterState(2);
+            }
+
+        } else if (json.role === 1) {
+            roleP.innerHTML = "Victim: YOU";
             insultDiv.style.display = "none";
         } else {
             roleP.innerHTML = "(In audience)";
             insultDiv.style.display = "none";
         }
 
-
+        prevRoll = json.role;
+        
         if(!json.running){
             roleP.innerHTML += "<br>Waiting for host to start game...<br>";
             insultDiv.style.display = "none";
@@ -192,21 +301,23 @@ function showUpdateResponse(text) {
             allInsultsDiv.innerHTML = "";
             insultDiv.style.display = "none";
 
-            if (json.winner.caster == "") {
+            if (json.winner.caster === "") {
 
-                if (json.role == 1) {
+                if (json.role === 1) {
                     allInsultsDiv.innerHTML += "<h3>Let's see how people really feel about you:</h3>";
                     //The voting UI
                     for (var i = 0; i < json.insults.length; i++) {
-                        if ((json.role == 0 || json.role == 1) && json.voted == false) {
-                            allInsultsDiv.innerHTML += "<p>" + json.insults[i].caster + " says: " + json.insults[i].content + "\t<button style=\"display:inline\" onclick=\"voteFor('" + json.insults[i].caster + "')\">Select</button></p>";
-                        } else {
-                            allInsultsDiv.innerHTML += "<p>" + json.insults[i].caster + " says: " + json.insults[i].content + "</p>";
+                        let insult = json.insults[i].content;
+                        if (insult && insult.length > 0) {
+                            if (json.voted === false) {
+                                allInsultsDiv.innerHTML += "<p>" + insult + "\t<button style=\"display:inline\" onclick=\"voteFor('" + json.insults[i].caster + "')\">Select</button></p>";
+                            } else {
+                                allInsultsDiv.innerHTML += "<p>" + json.insults[i].caster + " said: " + insult + "</p>";
+                            }
                         }
                     }
                 } else {
                     allInsultsDiv.innerHTML += "<h3>Let's see how people really feel about " + json.judge + ":</h3>";
-
                 }
             } else {
                 allInsultsDiv.innerHTML += "<h3>And the winner is...</h3>";
@@ -236,6 +347,8 @@ function sendInsult() {
     sentence = "";
     $("#sentence_display").text("");
     httpPostAsync(getUpdateUrl(), showUpdateResponse, JSON.stringify(obj));
+
+    enterState(2);
 }
 
 function clearInsult() {
