@@ -40,9 +40,9 @@ public class GameManager : MonoBehaviour {
         connectedPlayers = new List<ConnectedPlayer>();
         inst = this;
 
-        insultExpiration = new ExpirationTimer(120);
-        voteExpiration = new ExpirationTimer(60);
-        endExpiration = new ExpirationTimer(10);
+        insultExpiration = new ExpirationTimer(60);
+        voteExpiration = new ExpirationTimer(30);
+        endExpiration = new ExpirationTimer(5);
     }
 
     public void StartGame() {
@@ -73,11 +73,15 @@ public class GameManager : MonoBehaviour {
 
     public void HandleNewConnection(HttpListenerContext context) {
         string name = context.Request.QueryString.Get("name");
-        if (name.Length > 24) {
-            name = name.Substring(0, 24);
-        }
 
         if (name != null) {
+            name = name.Trim();
+            if (name.Length > 24) {
+                name = name.Substring(0, 24);
+            } else if (name.Length == 0) {
+                name = "blank";
+            }
+
             if (GetPlayerInfo(context.Request.RemoteEndPoint.Address) == null) {
                 int i = 2;
 
@@ -87,8 +91,8 @@ public class GameManager : MonoBehaviour {
                 }
 
                 connectedPlayers.Add(new ConnectedPlayer(actName, context.Request.RemoteEndPoint.Address));
-                
             }
+
             ServerManager.inst.server.WriteFileToContext(context, "game.html");
         } else {
             context.Response.StatusCode = (int)HttpStatusCode.BadRequest;
@@ -125,7 +129,7 @@ public class GameManager : MonoBehaviour {
                         playerInfo.left = true;
                     }
 
-                    if (!isJudge && insulting && (playerInfo.receivedInsult == null || playerInfo.receivedInsult.Length == 0)) {
+                    if (!isJudge && insulting && payload.insult != null && payload.insult.Length > 0) {
                         playerInfo.receivedInsult = payload.insult;
                     } else if (isJudge && voting && winner == null && payload.vote != null && payload.vote.Length > 0) {
                         winner = GetPlayerInfo(payload.vote);
@@ -295,9 +299,9 @@ public class GameManager : MonoBehaviour {
 
             while (con.left || con.timeout.expired) {
                 con.iconObject.Leave();
-                Destroy(con.iconObject.gameObject, 10);
+                Destroy(con.iconObject.transform.parent.gameObject, 10);
 
-                connectedPlayers.Remove(con);
+                connectedPlayers.RemoveAt(i);
 
                 for (int j = i; j < connectedPlayers.Count; j++) {
                     connectedPlayers[i].iconObject.transform.parent.GetComponent<RectTransform>().anchoredPosition += Vector2.left * 100;
@@ -312,6 +316,10 @@ public class GameManager : MonoBehaviour {
                     return;
                 } else {
                     con = connectedPlayers[i];
+
+                    if (curJudge > i) {
+                        curJudge--;
+                    }
                 }
             }
 
