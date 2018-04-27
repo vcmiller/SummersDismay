@@ -166,7 +166,15 @@ function updateOptionButtons() {
         button.text(word);
         button.off("click");
         button.click(function () {
-            sentence += word + " ";
+            let toAdd = word;
+
+            if (sentence.length === 0) {
+                toAdd = toAdd.charAt(0).toUpperCase() + toAdd.slice(1);
+            } else if (word.charAt(0) !== ",") {
+                toAdd = " " + toAdd;
+            }
+
+            sentence += toAdd;
             $("#sentence_display").text(sentence);
 
             rerolls.current = Math.min(rerolls.current + 1, rerolls.max);
