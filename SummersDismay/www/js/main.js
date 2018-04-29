@@ -14,7 +14,11 @@ var thy_nouns = [
 ];
 
 var solo_nouns = [
-    "thine self", "ripe_grapes", "the king", "mites", "pudding", 
+    "the king", "pudding", "the remaining_biscuit_after_voyage"
+];
+
+var obj_only_nouns = [
+    "ripe_grapes", "mites", "thine self", "thy children"
 ];
 
 var other_nouns = [
@@ -31,12 +35,11 @@ var other_nouns = [
 var trans_verbs = [
     "is", "hast no more brain than", "has in their elbows",
     "is like", "may strike", "should lick", "tickles",
-    "smells of", "sours", "butters", "is as thick as",
-    "is as fat as", "is as loathsome as",
+    "smells of", "is as thick as", "is as fat as", "is as loathsome as",
     "is unfit for", "outvenoms", "has done", "enjoys",
     "prefers", "is as dry as", "has known", "is as saucy as",
     "has seen", "is not worth", "desires", "believes that", "is much like",
-    "is as", "has trodden in", "does wish that", "hath not",
+    "has trodden in", "does wish for", "hath not",
     "hath", "hath no more hair than", "doth look upon",
     "hath infected", "is unfit for", "is much like", "is compound of", 
 ];
@@ -54,78 +57,227 @@ var adjectives = [
     "sodden-witted", "festering", "lily-liver’d", "incontinent"
 ];
 
-var interjectives = [
-    "thou elf-skin!", "thou dried neat's-tongue!",
-    "thou stock-fish!", "thou fat guts!", "thou scoundrel!",
-    "thou froward and unable worm!", "thou poisonous bunch-backed toad!",
-    "thou beast!", "thou bolting-hutch of beastliness!", "thou huge bombard of sack!",
-    "thou obscene greasy tallow-catch!", "thou knotty-pated fool!", "thou foot-licker!",
-    "thou gudgeon!", "thou withered hag!", "thou artless barnicle!", "thou vile worm!"
+var interject_adj = [
+    "dried", "fat", "froward", "unable", "poisonous",
+    "bunch-backed", "bolting", "huge", "obscene",
+    "greasy", "knotty-pated", "withered", "artless", "vile"
+];
+
+var interject_noun = [
+    "elf-skin", "neat's-tongue", "stock-fish", "guts",
+    "scoundrel", "worm", "toad", "beast", "hutch of beastliness",
+    "bombard of sack", "tallow-catch", "fool", "foot-licker",
+    "gudgeon", "hag", "barnicle", "worm"
 ];
 
 var conjoiners = [
-    "and", "but", "and with", "and no less,",
-    "and shall be", "and he", "and she",
-    ", my lord,", "and furthermore,", ", nay,", "and yet"
+    ", and", ", but", ", and no less,",
+    ", my lord,", ", and furthermore,", ", nay,", ", and yet, "
 ];
 
 var curState = null;
 var curOptions = [];
 
+var sentence = "";
+var stateHistory = [];
+var rerolls = { current: 3, max: 5 };
+
 function isVowel(ch) {
-    return ["a", "e", "i", "o", "u"].indexOf(ch.toLowerCase()) > 0;
+    return ["a", "e", "i", "o", "u"].indexOf(ch.toLowerCase()) >= 0;
 }
 
-let REG_NOUNS = 0;
-let POS_NOUNS = 1;
-let PRE_NOUNS = 2;
-let TRANS_VERBS = 3;
-let INTRANS_VERBS = 4;
-let ADJECTIVES = 5;
-let CONJOINERS = 6;
-let INTERJECTIVES = 7;
+function needsSpace(ch) {
+    return ["'", ","].indexOf(ch) < 0;
+}
+
+function toView(str) {
+    return str.replace(/_/g, " ");
+}
+
+function standardApply(sentence, word) {
+    let result = sentence;
+    if (sentence.length > 0 && needsSpace(word.charAt(0))) {
+        result += " ";
+    }
+
+    if (stateHistory.length === 0 || stateHistory[0] === INTERJECT_NOUN) {
+        word = word.charAt(0).toUpperCase() + word.substring(1);
+    }
+    result += word;
+    return result;
+}
+
+function mostRecentUsed(history, options) {
+    for (let i = 0; i < history.length; i++) {
+        let cur = history[i];
+        if (options.indexOf(cur) >= 0) {
+            return cur;
+        }
+    }
+
+    return -1;
+}
+
+function hist_mostRecentIs(options, desired) {
+    return function (history) {
+        return mostRecentUsed(history, options) === desired;
+    };
+}
+
+function hist_mostRecentOneOf(options, desired) {
+    return function (history) {
+        return desired.indexOf(mostRecentUsed(history, options)) >= 0;
+    };
+}
+
+function hist_not(func) {
+    return function (history) {
+        return !func(history);
+    };
+}
+
+let i = 0;
+
+let SUBJ_NOUNS = i++;
+let OBJ_NOUNS = i++;
+let POS_NOUNS = i++;
+let PRE_NOUNS = i++;
+let TRANS_VERBS = i++;
+let INTRANS_VERBS = i++;
+let ADJECTIVES = i++;
+let CONJOINERS = i++;
+let INTERJECT_START = i++;
+let INTERJECT_ADJ = i++;
+let INTERJECT_NOUN = i++;
 
 var states = [
-    { // 0 (regular nouns)
+    { // subject nouns
         words: solo_nouns.concat(
+            thy_nouns.concat(thy_nouns, thy_nouns).map(function (word) { return "thy " + word; }), // thy followed by thy noun
+            other_nouns.map(function (word) { return (isVowel(word.charAt(0)) ? "an " : "a ") + word; }) // article followed by other noun
+        ),
+        transitions: [
+            { to: POS_NOUNS },
+            { to: TRANS_VERBS },
+            { to: INTRANS_VERBS },
+            { to: ADJECTIVES }
+        ],
+        apply: standardApply
+    },
+    { // object nouns
+        words: solo_nouns.concat(
+            obj_only_nouns,
             thy_nouns.map(function (word) { return "thy " + word; }), // thy followed by thy noun
             other_nouns.map(function (word) { return (isVowel(word.charAt(0)) ? "an " : "a ") + word; }) // article followed by other noun
         ),
-        transitions: [ POS_NOUNS, TRANS_VERBS, INTRANS_VERBS, ADJECTIVES, CONJOINERS, INTERJECTIVES ],
+        transitions: [
+            { to: POS_NOUNS },
+            { to: ADJECTIVES },
+            { to: CONJOINERS },
+            { to: INTERJECT_START }
+        ],
+        apply: standardApply
     },
-    { // 1 (posessive nouns ('s followed by a noun))
+    { // posessive nouns ('s followed by a noun)
         words: thy_nouns.concat(other_nouns).map(function (word) { return "'s " + word; }),
-        transitions: [ POS_NOUNS, TRANS_VERBS, INTRANS_VERBS, ADJECTIVES, CONJOINERS, INTERJECTIVES ],
+        transitions: [
+            { to: TRANS_VERBS, valid: hist_mostRecentIs([SUBJ_NOUNS, OBJ_NOUNS], SUBJ_NOUNS) },
+            { to: INTRANS_VERBS, valid: hist_mostRecentIs([SUBJ_NOUNS, OBJ_NOUNS], SUBJ_NOUNS) },
+            { to: ADJECTIVES },
+            { to: CONJOINERS, valid: hist_mostRecentIs([SUBJ_NOUNS, OBJ_NOUNS], OBJ_NOUNS) },
+            { to: INTERJECT_START, valid: hist_mostRecentIs([SUBJ_NOUNS, OBJ_NOUNS], OBJ_NOUNS) }
+        ],
+        apply: standardApply
     },
-    { // 2 (pre-posessive nouns such as (the child of) or (none but)
+    { // pre-posessive nouns such as (the child of) or (none but)
         words: pre_nouns.concat(
+            pre_nouns,
+            pre_nouns,
+            pre_nouns,
             thy_nouns.map(function (word) { return "the " + word + " of"; })
         ),
-        transitions: [ PRE_NOUNS, REG_NOUNS ],
+        transitions: [
+            { to: SUBJ_NOUNS, valid: hist_not(hist_mostRecentIs([CONJOINERS, TRANS_VERBS, INTRANS_VERBS], TRANS_VERBS)) },
+            { to: OBJ_NOUNS, valid: hist_mostRecentIs([CONJOINERS, TRANS_VERBS, INTRANS_VERBS], TRANS_VERBS) },
+        ],
+        apply: standardApply
     },
-    { // 3 (transitive verbs)
+    { // transitive verbs
         words: trans_verbs,
-        transitions: [ PRE_NOUNS, REG_NOUNS ],
+        transitions: [
+            { to: PRE_NOUNS },
+            { to: OBJ_NOUNS }
+        ],
+        apply: standardApply
     },
-    { // 4 (intransitive verbs and is-adjectives)
+    { // intransitive verbs and is-adjectives
         words: intrans_verbs.concat(
+            intrans_verbs,
             adjectives.map(function (word) { return "is " + word })
         ),
-        transitions: [ CONJOINERS, INTERJECTIVES ],
+        transitions: [
+            { to: CONJOINERS },
+            { to: INTERJECT_START }
+        ],
+        apply: standardApply
     },
-    { // 5 (modifier adjectives)
+    { // modifier adjectives
         words: adjectives,
-        transitions: [ POS_NOUNS, TRANS_VERBS, INTRANS_VERBS, ADJECTIVES, CONJOINERS, INTERJECTIVES ],
+        apply: function (sentence, word) {
+            let insertPos = sentence.lastIndexOf(" ");
+            let before = sentence.substring(0, insertPos);
+            let after = sentence.substring(insertPos);
+
+            if (stateHistory[0] === ADJECTIVES) {
+                return before + ", " + word + after;
+            } else {
+                return before + " " + word + after;
+            }
+        },
         modifier: true,
     },
-    { // 6
+    { // 
         words: conjoiners,
-        transitions: [ PRE_NOUNS, REG_NOUNS, TRANS_VERBS, INTRANS_VERBS ],
+        transitions: [
+            { to: PRE_NOUNS },
+            { to: SUBJ_NOUNS },
+            { to: TRANS_VERBS },
+            { to: INTRANS_VERBS }
+        ],
+        apply: standardApply
     },
-    { // 7
-        words: interjectives,
-        transitions: [],
+    { // Interjective start
+        words: [ ", thou" ],
+        transitions: [
+            { to: INTERJECT_ADJ },
+            { to: INTERJECT_NOUN },
+        ],
+        apply: standardApply
     },
+    { // Interjective adjectives
+        words: adjectives.concat(interject_adj, interject_adj),
+        transitions: [
+            { to: INTERJECT_ADJ },
+            { to: INTERJECT_NOUN },
+        ],
+        apply: function (sentence, word) {
+            if (stateHistory[0] === INTERJECT_ADJ) {
+                sentence += ", ";
+            } else {
+                sentence += " ";
+            }
+
+            return sentence + word;
+        }
+    },
+    { // Interjective adjectives
+        words: other_nouns.concat(interject_noun, interject_noun).map(function (word) { return word + "!"; }),
+        transitions: [
+            { to: PRE_NOUNS },
+            { to: SUBJ_NOUNS },
+        ],
+        apply: standardApply
+    }
 ];
 
 function isOption(word) {
@@ -148,17 +300,56 @@ function isSetOption(set) {
     return false;
 }
 
+function validSets() {
+    let result = [];
+
+    for (let i = 0; i < curState.transitions.length; i++) {
+        let t = curState.transitions[i];
+        
+        if (!t.valid || (t.valid(stateHistory))) {
+            if (!t.weight) {
+                t.weight = 1.0;
+            };
+            result.push(t);
+        }
+    }
+
+    return result;
+}
+
 function chooseSet() {
     let set = -1;
+    let options = validSets();
+
+    let maxWeight = 0;
+
+    for (let i = 0; i < options.length; i++) {
+        maxWeight += options[i].weight;
+    }
 
     do {
-        set = curState.transitions[Math.floor(Math.random() * curState.transitions.length)];
-    } while (isSetOption(set) && curState.transitions.length > curOptions.length);
+        let rand = Math.random() * maxWeight;
+        let compound = 0;
+
+        for (let i = 0; i < options.length; i++) {
+            compound += options[i].weight;
+
+            if (rand <= compound) {
+                set = options[i].to;
+                break;
+            }
+        }
+
+    } while (isSetOption(set) && (options.length > curOptions.length || (states[set].words.length === 1)));
 
     return set;
 }
 
 function chooseWord(state) {
+    if (state.words.length === 1) {
+        return state.words[0];
+    }
+
     let word = "";
 
     do {
@@ -191,19 +382,20 @@ function updateOptionButtons() {
         var index = t - 1;
         var word = curOptions[index].word;
         var state = curOptions[index].set;
-        button.text(word);
+
+        var dispWord = word;
+        if (states[state].modifier) {
+            dispWord = "+ " + word;
+        }
+
+        button.text(toView(dispWord));
         button.off("click");
         button.click(function () {
             let toAdd = word;
 
-            if (sentence.length === 0) {
-                toAdd = toAdd.charAt(0).toUpperCase() + toAdd.slice(1);
-            } else if (word.charAt(0) !== ",") {
-                toAdd = " " + toAdd;
-            }
-
-            sentence += toAdd;
-            $("#sentence_display").text(sentence);
+            sentence = states[state].apply(sentence, word);
+            stateHistory.unshift(state);
+            $("#sentence_display").text(toView(sentence));
 
             rerolls.current = Math.min(rerolls.current + 1, rerolls.max);
             $("#reroll_text").text("Rerolls: " + rerolls.current);
@@ -211,8 +403,11 @@ function updateOptionButtons() {
                 $("#magic_" + t).show();
             });
 
-            console.log(state);
-            enterState(state);
+            if (states[state].modifier) {
+                reroll(index);
+            } else {
+                enterState(state);
+            }
         });
 
         var magic = $("#magic_" + t);
@@ -227,13 +422,20 @@ function updateOptionButtons() {
                 });
             }
 
-            var set = curState.transitions[Math.floor(Math.random() * curState.transitions.length)];
-            curOptions[index].set = set;
-            curOptions[index].word = chooseWord(states[set]);
-
-            updateOptionButtons();
+            reroll(index);
         });
     });
+}
+
+function reroll(index) {
+    curOptions.splice(index, 1);
+
+    var set = chooseSet();
+    curOptions.push({
+        set: set, word: chooseWord(states[set])
+    });
+
+    updateOptionButtons();
 }
 
 function shuffle(array) {
@@ -256,9 +458,6 @@ function shuffle(array) {
     return array;
 }
 
-var sentence = "";
-var rerolls = { current: 3, max: 3 };
-var prevRoll = 0;
 
 //HTTP Shit
 
@@ -313,10 +512,7 @@ function showUpdateResponse(text) {
         if (json.role === 0) {
             roleP.innerHTML = "Victim: " + json.judge;
             insultDiv.style.display = json.insulted ? "none" : "block";
-
-            if (prevRoll !== 0) {
-                enterState(2);
-            }
+            
 
         } else if (json.role === 1) {
             roleP.innerHTML = "Victim: YOU";
@@ -325,8 +521,7 @@ function showUpdateResponse(text) {
             roleP.innerHTML = "(In audience)";
             insultDiv.style.display = "none";
         }
-
-        prevRoll = json.role;
+        
         
         if(!json.running){
             roleP.innerHTML += "<br>Waiting for host to start game...<br>";
@@ -377,19 +572,19 @@ function voteFor(person) {
 function sendInsult() {
     var obj = {
         // insult: document.getElementById("enter_insult").value
-        insult: sentence
+        insult: toView(sentence)
     };
 
-    sentence = "";
-    $("#sentence_display").text("");
+    clearInsult();
     httpPostAsync(getUpdateUrl(), showUpdateResponse, JSON.stringify(obj));
 
-    enterState(2);
 }
 
 function clearInsult() {
     sentence = "";
+    stateHistory = [];
     $("#sentence_display").text("");
+    enterState(INTERJECT_NOUN);
 }
 
 function startGame() {
@@ -398,7 +593,7 @@ function startGame() {
         httpPostAsync(getUpdateUrl(), showUpdateResponse, null);
     }, 1000);
 
-    enterState(2);
+    clearInsult();
 }
 
 function die() {
