@@ -17,11 +17,9 @@ var solo_nouns = [
     "thine self", "ripe_grapes", "the king", "mites", "pudding", 
 ];
 
-// Dutchman's
-// Roasted
 var other_nouns = [
     "villain", "hog", "coward", "icicle", "beard",
-    "pound_of_broken_meats",
+    "pound_of_broken_meats", "Dutchman",
     "moonlight_flit", "tallow_catch",
     "lump_of_foul_deformity", "Tewkesbury_mustard",
     "flesh-monger", "mountain_goat",
@@ -51,7 +49,7 @@ var adjectives = [
     "rooting", "plague-sore", "rankest",
     "saucy", "stewed", "tart-faced",
     "unnecessary", "clay-brained", "cream-faced",
-    "pigeon-liver’d",
+    "pigeon-liver’d", "roasted",
     "beef-witted", "ill-breading", "half-faced",
     "sodden-witted", "festering", "lily-liver’d", "incontinent"
 ];
