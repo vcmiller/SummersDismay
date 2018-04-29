@@ -37,13 +37,13 @@ var verbs = [
     "prefers", "is as dry as", "has known", "is as saucy as",
     "has seen", "is not worth", "desires", "believes that", "is much like",
     "is as", "has trodden in", "does wish that", "hath not",
-    "hath", "hath no more hair than", "doth look upon",
-    "hath infected", "breeds", "is unfit for"
+	"hath", "hath no more hair than", "doth look upon", "is much like",
+	"hath infected", "breeds", "is unfit for",
+	"is compound of"
 ];
 
 var isAdjectives = [
     "is rooting", "is plague-sore", "is rankest",
-    "is compound of", "is much like",
     "is saucy", "is stewed", "is tart-faced",
     "is unnecessary", "is clay-brained", "is cream-faced",
     "is pigeon-liver’d", "is not for all markets",
