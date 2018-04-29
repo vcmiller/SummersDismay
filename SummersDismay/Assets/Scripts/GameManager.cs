@@ -131,7 +131,7 @@ public class GameManager : MonoBehaviour {
 
                     if (!isJudge && insulting && (playerInfo.receivedInsult == null || playerInfo.receivedInsult.Length == 0)) {
                         playerInfo.receivedInsult = payload.insult;
-                    } else if (isJudge && voting && winner == null && payload.vote != null && payload.vote.Length > 0) {
+                    } else if (isJudge && voting && winner == null && payload.vote > 0) {
                         winner = GetPlayerInfo(payload.vote);
                         winner.wins++;
                     }
@@ -216,6 +216,7 @@ public class GameManager : MonoBehaviour {
                 var ins = new Insult();
                 ins.caster = p.name;
                 ins.content = p.receivedInsult;
+                ins.casterID = p.id;
                 insults.Add(ins);
             }
         }
@@ -226,7 +227,7 @@ public class GameManager : MonoBehaviour {
     [Serializable]
     public class UpdatePayload {
         public string insult;
-        public string vote;
+        public int vote;
         public bool leaving;
     }
 
@@ -245,6 +246,7 @@ public class GameManager : MonoBehaviour {
     [Serializable]
     public class Insult {
         public string caster;
+        public int casterID;
         public string content;
     }
 
@@ -261,6 +263,16 @@ public class GameManager : MonoBehaviour {
     public ConnectedPlayer GetPlayerInfo(string name) {
         foreach (var info in connectedPlayers) {
             if (info.name == name) {
+                return info;
+            }
+        }
+
+        return null;
+    }
+
+    public ConnectedPlayer GetPlayerInfo(int id) {
+        foreach (var info in connectedPlayers) {
+            if (info.id == id) {
                 return info;
             }
         }

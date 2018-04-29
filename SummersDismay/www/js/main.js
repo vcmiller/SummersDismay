@@ -1,54 +1,59 @@
 
 var pre_nouns = [
-    "the tartness of", "the owner of", "the face of",
-    "the likeness of", "the company of", "a friend of",
+    "the owner of", "a friend of",
     "plenty of", "more of", "as much brain as", "the cap of",
-    "the garden of", "such a deal of", "the rankness of", "any but"
+    "such a deal of", "any but", "none but"
 ]
 
-var start_nouns = [
-    "thy mother", "thy child", "thy father",
-    "thy pet", "thy brother", "thy sister",
-    "thy wife", "thy husband", "thy tongue", "thy lover", "thy wit",
-    "thy imaginary friend", "thy face", "thy person",
-    "thy ass", "thy friend", "thy brain", "your conversation", "none but thine self"
+var thy_nouns = [
+    "mother", "child", "father", "company", "likeness", "tartness",
+    "pet", "brother", "sister", "face", "rankness",
+    "wife", "husband", "tongue", "lover", "wit",
+    "imaginary_friend", "face", "person", "three-inch_fool",
+    "ass", "friend", "brain", "conversation", "garden"
 ];
 
+var solo_nouns = [
+    "thine self", "ripe_grapes", "the king", "mites", "pudding", 
+];
+
+// Dutchman's
+// Roasted
 var other_nouns = [
-    "a villain", "a hog", "thy three-inch fool",
-    "a coward", "an icicle", "a Dutchman's beard",
-    "the remaining biscuit after voyage",
-    "a pound of broken meats", "ripe grapes",
-    "a moonlight flit", "a tallow catch",
-    "a lump of foul deformity", "a Tewkesbury mustard",
-    "a flesh-monger", "a mountain goat", "the king",
-    "a worm of Nile", "ear-wax", "a cheese",
-    "a rare parrot-teacher", "a weasel", "an easy glove",
-    "mites", "pudding", "a roasted Manningtree ox", "a flea",
-    "a worsted-stocking knave"
+    "villain", "hog", "coward", "icicle", "beard",
+    "pound_of_broken_meats",
+    "moonlight_flit", "tallow_catch",
+    "lump_of_foul_deformity", "Tewkesbury_mustard",
+    "flesh-monger", "mountain_goat",
+    "worm_of_Nile", "ear-wax", "cheese",
+    "parrot-teacher", "weasel", "glove",
+    "Manningtree_ox", "flea", "knave"
 ];
 
-var verbs = [
+var trans_verbs = [
     "is", "hast no more brain than", "has in their elbows",
     "is like", "may strike", "should lick", "tickles",
     "smells of", "sours", "butters", "is as thick as",
-    "sours ripe grapes", "is as fat as", "is as loathsome as",
+    "is as fat as", "is as loathsome as",
     "is unfit for", "outvenoms", "has done", "enjoys",
     "prefers", "is as dry as", "has known", "is as saucy as",
     "has seen", "is not worth", "desires", "believes that", "is much like",
     "is as", "has trodden in", "does wish that", "hath not",
     "hath", "hath no more hair than", "doth look upon",
-    "hath infected", "breeds", "is unfit for"
+    "hath infected", "is unfit for", "is much like", "is compound of", 
 ];
 
-var isAdjectives = [
-    "is rooting", "is plague-sore", "is rankest",
-    "is compound of", "is much like",
-    "is saucy", "is stewed", "is tart-faced",
-    "is unnecessary", "is clay-brained", "is cream-faced",
-    "is pigeon-liver’d", "is not for all markets",
-    "is beef-witted", "is ill-breading", "is half-faced",
-    "sodden-witted", "is festering", "is lily-liver’d", "is incontinent"
+var intrans_verbs = [
+    "sours ripe grapes", "is not for all markets",
+]
+
+var adjectives = [
+    "rooting", "plague-sore", "rankest",
+    "saucy", "stewed", "tart-faced",
+    "unnecessary", "clay-brained", "cream-faced",
+    "pigeon-liver’d",
+    "beef-witted", "ill-breading", "half-faced",
+    "sodden-witted", "festering", "lily-liver’d", "incontinent"
 ];
 
 var interjectives = [
@@ -67,37 +72,62 @@ var conjoiners = [
 ];
 
 var curState = null;
-var curOptions = [ ];
+var curOptions = [];
+
+function isVowel(ch) {
+    return ["a", "e", "i", "o", "u"].indexOf(ch.toLowerCase()) > 0;
+}
+
+let REG_NOUNS = 0;
+let POS_NOUNS = 1;
+let PRE_NOUNS = 2;
+let TRANS_VERBS = 3;
+let INTRANS_VERBS = 4;
+let ADJECTIVES = 5;
+let CONJOINERS = 6;
+let INTERJECTIVES = 7;
 
 var states = [
-    { // 0
-        words: start_nouns,
-        transitions: [ 2, 3, 4, 5 ],
+    { // 0 (regular nouns)
+        words: solo_nouns.concat(
+            thy_nouns.map(function (word) { return "thy " + word; }), // thy followed by thy noun
+            other_nouns.map(function (word) { return (isVowel(word.charAt(0)) ? "an " : "a ") + word; }) // article followed by other noun
+        ),
+        transitions: [ POS_NOUNS, TRANS_VERBS, INTRANS_VERBS, ADJECTIVES, CONJOINERS, INTERJECTIVES ],
     },
-    { // 1
-        words: other_nouns,
-        transitions: [ 2, 3, 4, 5 ],
+    { // 1 (posessive nouns ('s followed by a noun))
+        words: thy_nouns.concat(other_nouns).map(function (word) { return "'s " + word; }),
+        transitions: [ POS_NOUNS, TRANS_VERBS, INTRANS_VERBS, ADJECTIVES, CONJOINERS, INTERJECTIVES ],
     },
-    { // 2
-        words: verbs,
-        transitions: [ 0, 1, 6 ],
+    { // 2 (pre-posessive nouns such as (the child of) or (none but)
+        words: pre_nouns.concat(
+            thy_nouns.map(function (word) { return "the " + word + " of"; })
+        ),
+        transitions: [ PRE_NOUNS, REG_NOUNS ],
     },
-    { // 3
-        words: isAdjectives,
-        transitions: [ 4, 5 ],
+    { // 3 (transitive verbs)
+        words: trans_verbs,
+        transitions: [ PRE_NOUNS, REG_NOUNS ],
     },
-    { // 4
-        words: interjectives,
-        transitions: [ 5, 0, 1, 6 ],
+    { // 4 (intransitive verbs and is-adjectives)
+        words: intrans_verbs.concat(
+            adjectives.map(function (word) { return "is " + word })
+        ),
+        transitions: [ CONJOINERS, INTERJECTIVES ],
     },
-    { // 5
-        words: conjoiners,
-        transitions: [ 0, 1, 2, 3, 6 ],
+    { // 5 (modifier adjectives)
+        words: adjectives,
+        transitions: [ POS_NOUNS, TRANS_VERBS, INTRANS_VERBS, ADJECTIVES, CONJOINERS, INTERJECTIVES ],
+        modifier: true,
     },
     { // 6
-        words: pre_nouns,
-        transitions: [ 0, 1, 6 ]
-    }
+        words: conjoiners,
+        transitions: [ PRE_NOUNS, REG_NOUNS, TRANS_VERBS, INTRANS_VERBS ],
+    },
+    { // 7
+        words: interjectives,
+        transitions: [],
+    },
 ];
 
 function isOption(word) {
@@ -318,7 +348,7 @@ function showUpdateResponse(text) {
                         let insult = json.insults[i].content;
                         if (insult && insult.length > 0) {
                             if (json.voted === false) {
-                                allInsultsDiv.innerHTML += "<p>" + insult + "\t<button style=\"display:inline\" onclick=\"voteFor('" + json.insults[i].caster + "')\">Select</button></p>";
+                                allInsultsDiv.innerHTML += "<p>" + insult + "\t<button style=\"display:inline\" onclick=\"voteFor('" + json.insults[i].casterID + "')\">Select</button></p>";
                             } else {
                                 allInsultsDiv.innerHTML += "<p>" + json.insults[i].caster + " said: " + insult + "</p>";
                             }
