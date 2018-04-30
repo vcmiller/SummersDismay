@@ -197,8 +197,8 @@ var states = [
             thy_nouns.map(function (word) { return "the " + word + " of"; })
         ),
         transitions: [
-            { to: SUBJ_NOUNS, valid: hist_not(hist_mostRecentIs([CONJOINERS, TRANS_VERBS, INTRANS_VERBS], TRANS_VERBS)) },
-            { to: OBJ_NOUNS, valid: hist_mostRecentIs([CONJOINERS, TRANS_VERBS, INTRANS_VERBS], TRANS_VERBS) },
+            { to: SUBJ_NOUNS, valid: hist_not(hist_mostRecentIs([CONJOINERS, TRANS_VERBS, INTRANS_VERBS, INTERJECT_START], TRANS_VERBS)) },
+            { to: OBJ_NOUNS, valid: hist_mostRecentIs([CONJOINERS, TRANS_VERBS, INTRANS_VERBS, INTERJECT_START], TRANS_VERBS) },
         ],
         apply: standardApply
     },

@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,9 +11,9 @@ using UnityEngine;
 using UnityEngine.UI;
 using SBR;
 
-public class GameManager : GameManagerSM {
+public class GameManagerOld : MonoBehaviour {
     public int curJudge { get; private set; }
-    public static GameManager inst { get; private set; }
+    public static GameManagerOld inst { get; private set; }
 
     public GameObject playerIconPrefab;
     public GameObject insultViewPrefab;
@@ -25,9 +25,7 @@ public class GameManager : GameManagerSM {
 
     private int nextIcon;
     private ConnectedPlayer winner;
-    private bool startSignal;
-    private bool quitSignal;
-
+    private bool voting, insulting, roundOver;
     private ExpirationTimer insultExpiration;
     private ExpirationTimer voteExpiration;
     private ExpirationTimer endExpiration;
@@ -38,10 +36,7 @@ public class GameManager : GameManagerSM {
 
     public List<ConnectedPlayer> connectedPlayers { get; private set; }
 
-    public void Awake() {
-        Initialize();
-        enabled = true;
-
+    private void Awake() {
         connectedPlayers = new List<ConnectedPlayer>();
         inst = this;
 
@@ -50,12 +45,11 @@ public class GameManager : GameManagerSM {
         endExpiration = new ExpirationTimer(5);
     }
 
-    void Update() {
-        GetInput();
-    }
-
     public void StartGame() {
-        startSignal = true;
+        if (!(insulting || voting || roundOver)) {
+            timer.gameObject.SetActive(true);
+            insulting = true;
+        }
     }
 
     public static string ToRoman(int number) {
@@ -123,7 +117,7 @@ public class GameManager : GameManagerSM {
             response.judge = judgeInfo.name;
             response.role = isJudge ? 1 : 0;
             response.voted = winner != null;
-
+            
             try {
                 var strm = context.Request.InputStream;
                 var reader = new StreamReader(strm, context.Request.ContentEncoding);
@@ -135,9 +129,9 @@ public class GameManager : GameManagerSM {
                         playerInfo.left = true;
                     }
 
-                    if (!isJudge && state == StateID.Insulting && (playerInfo.receivedInsult == null || playerInfo.receivedInsult.Length == 0)) {
+                    if (!isJudge && insulting && (playerInfo.receivedInsult == null || playerInfo.receivedInsult.Length == 0)) {
                         playerInfo.receivedInsult = payload.insult;
-                    } else if (isJudge && state == StateID.Voting && winner == null && payload.vote > 0) {
+                    } else if (isJudge && voting && winner == null && payload.vote > 0) {
                         winner = GetPlayerInfo(payload.vote);
                         winner.wins++;
                     }
@@ -149,13 +143,13 @@ public class GameManager : GameManagerSM {
             response.insulted = playerInfo.receivedInsult != null && playerInfo.receivedInsult.Length > 0;
         }
 
-        response.running = state != StateID.Waiting;
+        response.running = insulting || voting || roundOver;
 
-        if (state == StateID.Insulting) {
+        if (insulting) {
 
-        } else if (state == StateID.Voting) {
+        } else if (voting) {
             response.insults = GetInsultsArray();
-        } else if (state == StateID.PostGame) {
+        } else if (roundOver) {
             response.insults = GetInsultsArray();
 
             if (winner == null) {
@@ -172,66 +166,15 @@ public class GameManager : GameManagerSM {
         ServerManager.inst.server.WriteJsonToContext(context, response);
     }
 
-    protected override void State_Waiting() {
-        startGameButton.interactable = connectedPlayers.Count >= 2;
-        curJudge = 0;
-    }
-
-    protected override bool TransitionCond_Waiting_Insulting() {
-        return startSignal && connectedPlayers.Count >= 2;
-    }
-
-    protected override bool TransitionCond_Running_Waiting() {
-        return quitSignal || connectedPlayers.Count < 2;
-    }
-
-    protected override void StateEnter_Running() {
-        startGameButton.interactable = false;
-        timer.gameObject.SetActive(true);
-        startSignal = false;
-    }
-
-    protected override void State_Running() {
-        if (quitSignal) return;
-
-        foreach (var con in connectedPlayers) {
-            string text = con.name;
-
-            if (connectedPlayers[curJudge] == con) {
-                text += "\nvictim";
-            } else if (con.receivedInsult != null) {
-                text += "\nready!";
-            } else {
-                if (state == StateID.Insulting) {
-                    text += "\nthinking...";
-                } else {
-                    text += "\nnot feeling mean";
-                }
-            }
-            
-            if (con.wins > 0) {
-                text += "\nwins: " + con.wins;
-            }
-
-            con.iconObject.GetComponentInChildren<Text>().text = text;
-        }
-    }
-
-    protected override void StateExit_Running() {
-        timer.gameObject.SetActive(false);
-        quitSignal = false;
-
-        foreach (var con in connectedPlayers) {
-            con.iconObject.GetComponentInChildren<Text>().text = con.name;
-        }
-    }
-
-    protected override void StateEnter_Insulting() {
+    public void NextRound() {
         foreach (var c in connectedPlayers) {
             c.receivedInsult = null;
         }
 
         winner = null;
+        roundOver = false;
+        voting = false;
+        insulting = true;
         InsultStacc.inst.Clear();
         insultExpiration.Set();
 
@@ -242,15 +185,9 @@ public class GameManager : GameManagerSM {
         }
     }
 
-    protected override void State_Insulting() {
-        if (quitSignal) return;
-
-        timer.text = ((int)insultExpiration.remaining).ToString();
-    }
-
-    protected override bool TransitionCond_Insulting_Voting() {
-        if (insultExpiration.expired) {
-            return true;
+    public bool AllInsultsIn() {
+        if (connectedPlayers.Count < 2) {
+            return false;
         }
 
         for (int i = 0; i < connectedPlayers.Count; i++) {
@@ -263,70 +200,28 @@ public class GameManager : GameManagerSM {
         return true;
     }
 
-    protected override void StateEnter_Voting() {
-        voteExpiration.Set();
-
-        connectedPlayers[curJudge].iconObject.Express();
-        shockSound.Play();
-
-        foreach (var c in connectedPlayers) {
-            if (c.receivedInsult != null && c.receivedInsult.Length > 0) {
-                var t = Instantiate(insultViewPrefab).GetComponent<RectTransform>();
-                var t2 = t.GetComponentInChildren<Text>();
-                t2.text = c.receivedInsult;
-
-                if (t2.text.Length > 300) {
-                    t2.text = t2.text.Substring(0, 300) + "...";
-                }
-
-                InsultStacc.inst.Push(t);
-                c.insultViewObject = t.gameObject;
-            }
-        }
-    }
-
-    protected override void State_Voting() {
-        if (quitSignal) return;
-
-        timer.text = ((int)voteExpiration.remaining).ToString();
-
-        foreach (var con in connectedPlayers) {
-            if (con.insultViewObject) {
-                var r = con.insultViewObject.GetComponent<RectTransform>();
-                var r2 = con.insultViewObject.GetComponentInChildren<Text>().rectTransform;
-
-                r.sizeDelta = new Vector2(0, r2.rect.height + 10);
-            }
-        }
-    }
-
-    protected override bool TransitionCond_Voting_PostGame() {
-        if (voteExpiration.expired) {
-            return true;
+    public bool AllVotesIn() {
+        if (connectedPlayers.Count < 2) {
+            return false;
         }
 
         return winner != null;
     }
 
-    protected override void StateEnter_PostGame() {
-        endExpiration.Set();
-
-        if (winner != null) {
-            winner.iconObject.Win();
-            winSound.Play();
-
-            if (winner.insultViewObject != null) {
-                winner.insultViewObject.GetComponent<Image>().color = Color.green;
+    public Insult[] GetInsultsArray() {
+        var insults = new List<Insult>();
+        for (int i = 0; i < connectedPlayers.Count; i++) {
+            var p = connectedPlayers[i];
+            if (i != curJudge) {
+                var ins = new Insult();
+                ins.caster = p.name;
+                ins.content = p.receivedInsult;
+                ins.casterID = p.id;
+                insults.Add(ins);
             }
         }
-    }
 
-    protected override void State_PostGame() {
-        timer.text = ((int)endExpiration.remaining).ToString();
-    }
-
-    protected override bool TransitionCond_PostGame_Insulting() {
-        return endExpiration.expired;
+        return insults.ToArray();
     }
 
     [Serializable]
@@ -353,22 +248,6 @@ public class GameManager : GameManagerSM {
         public string caster;
         public int casterID;
         public string content;
-    }
-
-    public Insult[] GetInsultsArray() {
-        var insults = new List<Insult>();
-        for (int i = 0; i < connectedPlayers.Count; i++) {
-            var p = connectedPlayers[i];
-            if (i != curJudge) {
-                var ins = new Insult();
-                ins.caster = p.name;
-                ins.content = p.receivedInsult;
-                ins.casterID = p.id;
-                insults.Add(ins);
-            }
-        }
-
-        return insults.ToArray();
     }
 
     public ConnectedPlayer GetPlayerInfo(IPAddress addr) {
@@ -402,14 +281,23 @@ public class GameManager : GameManagerSM {
     }
 
     public void QuitButton() {
-        if (state == StateID.Waiting) {
-            Application.Quit();
+        if (insulting || voting || roundOver) {
+            NextRound();
+            curJudge = 0;
+
+            insulting = false;
+            timer.gameObject.SetActive(false);
+
+            foreach (var p in connectedPlayers) {
+                p.wins = 0;
+            }
         } else {
-            quitSignal = true;
+            Application.Quit();
         }
     }
 
-    public override void GetInput() {
+    private void Update() {
+        startGameButton.interactable = !(insulting || voting) && connectedPlayers.Count > 1;
 
         for (int i = 0; i < connectedPlayers.Count; i++) {
             var con = connectedPlayers[i];
@@ -434,10 +322,12 @@ public class GameManager : GameManagerSM {
                     connectedPlayers[j].iconObject.transform.parent.GetComponent<RectTransform>().anchoredPosition += Vector2.left * 100;
                 }
 
-                if (state != StateID.Waiting && i == curJudge) {
-                    quitSignal = true;
-                    startSignal = true;
-                    base.GetInput();
+                if (i == curJudge || connectedPlayers.Count < 2) {
+                    curJudge--;
+                    NextRound();
+
+                    insulting = connectedPlayers.Count > 1;
+                    timer.gameObject.SetActive(false);
                     return;
                 } else if (i < connectedPlayers.Count - 1) {
                     con = connectedPlayers[i];
@@ -446,7 +336,6 @@ public class GameManager : GameManagerSM {
                         curJudge--;
                     }
                 } else {
-                    con = null;
                     break;
                 }
             }
@@ -459,19 +348,90 @@ public class GameManager : GameManagerSM {
                 var obj = Instantiate(playerIconPrefab, new Vector2(0, -7), Quaternion.Euler(0, 0, 0)).GetComponent<RectTransform>();
                 con.iconObject = obj.GetComponentInChildren<PlayerIcon>();
                 con.iconObject.Init(icons[nextIcon], expr[nextIcon]);
-                con.iconObject.GetComponentInChildren<Text>().text = con.name;
                 obj.SetParent(FindObjectOfType<Canvas>().transform, false);
                 obj.anchoredPosition = new Vector2(-300 + 100 * i, 0);
                 joinSound.Play();
 
                 nextIcon = (nextIcon + 1) % icons.Length;
             }
-            
+
+            if (con.insultViewObject) {
+                var r = con.insultViewObject.GetComponent<RectTransform>();
+                var r2 = con.insultViewObject.GetComponentInChildren<Text>().rectTransform;
+
+                r.sizeDelta = new Vector2(0, r2.rect.height + 10);
+            }
+
+            string text = con.name;
+            if (insulting) {
+                if (curJudge == i) {
+                    text += "\nvictim";
+                } else if (con.receivedInsult != null) {
+                    text += "\nready!";
+                } else {
+                    text += "\nthinking...";
+                }
+            }
+
+            if (con.wins > 0) {
+                text += "\nwins: " + con.wins;
+            }
+
+            con.iconObject.GetComponentInChildren<Text>().text = text;
+
             con.iconObject.SetSubmitted(con.receivedInsult != null && con.receivedInsult.Length > 0);
         }
 
-        base.GetInput();
+        if (!insulting && !voting && !roundOver) {
+            insultExpiration.Set();
+        }
+
+        if (insulting) {
+            timer.text = ((int)insultExpiration.remaining) + "";
+            if (insultExpiration.expired || AllInsultsIn()) {
+                insulting = false;
+                voting = true;
+                voteExpiration.Set();
+                connectedPlayers[curJudge].iconObject.Express();
+                shockSound.Play();
+
+                foreach (var c in connectedPlayers) {
+                    if (c.receivedInsult != null && c.receivedInsult.Length > 0) {
+                        var t = Instantiate(insultViewPrefab).GetComponent<RectTransform>();
+                        var t2 = t.GetComponentInChildren<Text>();
+                        t2.text = c.receivedInsult;
+
+                        if (t2.text.Length > 300) {
+                            t2.text = t2.text.Substring(0, 300) + "...";
+                        }
+
+                        InsultStacc.inst.Push(t);
+                        c.insultViewObject = t.gameObject;
+                    }
+                }
+            }
+        } else if (voting) {
+            timer.text = ((int)voteExpiration.remaining) + "";
+            if (voteExpiration.expired || AllVotesIn()) {
+                voting = false;
+                roundOver = true;
+                endExpiration.Set();
+
+                if (winner != null) {
+                    winner.iconObject.Win();
+                    winSound.Play();
+                }
+            }
+        } else if (roundOver) {
+            timer.text = ((int)endExpiration.remaining) + "";
+
+            if (winner != null && winner.insultViewObject != null) {
+                winner.insultViewObject.GetComponent<Image>().color = Color.green;
+            }
+
+            if (endExpiration.expired) {
+                NextRound();
+            }
+        }
     }
-
-
 }

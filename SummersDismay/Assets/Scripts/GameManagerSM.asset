@@ -29,9 +29,9 @@ MonoBehaviour:
     size: {x: 192, y: 48}
   - name: Running
     parent: 
-    hasEnter: 0
+    hasEnter: 1
     hasDuring: 1
-    hasExit: 0
+    hasExit: 1
     transitions:
     - to: Waiting
       hasNotify: 0
@@ -43,42 +43,42 @@ MonoBehaviour:
     size: {x: 528, y: 272}
   - name: Voting
     parent: Running
-    hasEnter: 0
+    hasEnter: 1
     hasDuring: 1
     hasExit: 0
     transitions:
     - to: PostGame
       hasNotify: 0
       exitTime: 30
-      mode: 3
+      mode: 0
     hasChildren: 0
     localDefault: 
     position: {x: 0, y: 672}
     size: {x: 192, y: 48}
   - name: PostGame
     parent: Running
-    hasEnter: 0
+    hasEnter: 1
     hasDuring: 1
     hasExit: 0
     transitions:
     - to: Insulting
       hasNotify: 0
       exitTime: 5
-      mode: 1
+      mode: 0
     hasChildren: 0
     localDefault: 
     position: {x: 144, y: 544}
     size: {x: 192, y: 48}
   - name: Insulting
     parent: Running
-    hasEnter: 0
+    hasEnter: 1
     hasDuring: 1
     hasExit: 0
     transitions:
     - to: Voting
       hasNotify: 0
       exitTime: 60
-      mode: 3
+      mode: 0
     hasChildren: 0
     localDefault: 
     position: {x: -128, y: 544}

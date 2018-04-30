@@ -28,7 +28,9 @@ public abstract class GameManagerSM : SBR.StateMachine {
 
         State stateRunning = new State() {
             id = StateID.Running,
+            enter = StateEnter_Running,
             during = State_Running,
+            exit = StateExit_Running,
             subMachine = new SubStateMachine(),
             transitions = new List<Transition>(1)
         };
@@ -36,6 +38,7 @@ public abstract class GameManagerSM : SBR.StateMachine {
 
         State stateVoting = new State() {
             id = StateID.Voting,
+            enter = StateEnter_Voting,
             during = State_Voting,
             transitions = new List<Transition>(1)
         };
@@ -43,6 +46,7 @@ public abstract class GameManagerSM : SBR.StateMachine {
 
         State statePostGame = new State() {
             id = StateID.PostGame,
+            enter = StateEnter_PostGame,
             during = State_PostGame,
             transitions = new List<Transition>(1)
         };
@@ -50,6 +54,7 @@ public abstract class GameManagerSM : SBR.StateMachine {
 
         State stateInsulting = new State() {
             id = StateID.Insulting,
+            enter = StateEnter_Insulting,
             during = State_Insulting,
             transitions = new List<Transition>(1)
         };
@@ -88,7 +93,7 @@ public abstract class GameManagerSM : SBR.StateMachine {
             from = stateVoting,
             to = statePostGame,
             exitTime = 30f,
-            mode = StateMachineDefinition.TransitionMode.TimeOrCondition,
+            mode = StateMachineDefinition.TransitionMode.ConditionOnly,
             cond = TransitionCond_Voting_PostGame
         };
         stateVoting.transitions.Add(transitionVotingPostGame);
@@ -97,7 +102,7 @@ public abstract class GameManagerSM : SBR.StateMachine {
             from = statePostGame,
             to = stateInsulting,
             exitTime = 5f,
-            mode = StateMachineDefinition.TransitionMode.TimeOnly,
+            mode = StateMachineDefinition.TransitionMode.ConditionOnly,
             cond = TransitionCond_PostGame_Insulting
         };
         statePostGame.transitions.Add(transitionPostGameInsulting);
@@ -106,7 +111,7 @@ public abstract class GameManagerSM : SBR.StateMachine {
             from = stateInsulting,
             to = stateVoting,
             exitTime = 60f,
-            mode = StateMachineDefinition.TransitionMode.TimeOrCondition,
+            mode = StateMachineDefinition.TransitionMode.ConditionOnly,
             cond = TransitionCond_Insulting_Voting
         };
         stateInsulting.transitions.Add(transitionInsultingVoting);
@@ -126,9 +131,14 @@ public abstract class GameManagerSM : SBR.StateMachine {
     }
 
     protected virtual void State_Waiting() { }
+    protected virtual void StateEnter_Running() { }
     protected virtual void State_Running() { }
+    protected virtual void StateExit_Running() { }
+    protected virtual void StateEnter_Voting() { }
     protected virtual void State_Voting() { }
+    protected virtual void StateEnter_PostGame() { }
     protected virtual void State_PostGame() { }
+    protected virtual void StateEnter_Insulting() { }
     protected virtual void State_Insulting() { }
 
     protected virtual bool TransitionCond_Waiting_Insulting() { return false; }
