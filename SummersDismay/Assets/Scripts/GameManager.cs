@@ -136,7 +136,7 @@ public class GameManager : GameManagerSM {
                     }
 
                     if (!isJudge && state == StateID.Insulting && (playerInfo.receivedInsult == null || playerInfo.receivedInsult.Length == 0)) {
-                        playerInfo.receivedInsult = payload.insult;
+                        playerInfo.receivedInsult = WWW.UnEscapeURL(payload.insult);
                     } else if (isJudge && state == StateID.Voting && winner == null && payload.vote > 0) {
                         winner = GetPlayerInfo(payload.vote);
                         winner.wins++;

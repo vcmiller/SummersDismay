@@ -2,7 +2,7 @@
 var pre_nouns = [
     "the owner of", "a friend of",
     "plenty of", "more of", "as much brain as", "the cap of",
-    "such a deal of", "any but", "none but"
+    "such a deal of", "any but", "none but", "a lack of"
 ]
 
 var thy_nouns = [
@@ -10,7 +10,7 @@ var thy_nouns = [
     "pet", "brother", "sister", "face", "rankness",
     "wife", "husband", "tongue", "lover", "wit",
     "imaginary_friend", "face", "person", "three-inch_fool",
-    "ass", "friend", "brain", "conversation", "garden"
+    "ass", "friend", "brain", "conversation", "garden", "lack of wit"
 ];
 
 var solo_nouns = [
@@ -54,20 +54,20 @@ var adjectives = [
     "unnecessary", "clay-brained", "cream-faced",
     "pigeon-liver’d", "roasted",
     "beef-witted", "ill-breading", "half-faced",
-    "sodden-witted", "festering", "lily-liver’d", "incontinent"
+    "sodden-witted", "festering", "lily-liver’d", "incontinent", "sodden-witted"
 ];
 
 var interject_adj = [
-    "dried", "fat", "froward", "unable", "poisonous",
-    "bunch-backed", "bolting", "huge", "obscene",
-    "greasy", "knotty-pated", "withered", "artless", "vile"
+    "dried", "fat", "froward", "unable", "poisonous", "mouldy",
+    "bunch-backed", "bolting", "huge", "obscene", "foul-spoken",
+    "greasy", "knotty-pated", "withered", "artless", "vile", "sodden-witted"
 ];
 
 var interject_noun = [
     "elf-skin", "neat's-tongue", "stock-fish", "guts",
     "scoundrel", "worm", "toad", "beast", "hutch of beastliness",
     "bombard of sack", "tallow-catch", "fool", "foot-licker",
-    "gudgeon", "hag", "barnicle", "worm"
+    "gudgeon", "hag", "barnicle", "worm", "lord", "rag", "whoreson", "rogue"
 ];
 
 var conjoiners = [
@@ -205,8 +205,8 @@ var states = [
     { // transitive verbs
         words: trans_verbs,
         transitions: [
-            { to: PRE_NOUNS },
-            { to: OBJ_NOUNS }
+            { to: PRE_NOUNS, weight: 1 },
+            { to: OBJ_NOUNS, weight: 3 }
         ],
         apply: standardApply
     },
@@ -249,16 +249,16 @@ var states = [
     { // Interjective start
         words: [ ", thou" ],
         transitions: [
-            { to: INTERJECT_ADJ },
-            { to: INTERJECT_NOUN },
+            { to: INTERJECT_ADJ, weight: 4 },
+            { to: INTERJECT_NOUN, weight: 1 },
         ],
         apply: standardApply
     },
     { // Interjective adjectives
         words: adjectives.concat(interject_adj, interject_adj),
         transitions: [
-            { to: INTERJECT_ADJ },
-            { to: INTERJECT_NOUN },
+            { to: INTERJECT_ADJ, weight: 2 },
+            { to: INTERJECT_NOUN, weight: 1 },
         ],
         apply: function (sentence, word) {
             if (stateHistory[0] === INTERJECT_ADJ) {
@@ -270,11 +270,11 @@ var states = [
             return sentence + word;
         }
     },
-    { // Interjective adjectives
+    { // Interjective nouns
         words: other_nouns.concat(interject_noun, interject_noun).map(function (word) { return word + "!"; }),
         transitions: [
-            { to: PRE_NOUNS },
-            { to: SUBJ_NOUNS },
+            { to: PRE_NOUNS, weight: 1 },
+            { to: SUBJ_NOUNS, weight: 4 },
         ],
         apply: standardApply
     }
@@ -476,7 +476,7 @@ function submitName() {
 
     if (name.length > 0) {
         var host = window.location.protocol + "//" + window.location.host;
-        window.location.replace(host + "/play?name=" + name);
+        window.location.replace(host + "/play?name=" + escape(name));
     } else {
         alert("You must enter your name.");
     }
@@ -572,7 +572,7 @@ function voteFor(person) {
 function sendInsult() {
     var obj = {
         // insult: document.getElementById("enter_insult").value
-        insult: toView(sentence)
+        insult: escape(toView(sentence))
     };
 
     clearInsult();
