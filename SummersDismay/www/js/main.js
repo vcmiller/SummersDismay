@@ -458,19 +458,6 @@ function shuffle(array) {
     return array;
 }
 
-
-//HTTP Shit
-
-function backToStart() {
-    var obj = {
-        leaving: true
-    };
-
-    httpPostAsync(getUpdateUrl(), showUpdateResponse, JSON.stringify(obj));
-
-    window.location.href = window.location.protocol + "//" + window.location.host;
-}
-
 function submitName() {
     var name = document.getElementById("name_input").value;
 
@@ -597,5 +584,5 @@ function startGame() {
 }
 
 function die() {
-    window.location.href = "https://www.google.com";
+    window.location.href = "https://summersdismay.github.io/";
 }

@@ -18,7 +18,8 @@ public class SimpleHTTPServer {
     private int _port;
     private const int expiration = 100000; // 100 seconds
 
-    private ConcurrentDictionary<string, long> connections = new ConcurrentDictionary<string, long>();
+    private ConcurrentDictionary<string, KeyValuePair<long, string>> connections = new ConcurrentDictionary<string, KeyValuePair<long, string>>();
+    private ConcurrentBag<string> usedCodes = new ConcurrentBag<string>();
 
     public int Port {
         get { return _port; }
@@ -51,15 +52,31 @@ public class SimpleHTTPServer {
         List<string> toRemove = new List<string>();
 
         foreach (var entry in connections) {
-            if (t - entry.Value > expiration) {
+            if (t - entry.Value.Key > expiration) {
                 toRemove.Add(entry.Key);
             }
         }
 
         foreach (var entry in toRemove) {
-            long l;
+            KeyValuePair<long, string> l;
             connections.TryRemove(entry, out l);
         }
+    }
+
+    private string GetRoomCode() {
+        string alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        Random r = new Random();
+
+        string code = "";
+        do {
+            for (int i = 0; i < 4; i++) {
+                code += alphabet[r.Next(alphabet.Length)];
+            }
+        } while (usedCodes.Contains(code));
+
+        usedCodes.Add(code);
+
+        return code;
     }
 
     private void Listen() {
@@ -90,10 +107,29 @@ public class SimpleHTTPServer {
             case "reg":
                 string host = context.Request.QueryString.Get("host");
                 if (host != null) {
-                    connections[host] = GetTime();
-                    Console.WriteLine("New server registered: " + host);
+                    if (connections.ContainsKey(host)) {
+                        connections[host] = new KeyValuePair<long, string>(GetTime(), connections[host].Value);
+                    } else {
+                        connections[host] = new KeyValuePair<long, string>(GetTime(), GetRoomCode());
+                        Console.WriteLine("New server registered: " + host);
+                    }
                 }
-                WriteNothing(context);
+
+                WriteTextToContext(context, connections[host].Value);
+                break;
+
+            case "join":
+                string code = context.Request.QueryString.Get("code");
+                if (code != null) {
+                    foreach (var kvp in connections) {
+                        if (kvp.Value.Value == code.ToUpper()) {
+                            WriteTextToContext(context, kvp.Key);
+                            break;
+                        }
+                    }
+                }
+
+                WriteTextToContext(context, "none");
                 break;
 
             default:
@@ -104,10 +140,19 @@ public class SimpleHTTPServer {
         }
     }
 
-    public void WriteNothing(HttpListenerContext context) {
-        context.Response.ContentLength64 = 0;
-        context.Response.AddHeader("Date", DateTime.Now.ToString("r"));
-        context.Response.StatusCode = (int)HttpStatusCode.NoContent;
+    public void WriteTextToContext(HttpListenerContext context, string str) {
+        try {
+            byte[] bytes = new ASCIIEncoding().GetBytes(str);
+
+            context.Response.ContentType = "text/plain";
+            context.Response.ContentLength64 = bytes.Length;
+            context.Response.AddHeader("Date", DateTime.Now.ToString("r"));
+            context.Response.AddHeader("Access-Control-Allow-Origin", "*");
+
+            context.Response.OutputStream.Write(bytes, 0, bytes.Length);
+        } catch {
+            context.Response.StatusCode = (int)HttpStatusCode.InternalServerError;
+        }
     }
 
     public void WriteJsonToContext(HttpListenerContext context, string[] addrs) {

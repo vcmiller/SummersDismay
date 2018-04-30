@@ -22,6 +22,9 @@ public class ServerManager : MonoBehaviour {
     public GameObject connectionInfo;
     public GameObject joinButton;
 
+    private string roomCode;
+    private WWW browserRequest;
+
     private CooldownTimer regTimer;
 
     private void Awake() {
@@ -45,9 +48,7 @@ public class ServerManager : MonoBehaviour {
         connectionInfo.SetActive(true);
         joinButton.SetActive(true);
 
-        if (JoinServerBrowser(server.IPs[server.IPs.Count - 1])) {
-            showURL.text = "https://summersdismay.github.io/";
-        }
+        JoinServerBrowser(server.IPs[server.IPs.Count - 1]);
     }
 
     public void JoinInBrowser() {
@@ -57,17 +58,26 @@ public class ServerManager : MonoBehaviour {
     }
 
     private void Update() {
-        if (regTimer.Use()) {
+        if (regTimer.Use() && browserRequest == null) {
             JoinServerBrowser(server.IPs[server.IPs.Count - 1]);
+        }
+
+        if (browserRequest != null && browserRequest.isDone) {
+
+            if (string.IsNullOrEmpty(browserRequest.error)) {
+                showURL.text = "https://summersdismay.github.io/";
+
+                roomCode = browserRequest.text;
+                print("Room code: " + roomCode);
+            } else {
+                print("Request Error: " + browserRequest.error);
+            }
+
+            browserRequest = null;
         }
     }
 
-    public bool JoinServerBrowser(string addr) {
-        try {
-            new WWW("http://localhost:12345/reg?host=" + WWW.EscapeURL(addr));
-            return true;
-        } catch {
-            return false;
-        }
+    public void JoinServerBrowser(string addr) {
+        browserRequest = new WWW("http://localhost:12345/reg?host=" + WWW.EscapeURL(addr));
     }
 }
