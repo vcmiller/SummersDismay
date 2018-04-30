@@ -1,0 +1,86 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8404f149d6fa261498aa6c20c1996687, type: 3}
+  m_Name: GameManagerSM
+  m_EditorClassIdentifier: 
+  defaultState: Waiting
+  states:
+  - name: Waiting
+    parent: 
+    hasEnter: 0
+    hasDuring: 1
+    hasExit: 0
+    transitions:
+    - to: Insulting
+      hasNotify: 0
+      exitTime: 0
+      mode: 0
+    hasChildren: 0
+    localDefault: 
+    position: {x: -112, y: 336}
+    size: {x: 192, y: 48}
+  - name: Running
+    parent: 
+    hasEnter: 1
+    hasDuring: 1
+    hasExit: 1
+    transitions:
+    - to: Waiting
+      hasNotify: 0
+      exitTime: 0
+      mode: 0
+    hasChildren: 1
+    localDefault: 
+    position: {x: -160, y: 480}
+    size: {x: 528, y: 272}
+  - name: Voting
+    parent: Running
+    hasEnter: 1
+    hasDuring: 1
+    hasExit: 0
+    transitions:
+    - to: PostGame
+      hasNotify: 0
+      exitTime: 30
+      mode: 0
+    hasChildren: 0
+    localDefault: 
+    position: {x: 0, y: 672}
+    size: {x: 192, y: 48}
+  - name: PostGame
+    parent: Running
+    hasEnter: 1
+    hasDuring: 1
+    hasExit: 0
+    transitions:
+    - to: Insulting
+      hasNotify: 0
+      exitTime: 5
+      mode: 0
+    hasChildren: 0
+    localDefault: 
+    position: {x: 144, y: 544}
+    size: {x: 192, y: 48}
+  - name: Insulting
+    parent: Running
+    hasEnter: 1
+    hasDuring: 1
+    hasExit: 0
+    transitions:
+    - to: Voting
+      hasNotify: 0
+      exitTime: 60
+      mode: 0
+    hasChildren: 0
+    localDefault: 
+    position: {x: -128, y: 544}
+    size: {x: 192, y: 48}
+  baseClass: SBR.StateMachine

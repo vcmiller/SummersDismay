@@ -1,74 +1,75 @@
 <!doctype html>
 <html class="no-js" lang="">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>Summer's Dismay</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Summer's Dismay</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Cache-control" content="no-cache">
 
-        <link rel="manifest" href="site.webmanifest">
-        <link rel="apple-touch-icon" href="icon.png">
-        <!-- Place favicon.ico in the root directory -->
+    <link rel="manifest" href="site.webmanifest">
+    <link rel="apple-touch-icon" href="icon.png">
+    <!-- Place favicon.ico in the root directory -->
 
-        <link rel="stylesheet" href="css/normalize.css">
-        <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/main.css">
 
-        <style>
-            button {
-                padding:10px;
-                margin:5px;
-            }
+    <style>
+        button {
+            padding: 10px;
+            margin: 5px;
+        }
 
-            body {
-                background-color: #c19c5c;
-                background-image: url("back_curtains.png");
-                background-repeat: no-repeat;
-                background-size:cover;
-            }
+        body {
+            background-color: #c19c5c;
+            background-image: url("back_curtains.png");
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
 
-            .game_area {
-                background-image: url("parchment.png");
-                background-size: 100%;
-                background-repeat:repeat-y;
-                align-content: center;
-                align-self: center;
-                margin-left: auto;
-                margin-right: auto;
-                margin-top: 20px;
-                padding-top:10px;
-                margin-bottom:auto;
-            }
+        .game_area {
+            background-image: url("parchment.png");
+            background-size: 100%;
+            background-repeat: repeat-y;
+            align-content: center;
+            align-self: center;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 20px;
+            padding-top: 10px;
+            margin-bottom: auto;
+        }
 
-            .killbtn {
-                background: #d93434;
-                background-image: -webkit-linear-gradient(top, #d93434, #850000);
-                background-image: -moz-linear-gradient(top, #d93434, #850000);
-                background-image: -ms-linear-gradient(top, #d93434, #850000);
-                background-image: -o-linear-gradient(top, #d93434, #850000);
-                background-image: linear-gradient(to bottom, #d93434, #850000);
-                -webkit-border-radius: 28;
-                -moz-border-radius: 28;
-                border-radius: 28px;
-                border-width: 0px;
-                font-family: Arial;
-                color: #ffffff;
-                font-size: 20px;
-                padding: 10px 20px 10px 20px;
+        .killbtn {
+            background: #d93434;
+            background-image: -webkit-linear-gradient(top, #d93434, #850000);
+            background-image: -moz-linear-gradient(top, #d93434, #850000);
+            background-image: -ms-linear-gradient(top, #d93434, #850000);
+            background-image: -o-linear-gradient(top, #d93434, #850000);
+            background-image: linear-gradient(to bottom, #d93434, #850000);
+            -webkit-border-radius: 28;
+            -moz-border-radius: 28;
+            border-radius: 28px;
+            border-width: 0px;
+            font-family: Arial;
+            color: #ffffff;
+            font-size: 20px;
+            padding: 10px 20px 10px 20px;
+            text-decoration: none;
+        }
+
+            .killbtn:hover {
+                background: #ff4517;
+                background-image: -webkit-linear-gradient(top, #ff4517, #ff4747);
+                background-image: -moz-linear-gradient(top, #ff4517, #ff4747);
+                background-image: -ms-linear-gradient(top, #ff4517, #ff4747);
+                background-image: -o-linear-gradient(top, #ff4517, #ff4747);
+                background-image: linear-gradient(to bottom, #ff4517, #ff4747);
                 text-decoration: none;
             }
-
-                .killbtn:hover {
-                    background: #ff4517;
-                    background-image: -webkit-linear-gradient(top, #ff4517, #ff4747);
-                    background-image: -moz-linear-gradient(top, #ff4517, #ff4747);
-                    background-image: -ms-linear-gradient(top, #ff4517, #ff4747);
-                    background-image: -o-linear-gradient(top, #ff4517, #ff4747);
-                    background-image: linear-gradient(to bottom, #ff4517, #ff4747);
-                    text-decoration: none;
-                }
-        </style>
-    </head>
+    </style>
+</head>
     <body onload="startGame()">
         <div class="game_area"style="width:75%;">
            
@@ -84,7 +85,7 @@
                 <button id="particle_2" style="width:50%;">Meme1</button><button id="magic_2">↺</button><br>
                 <button id="particle_3" style="width:50%;">Meme2</button><button id="magic_3">↺</button><br>
                 <button id="particle_4" style="width:50%;">Meme3</button><button id="magic_4">↺</button><br>
-                <button onclick="clearInsult()" style="width:50%">Clear</button><br>
+                <!-- <button onclick="clearInsult()" style="width:50%">Clear</button><br> -->
 
                 <button onclick="sendInsult()">Send!</button>
             </div>

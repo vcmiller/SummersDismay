@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,11 +11,11 @@ using UnityEngine;
 using UnityEngine.UI;
 using SBR;
 
-public class GameManager : MonoBehaviour {
+public class GameManager : GameManagerSM {
     public int curJudge { get; private set; }
     public static GameManager inst { get; private set; }
 
-    public PlayerIcon playerIconPrefab;
+    public GameObject playerIconPrefab;
     public GameObject insultViewPrefab;
     public Button startGameButton;
 
@@ -25,7 +25,9 @@ public class GameManager : MonoBehaviour {
 
     private int nextIcon;
     private ConnectedPlayer winner;
-    private bool voting, insulting, roundOver;
+    private bool startSignal;
+    private bool quitSignal;
+
     private ExpirationTimer insultExpiration;
     private ExpirationTimer voteExpiration;
     private ExpirationTimer endExpiration;
@@ -36,20 +38,24 @@ public class GameManager : MonoBehaviour {
 
     public List<ConnectedPlayer> connectedPlayers { get; private set; }
 
-    private void Awake() {
+    public void Awake() {
+        Initialize();
+        enabled = true;
+
         connectedPlayers = new List<ConnectedPlayer>();
         inst = this;
 
-        insultExpiration = new ExpirationTimer(120);
-        voteExpiration = new ExpirationTimer(60);
-        endExpiration = new ExpirationTimer(10);
+        insultExpiration = new ExpirationTimer(60);
+        voteExpiration = new ExpirationTimer(30);
+        endExpiration = new ExpirationTimer(5);
+    }
+
+    void Update() {
+        GetInput();
     }
 
     public void StartGame() {
-        if (!(insulting || voting || roundOver)) {
-            timer.gameObject.SetActive(true);
-            insulting = true;
-        }
+        startSignal = true;
     }
 
     public static string ToRoman(int number) {
@@ -73,11 +79,15 @@ public class GameManager : MonoBehaviour {
 
     public void HandleNewConnection(HttpListenerContext context) {
         string name = context.Request.QueryString.Get("name");
-        if (name.Length > 24) {
-            name = name.Substring(0, 24);
-        }
 
         if (name != null) {
+            name = name.Trim();
+            if (name.Length > 24) {
+                name = name.Substring(0, 24);
+            } else if (name.Length == 0) {
+                name = "blank";
+            }
+
             if (GetPlayerInfo(context.Request.RemoteEndPoint.Address) == null) {
                 int i = 2;
 
@@ -87,8 +97,8 @@ public class GameManager : MonoBehaviour {
                 }
 
                 connectedPlayers.Add(new ConnectedPlayer(actName, context.Request.RemoteEndPoint.Address));
-                
             }
+
             ServerManager.inst.server.WriteFileToContext(context, "game.html");
         } else {
             context.Response.StatusCode = (int)HttpStatusCode.BadRequest;
@@ -113,7 +123,7 @@ public class GameManager : MonoBehaviour {
             response.judge = judgeInfo.name;
             response.role = isJudge ? 1 : 0;
             response.voted = winner != null;
-            
+
             try {
                 var strm = context.Request.InputStream;
                 var reader = new StreamReader(strm, context.Request.ContentEncoding);
@@ -125,9 +135,9 @@ public class GameManager : MonoBehaviour {
                         playerInfo.left = true;
                     }
 
-                    if (!isJudge && insulting && (playerInfo.receivedInsult == null || playerInfo.receivedInsult.Length == 0)) {
-                        playerInfo.receivedInsult = payload.insult;
-                    } else if (isJudge && voting && winner == null && payload.vote != null && payload.vote.Length > 0) {
+                    if (!isJudge && state == StateID.Insulting && (playerInfo.receivedInsult == null || playerInfo.receivedInsult.Length == 0)) {
+                        playerInfo.receivedInsult = WWW.UnEscapeURL(payload.insult);
+                    } else if (isJudge && state == StateID.Voting && winner == null && payload.vote > 0) {
                         winner = GetPlayerInfo(payload.vote);
                         winner.wins++;
                     }
@@ -135,20 +145,22 @@ public class GameManager : MonoBehaviour {
             } catch (Exception ex) {
                 UnityEngine.Debug.Log(ex);
             }
+
+            response.insulted = playerInfo.receivedInsult != null && playerInfo.receivedInsult.Length > 0;
         }
 
-        response.running = insulting || voting || roundOver;
+        response.running = state != StateID.Waiting;
 
-        if (insulting) {
+        if (state == StateID.Insulting) {
 
-        } else if (voting) {
+        } else if (state == StateID.Voting) {
             response.insults = GetInsultsArray();
-        } else if (roundOver) {
+        } else if (state == StateID.PostGame) {
             response.insults = GetInsultsArray();
 
             if (winner == null) {
                 do {
-                    winner = connectedPlayers[UnityEngine.Random.Range(0, connectedPlayers.Count)];
+                    winner = connectedPlayers[new System.Random().Next(connectedPlayers.Count)];
                 } while (winner == connectedPlayers[curJudge]);
             }
 
@@ -160,15 +172,66 @@ public class GameManager : MonoBehaviour {
         ServerManager.inst.server.WriteJsonToContext(context, response);
     }
 
-    public void NextRound() {
+    protected override void State_Waiting() {
+        startGameButton.interactable = connectedPlayers.Count >= 2;
+        curJudge = 0;
+    }
+
+    protected override bool TransitionCond_Waiting_Insulting() {
+        return startSignal && connectedPlayers.Count >= 2;
+    }
+
+    protected override bool TransitionCond_Running_Waiting() {
+        return quitSignal || connectedPlayers.Count < 2;
+    }
+
+    protected override void StateEnter_Running() {
+        startGameButton.interactable = false;
+        timer.gameObject.SetActive(true);
+        startSignal = false;
+    }
+
+    protected override void State_Running() {
+        if (quitSignal) return;
+
+        foreach (var con in connectedPlayers) {
+            string text = con.name;
+
+            if (connectedPlayers[curJudge] == con) {
+                text += "\nvictim";
+            } else if (con.receivedInsult != null) {
+                text += "\nready!";
+            } else {
+                if (state == StateID.Insulting) {
+                    text += "\nthinking...";
+                } else {
+                    text += "\nnot feeling mean";
+                }
+            }
+            
+            if (con.wins > 0) {
+                text += "\nwins: " + con.wins;
+            }
+
+            con.iconObject.GetComponentInChildren<Text>().text = text;
+        }
+    }
+
+    protected override void StateExit_Running() {
+        timer.gameObject.SetActive(false);
+        quitSignal = false;
+
+        foreach (var con in connectedPlayers) {
+            con.iconObject.GetComponentInChildren<Text>().text = con.name;
+        }
+    }
+
+    protected override void StateEnter_Insulting() {
         foreach (var c in connectedPlayers) {
             c.receivedInsult = null;
         }
 
         winner = null;
-        roundOver = false;
-        voting = false;
-        insulting = true;
         InsultStacc.inst.Clear();
         insultExpiration.Set();
 
@@ -179,9 +242,15 @@ public class GameManager : MonoBehaviour {
         }
     }
 
-    public bool AllInsultsIn() {
-        if (connectedPlayers.Count < 2) {
-            return false;
+    protected override void State_Insulting() {
+        if (quitSignal) return;
+
+        timer.text = ((int)insultExpiration.remaining).ToString();
+    }
+
+    protected override bool TransitionCond_Insulting_Voting() {
+        if (insultExpiration.expired) {
+            return true;
         }
 
         for (int i = 0; i < connectedPlayers.Count; i++) {
@@ -194,12 +263,96 @@ public class GameManager : MonoBehaviour {
         return true;
     }
 
-    public bool AllVotesIn() {
-        if (connectedPlayers.Count < 2) {
-            return false;
+    protected override void StateEnter_Voting() {
+        voteExpiration.Set();
+
+        connectedPlayers[curJudge].iconObject.Express();
+        shockSound.Play();
+
+        foreach (var c in connectedPlayers) {
+            if (c.receivedInsult != null && c.receivedInsult.Length > 0) {
+                var t = Instantiate(insultViewPrefab).GetComponent<RectTransform>();
+                var t2 = t.GetComponentInChildren<Text>();
+                t2.text = c.receivedInsult;
+
+                if (t2.text.Length > 300) {
+                    t2.text = t2.text.Substring(0, 300) + "...";
+                }
+
+                InsultStacc.inst.Push(t);
+                c.insultViewObject = t.gameObject;
+            }
+        }
+    }
+
+    protected override void State_Voting() {
+        if (quitSignal) return;
+
+        timer.text = ((int)voteExpiration.remaining).ToString();
+
+        foreach (var con in connectedPlayers) {
+            if (con.insultViewObject) {
+                var r = con.insultViewObject.GetComponent<RectTransform>();
+                var r2 = con.insultViewObject.GetComponentInChildren<Text>().rectTransform;
+
+                r.sizeDelta = new Vector2(0, r2.rect.height + 10);
+            }
+        }
+    }
+
+    protected override bool TransitionCond_Voting_PostGame() {
+        if (voteExpiration.expired) {
+            return true;
         }
 
         return winner != null;
+    }
+
+    protected override void StateEnter_PostGame() {
+        endExpiration.Set();
+
+        if (winner != null) {
+            winner.iconObject.Win();
+            winSound.Play();
+
+            if (winner.insultViewObject != null) {
+                winner.insultViewObject.GetComponent<Image>().color = Color.green;
+            }
+        }
+    }
+
+    protected override void State_PostGame() {
+        timer.text = ((int)endExpiration.remaining).ToString();
+    }
+
+    protected override bool TransitionCond_PostGame_Insulting() {
+        return endExpiration.expired;
+    }
+
+    [Serializable]
+    public class UpdatePayload {
+        public string insult;
+        public int vote;
+        public bool leaving;
+    }
+
+    [Serializable]
+    public class UpdateResponse {
+        public string name;
+        public int role;
+        public string judge;
+        public bool insulted;
+        public bool voted;
+        public bool running;
+        public Insult[] insults;
+        public Insult winner;
+    }
+
+    [Serializable]
+    public class Insult {
+        public string caster;
+        public int casterID;
+        public string content;
     }
 
     public Insult[] GetInsultsArray() {
@@ -210,35 +363,12 @@ public class GameManager : MonoBehaviour {
                 var ins = new Insult();
                 ins.caster = p.name;
                 ins.content = p.receivedInsult;
+                ins.casterID = p.id;
                 insults.Add(ins);
             }
         }
 
         return insults.ToArray();
-    }
-
-    [Serializable]
-    public class UpdatePayload {
-        public string insult;
-        public string vote;
-        public bool leaving;
-    }
-
-    [Serializable]
-    public class UpdateResponse {
-        public string name;
-        public int role;
-        public string judge;
-        public bool voted;
-        public bool running;
-        public Insult[] insults;
-        public Insult winner;
-    }
-
-    [Serializable]
-    public class Insult {
-        public string caster;
-        public string content;
     }
 
     public ConnectedPlayer GetPlayerInfo(IPAddress addr) {
@@ -261,24 +391,25 @@ public class GameManager : MonoBehaviour {
         return null;
     }
 
-    public void QuitButton() {
-        if (insulting || voting || roundOver) {
-            NextRound();
-            curJudge = 0;
-
-            insulting = false;
-            timer.gameObject.SetActive(false);
-
-            foreach (var p in connectedPlayers) {
-                p.wins = 0;
+    public ConnectedPlayer GetPlayerInfo(int id) {
+        foreach (var info in connectedPlayers) {
+            if (info.id == id) {
+                return info;
             }
-        } else {
+        }
+
+        return null;
+    }
+
+    public void QuitButton() {
+        if (state == StateID.Waiting) {
             Application.Quit();
+        } else {
+            quitSignal = true;
         }
     }
 
-    private void Update() {
-        startGameButton.interactable = !(insulting || voting) && connectedPlayers.Count > 1;
+    public override void GetInput() {
 
         for (int i = 0; i < connectedPlayers.Count; i++) {
             var con = connectedPlayers[i];
@@ -294,108 +425,53 @@ public class GameManager : MonoBehaviour {
             }
 
             while (con.left || con.timeout.expired) {
-                Destroy(con.iconObject.GetComponent<Joint>());
-                Destroy(con.iconObject.GetComponent<Collider>());
-                Destroy(con.iconObject.gameObject, 10);
+                con.iconObject.Leave();
+                Destroy(con.iconObject.transform.parent.gameObject, 10);
 
-                connectedPlayers.Remove(con);
+                connectedPlayers.RemoveAt(i);
 
                 for (int j = i; j < connectedPlayers.Count; j++) {
-                    connectedPlayers[i].iconObject.GetComponent<SpringJoint>().connectedAnchor += Vector3.left * 2;
+                    connectedPlayers[j].iconObject.transform.parent.GetComponent<RectTransform>().anchoredPosition += Vector2.left * 100;
                 }
 
-                if (i == curJudge || connectedPlayers.Count < 2) {
-                    curJudge--;
-                    NextRound();
-
-                    insulting = connectedPlayers.Count > 1;
-                    timer.gameObject.SetActive(false);
+                if (state != StateID.Waiting && i == curJudge) {
+                    quitSignal = true;
+                    startSignal = true;
+                    base.GetInput();
                     return;
-                } else {
+                } else if (i < connectedPlayers.Count - 1) {
                     con = connectedPlayers[i];
+
+                    if (curJudge > i) {
+                        curJudge--;
+                    }
+                } else {
+                    con = null;
+                    break;
                 }
             }
 
+            if (con == null) {
+                continue;
+            }
+
             if (!con.iconObject) {
-                con.iconObject = Instantiate(playerIconPrefab, new Vector2(0, -7), Quaternion.Euler(0, 0, 180));
-                con.iconObject.GetComponent<PlayerIcon>().Init(icons[nextIcon].texture, expr[nextIcon].texture);
-                con.iconObject.GetComponent<SpringJoint>().connectedAnchor = new Vector3(-6 + i * 2, 5.5f, 0);
+                var obj = Instantiate(playerIconPrefab, new Vector2(0, -7), Quaternion.Euler(0, 0, 0)).GetComponent<RectTransform>();
+                con.iconObject = obj.GetComponentInChildren<PlayerIcon>();
+                con.iconObject.Init(icons[nextIcon], expr[nextIcon]);
+                con.iconObject.GetComponentInChildren<Text>().text = con.name;
+                obj.SetParent(FindObjectOfType<Canvas>().transform, false);
+                obj.anchoredPosition = new Vector2(-300 + 100 * i, 0);
                 joinSound.Play();
 
                 nextIcon = (nextIcon + 1) % icons.Length;
             }
-
-            if (con.insultViewObject) {
-                var r = con.insultViewObject.GetComponent<RectTransform>();
-                var r2 = con.insultViewObject.GetComponentInChildren<Text>().rectTransform;
-
-                r.sizeDelta = new Vector2(0, Mathf.Min(r2.rect.height + 10, 100));
-            }
-
-            string text = con.name;
-            if (insulting) {
-                if (curJudge == i) {
-                    text += "\njudge";
-                } else if (con.receivedInsult != null) {
-                    text += "\nready!";
-                } else {
-                    text += "\nthinking...";
-                }
-            }
-
-            if (con.wins > 0) {
-                text += "\nwins: " + con.wins;
-            }
-
-            con.iconObject.GetComponentInChildren<TextMesh>().text = text;
+            
+            con.iconObject.SetSubmitted(con.receivedInsult != null && con.receivedInsult.Length > 0);
         }
 
-        if (!insulting && !voting && !roundOver) {
-            insultExpiration.Set();
-        }
-
-        if (insulting) {
-            timer.text = ((int)insultExpiration.remaining) + "";
-            if (insultExpiration.expired || AllInsultsIn()) {
-                insulting = false;
-                voting = true;
-                voteExpiration.Set();
-                connectedPlayers[curJudge].iconObject.Express();
-                shockSound.Play();
-
-                foreach (var c in connectedPlayers) {
-                    if (c.receivedInsult != null && c.receivedInsult.Length > 0) {
-                        var t = Instantiate(insultViewPrefab).GetComponent<RectTransform>();
-                        var t2 = t.GetComponentInChildren<Text>();
-                        t2.text = c.receivedInsult + "\n\t-" + c.name;
-
-                        InsultStacc.inst.Push(t);
-                        c.insultViewObject = t.gameObject;
-                    }
-                }
-            }
-        } else if (voting) {
-            timer.text = ((int)voteExpiration.remaining) + "";
-            if (voteExpiration.expired || AllVotesIn()) {
-                voting = false;
-                roundOver = true;
-                endExpiration.Set();
-
-                if (winner != null) {
-                    winner.iconObject.SpinMeRightRound();
-                    winSound.Play();
-                }
-            }
-        } else if (roundOver) {
-            timer.text = ((int)endExpiration.remaining) + "";
-
-            if (winner != null && winner.insultViewObject != null) {
-                winner.insultViewObject.GetComponent<Image>().color = Color.green;
-            }
-
-            if (endExpiration.expired) {
-                NextRound();
-            }
-        }
+        base.GetInput();
     }
+
+
 }

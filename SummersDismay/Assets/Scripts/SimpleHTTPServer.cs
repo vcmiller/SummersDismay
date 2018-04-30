@@ -88,6 +88,7 @@ public class SimpleHTTPServer {
         {".zip", "application/zip"},
         #endregion
     };
+
     private Thread _serverThread;
     private string _rootDirectory;
     private HttpListener _listener;
@@ -98,7 +99,7 @@ public class SimpleHTTPServer {
         private set { }
     }
 
-    public string IP { get; private set; }
+    public List<string> IPs { get; private set; }
 
     /// <summary>
     /// Construct server with suitable port.
@@ -114,14 +115,14 @@ public class SimpleHTTPServer {
         string strHostName = Dns.GetHostName();
         IPHostEntry ipEntry = Dns.GetHostEntry(strHostName);
         IPAddress[] addr = ipEntry.AddressList;
-        
+
+        IPs = new List<string>();
         for (int i = 0; i < addr.Length; i++) {
-            if (addr[i].ToString().StartsWith("130")) {
-                IP = addr[i].ToString();
+            string str = addr[i].ToString();
+            if (addr[i].AddressFamily == AddressFamily.InterNetwork && str != "localhost" && str != "127.0.0.1") {
+                IPs.Add("http://" + addr[i].ToString() + ":" + port);
             }
         }
-
-        //IP = System.String.Join("\n", System.Array.ConvertAll(addr, (a) => a.ToString()));
         
         Initialize(Path.Combine(Directory.GetParent(Application.dataPath).FullName, path), port);
     }
@@ -141,10 +142,12 @@ public class SimpleHTTPServer {
         while (true) {
             try {
                 HttpListenerContext context = _listener.GetContext();
-                Process(context);
-            } catch (Exception ex) {
-                UnityEngine.Debug.LogException(ex);
-            }
+                try {
+                    Process(context);
+                } catch (Exception ex) {
+                    UnityEngine.Debug.Log(ex);
+                }
+            } catch { }
         }
     }
 
