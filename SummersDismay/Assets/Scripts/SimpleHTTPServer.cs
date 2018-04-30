@@ -185,7 +185,8 @@ public class SimpleHTTPServer {
             context.Response.ContentType = "application/json";
             context.Response.ContentLength64 = bytes.Length;
             context.Response.AddHeader("Date", DateTime.Now.ToString("r"));
-            
+            context.Response.AddHeader("Access-Control-Allow-Origin", "*");
+
             context.Response.OutputStream.Write(bytes, 0, bytes.Length);
         } catch {
             context.Response.StatusCode = (int)HttpStatusCode.InternalServerError;
@@ -204,6 +205,7 @@ public class SimpleHTTPServer {
                 context.Response.ContentLength64 = input.Length;
                 context.Response.AddHeader("Date", DateTime.Now.ToString("r"));
                 context.Response.AddHeader("Last-Modified", System.IO.File.GetLastWriteTime(filename).ToString("r"));
+                context.Response.AddHeader("Access-Control-Allow-Origin", "*");
 
                 byte[] buffer = new byte[1024 * 16];
                 int nbytes;

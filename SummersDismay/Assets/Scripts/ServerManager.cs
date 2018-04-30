@@ -9,6 +9,7 @@ using System;
 using System.Threading;
 using UnityEngine.UI;
 using System.Runtime.Serialization.Formatters.Binary;
+using SBR;
 
 public class ServerManager : MonoBehaviour {
     public SimpleHTTPServer server { get; private set; }
@@ -21,9 +22,12 @@ public class ServerManager : MonoBehaviour {
     public GameObject connectionInfo;
     public GameObject joinButton;
 
+    private CooldownTimer regTimer;
 
     private void Awake() {
         inst = this;
+
+        regTimer = new CooldownTimer(10);
     }
 
     public void Start() {
@@ -42,7 +46,7 @@ public class ServerManager : MonoBehaviour {
         joinButton.SetActive(true);
 
         if (JoinServerBrowser(server.IPs[server.IPs.Count - 1])) {
-            showURL.text = "http://ccc.wpi.edu:31313";
+            showURL.text = "https://summersdismay.github.io/";
         }
     }
 
@@ -52,11 +56,15 @@ public class ServerManager : MonoBehaviour {
         }
     }
 
+    private void Update() {
+        if (regTimer.Use()) {
+            JoinServerBrowser(server.IPs[server.IPs.Count - 1]);
+        }
+    }
+
     public bool JoinServerBrowser(string addr) {
         try {
-            TcpClient tcp = new TcpClient("ccc.wpi.edu", 13131);
-            byte[] data = System.Text.Encoding.ASCII.GetBytes(addr + "\n");
-            tcp.GetStream().Write(data, 0, data.Length);
+            new WWW("http://localhost:12345/reg?host=" + WWW.EscapeURL(addr));
             return true;
         } catch {
             return false;
