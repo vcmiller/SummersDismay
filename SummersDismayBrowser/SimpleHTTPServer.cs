@@ -120,16 +120,17 @@ public class SimpleHTTPServer {
 
             case "join":
                 string code = context.Request.QueryString.Get("code");
+                string result = "none";
                 if (code != null) {
                     foreach (var kvp in connections) {
                         if (kvp.Value.Value == code.ToUpper()) {
-                            WriteTextToContext(context, kvp.Key);
+                            result = kvp.Key;
                             break;
                         }
                     }
                 }
 
-                WriteTextToContext(context, "none");
+                WriteTextToContext(context, result);
                 break;
 
             default:
@@ -150,7 +151,8 @@ public class SimpleHTTPServer {
             context.Response.AddHeader("Access-Control-Allow-Origin", "*");
 
             context.Response.OutputStream.Write(bytes, 0, bytes.Length);
-        } catch {
+        } catch (Exception ex) {
+            Console.WriteLine(ex.ToString());
             context.Response.StatusCode = (int)HttpStatusCode.InternalServerError;
         }
     }

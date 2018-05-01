@@ -594,5 +594,5 @@ function die() {
 }
 
 function backToBrowser() {
-    window.location.href = "http://summersdismay.gitlab.io/";
+    window.location.replace("http://summersdismay.gitlab.io/");
 }
