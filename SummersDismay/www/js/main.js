@@ -33,26 +33,25 @@ var other_nouns = [
 ];
 
 var trans_verbs = [
-    "is", "hast no more brain than", "has in their elbows",
+    "is", "hath no more brain than", "has in their elbows",
     "is like", "may strike", "should lick", "tickles",
-    "smells of", "is as thick as", "is as fat as", "is as loathsome as",
-    "is unfit for", "outvenoms", "has done", "enjoys",
-    "prefers", "is as dry as", "has known", "is as saucy as",
-    "has seen", "is not worth", "desires", "believes that", "is much like",
-    "has trodden in", "does wish for", "hath not",
+	"smells of", "is unfit for", "outvenoms",
+	"has done", "enjoys", "prefers", "has known",
+    "has seen", "is not worth", "desires", "is much like",
+    "has trodden in", "wishes for", "hath not",
     "hath", "hath no more hair than", "doth look upon",
     "hath infected", "is unfit for", "is much like", "is compound of", 
 ];
 
 var intrans_verbs = [
-    "sours ripe grapes", "is not for all markets",
-]
+	"sours ripe grapes", "is not for all markets",
+];
 
 var adjectives = [
-    "rooting", "plague-sore", "rankest",
-    "saucy", "stewed", "tart-faced",
+    "rooting", "plague-sore", "rank", "thick", "fat", "loathsome",
+    "saucy", "stewed", "tart-faced", "dry", 
     "unnecessary", "clay-brained", "cream-faced",
-    "pigeon-liver’d", "roasted",
+    "pigeon-liver’d", "roasted", "saucy",
     "beef-witted", "ill-breading", "half-faced",
     "sodden-witted", "festering", "lily-liver’d", "incontinent", "sodden-witted"
 ];
@@ -202,8 +201,10 @@ var states = [
         ],
         apply: standardApply
     },
-    { // transitive verbs
-        words: trans_verbs,
+	{ // transitive verbs
+		words: trans_verbs.concat(
+			adjectives.map(function (word) { return "is as " + word + " as" })
+        ),
         transitions: [
             { to: PRE_NOUNS, weight: 1 },
             { to: OBJ_NOUNS, weight: 3 }
