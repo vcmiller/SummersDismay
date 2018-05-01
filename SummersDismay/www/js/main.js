@@ -584,5 +584,15 @@ function startGame() {
 }
 
 function die() {
-    window.location.href = "https://summersdismay.github.io/";
+    var obj = {
+        leaving: true
+    };
+
+    httpPostAsync(getUpdateUrl(), showUpdateResponse, JSON.stringify(obj));
+
+    backToBrowser();
+}
+
+function backToBrowser() {
+    window.location.href = "http://summersdismay.gitlab.io/";
 }

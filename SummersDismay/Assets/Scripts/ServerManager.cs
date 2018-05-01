@@ -18,9 +18,13 @@ public class ServerManager : MonoBehaviour {
 
     public string path;
     public RectTransform showURLBG;
+    public Text urlStep;
     public Text showURL;
+    public Text lastStep;
+    public Text showRoomCode;
     public GameObject connectionInfo;
     public GameObject joinButton;
+    public string masterServer = "http://35.196.96.77:12345";
 
     private string roomCode;
     private WWW browserRequest;
@@ -43,12 +47,19 @@ public class ServerManager : MonoBehaviour {
                 showURL.text += "\n";
             }
         }
-        
+
+        if (server.IPs.Count > 1) {
+            urlStep.text = "2. Enter one of these URLs:";
+        } else {
+            urlStep.text = "2. Enter this URL:";
+        }
+
         showURLBG.sizeDelta = new Vector2(showURLBG.sizeDelta.x, 20 * (1 + showURL.text.Count((c) => c == '\n')));
         connectionInfo.SetActive(true);
         joinButton.SetActive(true);
 
         JoinServerBrowser(server.IPs[server.IPs.Count - 1]);
+
     }
 
     public void JoinInBrowser() {
@@ -65,10 +76,14 @@ public class ServerManager : MonoBehaviour {
         if (browserRequest != null && browserRequest.isDone) {
 
             if (string.IsNullOrEmpty(browserRequest.error)) {
-                showURL.text = "https://summersdismay.github.io/";
+                urlStep.text = "2. Go to:";
+                showURL.text = "summersdismay.gitlab.io";
 
                 roomCode = browserRequest.text;
-                print("Room code: " + roomCode);
+
+                lastStep.text = "3. Enter the game code:";
+                showRoomCode.gameObject.SetActive(true);
+                showRoomCode.text = roomCode;
             } else {
                 print("Request Error: " + browserRequest.error);
             }
@@ -78,6 +93,6 @@ public class ServerManager : MonoBehaviour {
     }
 
     public void JoinServerBrowser(string addr) {
-        browserRequest = new WWW("http://localhost:12345/reg?host=" + WWW.EscapeURL(addr));
+        browserRequest = new WWW(masterServer + "/reg?host=" + WWW.EscapeURL(addr));
     }
 }
