@@ -120,7 +120,7 @@ public class SimpleHTTPServer {
         for (int i = 0; i < addr.Length; i++) {
             string str = addr[i].ToString();
             if (addr[i].AddressFamily == AddressFamily.InterNetwork && str != "localhost" && str != "127.0.0.1") {
-                IPs.Add("http://" + addr[i].ToString() + ":" + port);
+                IPs.Add(addr[i].ToString() + ":" + port);
             }
         }
         
@@ -156,12 +156,12 @@ public class SimpleHTTPServer {
         filename = filename.Substring(1);
         
         switch(filename) {
-            case null:
-            case "":
-                WriteFileToContext(context, "index.html");
-                break;
+            //case null:
+            //case "":
+            //    WriteFileToContext(context, "index.html");
+            //    break;
 
-            case "play":
+            case "join":
                 GameManager.inst.HandleNewConnection(context);
                 break;
 
@@ -170,11 +170,29 @@ public class SimpleHTTPServer {
                 break;
             
             default:
-                WriteFileToContext(context, filename);
+                context.Response.StatusCode = (int)HttpStatusCode.BadRequest;
+                //WriteFileToContext(context, filename);
                 break;
         }
 
         context.Response.OutputStream.Close();
+    }
+
+    public void WriteTextToContext(HttpListenerContext context, string str) {
+        try {
+            byte[] bytes = new ASCIIEncoding().GetBytes(str);
+
+            context.Response.ContentType = "text/plain";
+            context.Response.ContentLength64 = bytes.Length;
+            context.Response.AddHeader("Date", DateTime.Now.ToString("r"));
+            context.Response.AddHeader("Access-Control-Allow-Origin", "*");
+            context.Response.AddHeader("Cache-Control", "no-store, must-revalidate");
+
+            context.Response.OutputStream.Write(bytes, 0, bytes.Length);
+        } catch (Exception ex) {
+            Console.WriteLine(ex.ToString());
+            context.Response.StatusCode = (int)HttpStatusCode.InternalServerError;
+        }
     }
 
     public void WriteJsonToContext(HttpListenerContext context, object obj) {
@@ -186,6 +204,7 @@ public class SimpleHTTPServer {
             context.Response.ContentLength64 = bytes.Length;
             context.Response.AddHeader("Date", DateTime.Now.ToString("r"));
             context.Response.AddHeader("Access-Control-Allow-Origin", "*");
+            context.Response.AddHeader("Cache-Control", "no-store, must-revalidate");
 
             context.Response.OutputStream.Write(bytes, 0, bytes.Length);
         } catch {
@@ -206,6 +225,7 @@ public class SimpleHTTPServer {
                 context.Response.AddHeader("Date", DateTime.Now.ToString("r"));
                 context.Response.AddHeader("Last-Modified", System.IO.File.GetLastWriteTime(filename).ToString("r"));
                 context.Response.AddHeader("Access-Control-Allow-Origin", "*");
+                context.Response.AddHeader("Cache-Control", "no-store, must-revalidate");
 
                 byte[] buffer = new byte[1024 * 16];
                 int nbytes;

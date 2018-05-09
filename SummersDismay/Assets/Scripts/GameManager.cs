@@ -28,6 +28,9 @@ public class GameManager : GameManagerSM {
     private bool startSignal;
     private bool quitSignal;
 
+    private long timerStart;
+    private int timerLength;
+
     private ExpirationTimer insultExpiration;
     private ExpirationTimer voteExpiration;
     private ExpirationTimer endExpiration;
@@ -80,96 +83,107 @@ public class GameManager : GameManagerSM {
     public void HandleNewConnection(HttpListenerContext context) {
         string name = context.Request.QueryString.Get("name");
 
-        if (name != null) {
+        if (!string.IsNullOrEmpty(name)) {
             name = name.Trim();
             if (name.Length > 24) {
                 name = name.Substring(0, 24);
             } else if (name.Length == 0) {
                 name = "blank";
             }
+            
+            int i = 2;
 
-            if (GetPlayerInfo(context.Request.RemoteEndPoint.Address) == null) {
-                int i = 2;
-
-                var actName = name;
-                while (GetPlayerInfo(actName) != null) {
-                    actName = name + " " + ToRoman(i);
-                }
-
-                connectedPlayers.Add(new ConnectedPlayer(actName, context.Request.RemoteEndPoint.Address));
+            var actName = name;
+            while (GetPlayerInfo(actName) != null) {
+                actName = name + " " + ToRoman(i);
             }
 
-            ServerManager.inst.server.WriteFileToContext(context, "game.html");
+            var con = new ConnectedPlayer(actName);
+
+            connectedPlayers.Add(con);
+
+            ServerManager.inst.server.WriteTextToContext(context, con.privateId.ToString());
         } else {
             context.Response.StatusCode = (int)HttpStatusCode.BadRequest;
         }
     }
 
     public void HandleUpdate(HttpListenerContext context) {
-        var response = new UpdateResponse();
-        var playerInfo = GetPlayerInfo(context.Request.RemoteEndPoint.Address);
+        UpdatePayload payload = null;
 
-        if (playerInfo == null) {
-            response.name = "Audience Member";
-            response.role = -1;
-            response.judge = null;
-        } else {
-            var judgeInfo = connectedPlayers[curJudge];
-            bool isJudge = judgeInfo == playerInfo;
+        try {
+            var strm = context.Request.InputStream;
+            var reader = new StreamReader(strm, context.Request.ContentEncoding);
+            string json = reader.ReadToEnd();
+            payload = JsonUtility.FromJson<UpdatePayload>(json);
+        } catch (Exception ex) {
+            UnityEngine.Debug.Log(ex);
+        }
 
-            playerInfo.keepAlive = true;
+        if (payload != null) {
+            var response = new UpdateResponse();
+            var playerInfo = GetPlayerInfo(payload.privateId);
 
-            response.name = playerInfo.name;
-            response.judge = judgeInfo.name;
-            response.role = isJudge ? 1 : 0;
-            response.voted = winner != null;
+            response.timerStart = timerStart;
+            response.timerLength = timerLength;
 
-            try {
-                var strm = context.Request.InputStream;
-                var reader = new StreamReader(strm, context.Request.ContentEncoding);
-                string json = reader.ReadToEnd();
+            if (playerInfo == null) {
+                response.name = "Audience Member";
+                response.role = -1;
+                response.judge = null;
+            } else {
+                var judgeInfo = connectedPlayers[curJudge];
+                bool isJudge = judgeInfo == playerInfo;
 
-                var payload = JsonUtility.FromJson<UpdatePayload>(json);
-                if (payload != null) {
-                    if (payload.leaving) {
-                        playerInfo.left = true;
-                    }
+                playerInfo.keepAlive = true;
 
-                    if (!isJudge && state == StateID.Insulting && (playerInfo.receivedInsult == null || playerInfo.receivedInsult.Length == 0)) {
-                        playerInfo.receivedInsult = WWW.UnEscapeURL(payload.insult);
-                    } else if (isJudge && state == StateID.Voting && winner == null && payload.vote > 0) {
-                        winner = GetPlayerInfo(payload.vote);
-                        winner.wins++;
-                    }
+                response.name = playerInfo.name;
+                response.judge = judgeInfo.name;
+                response.role = isJudge ? 1 : 0;
+                response.voted = winner != null;
+                    
+                if (payload.leaving) {
+                    playerInfo.left = true;
                 }
-            } catch (Exception ex) {
-                UnityEngine.Debug.Log(ex);
+
+                if (!isJudge && state == StateID.Insulting && (playerInfo.receivedInsult == null || playerInfo.receivedInsult.Length == 0)) {
+                    playerInfo.receivedInsult = WWW.UnEscapeURL(payload.insult);
+                } else if (isJudge && state == StateID.Voting && winner == null && payload.vote > 0) {
+                    winner = GetPlayerInfo(payload.vote);
+                    winner.wins++;
+                }
+
+                response.insulted = playerInfo.receivedInsult != null && playerInfo.receivedInsult.Length > 0;
             }
 
-            response.insulted = playerInfo.receivedInsult != null && playerInfo.receivedInsult.Length > 0;
-        }
+            response.running = state != StateID.Waiting;
 
-        response.running = state != StateID.Waiting;
+            if (state == StateID.Insulting) {
 
-        if (state == StateID.Insulting) {
+            } else if (state == StateID.Voting) {
+                response.insults = GetInsultsArray();
+            } else if (state == StateID.PostGame) {
+                response.insults = GetInsultsArray();
 
-        } else if (state == StateID.Voting) {
-            response.insults = GetInsultsArray();
-        } else if (state == StateID.PostGame) {
-            response.insults = GetInsultsArray();
+                if (winner == null) {
+                    do {
+                        winner = connectedPlayers[new System.Random().Next(connectedPlayers.Count)];
+                    } while (winner == connectedPlayers[curJudge]);
+                }
 
-            if (winner == null) {
-                do {
-                    winner = connectedPlayers[new System.Random().Next(connectedPlayers.Count)];
-                } while (winner == connectedPlayers[curJudge]);
+                response.winner = new Insult();
+                response.winner.caster = winner.name;
+                response.winner.content = winner.receivedInsult;
             }
 
-            response.winner = new Insult();
-            response.winner.caster = winner.name;
-            response.winner.content = winner.receivedInsult;
+            ServerManager.inst.server.WriteJsonToContext(context, response);
+        } else {
+            context.Response.StatusCode = (int)HttpStatusCode.BadRequest;
         }
+    }
 
-        ServerManager.inst.server.WriteJsonToContext(context, response);
+    private long TimeMilliseconds() {
+        return (long)DateTime.UtcNow.Subtract(new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc)).TotalMilliseconds;
     }
 
     protected override void State_Waiting() {
@@ -234,6 +248,8 @@ public class GameManager : GameManagerSM {
         winner = null;
         InsultStacc.inst.Clear();
         insultExpiration.Set();
+        timerStart = TimeMilliseconds();
+        timerLength = (int)(insultExpiration.expiration * 1000);
 
         if (connectedPlayers.Count > 0) {
             curJudge = (curJudge + 1) % connectedPlayers.Count;
@@ -265,6 +281,8 @@ public class GameManager : GameManagerSM {
 
     protected override void StateEnter_Voting() {
         voteExpiration.Set();
+        timerStart = TimeMilliseconds();
+        timerLength = (int)(voteExpiration.expiration * 1000);
 
         connectedPlayers[curJudge].iconObject.Express();
         shockSound.Play();
@@ -310,6 +328,8 @@ public class GameManager : GameManagerSM {
 
     protected override void StateEnter_PostGame() {
         endExpiration.Set();
+        timerStart = TimeMilliseconds();
+        timerLength = (int)(endExpiration.expiration * 1000);
 
         if (winner != null) {
             winner.iconObject.Win();
@@ -334,6 +354,7 @@ public class GameManager : GameManagerSM {
         public string insult;
         public int vote;
         public bool leaving;
+        public long privateId;
     }
 
     [Serializable]
@@ -344,6 +365,8 @@ public class GameManager : GameManagerSM {
         public bool insulted;
         public bool voted;
         public bool running;
+        public long timerStart;
+        public int timerLength;
         public Insult[] insults;
         public Insult winner;
     }
@@ -371,9 +394,9 @@ public class GameManager : GameManagerSM {
         return insults.ToArray();
     }
 
-    public ConnectedPlayer GetPlayerInfo(IPAddress addr) {
+    public ConnectedPlayer GetPlayerInfo(long privateId) {
         foreach (var info in connectedPlayers) {
-            if (info.remote.Equals(addr)) {
+            if (info.privateId == privateId) {
                 return info;
             }
         }

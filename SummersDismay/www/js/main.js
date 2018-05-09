@@ -3,7 +3,7 @@ var pre_nouns = [
     "the owner of", "a friend of",
     "plenty of", "more of", "as much brain as", "the cap of",
     "such a deal of", "any but", "none but", "a lack of"
-]
+];
 
 var thy_nouns = [
     "mother", "child", "father", "company", "likeness", "tartness",
@@ -40,11 +40,11 @@ var trans_verbs = [
     "has seen", "is not worth", "desires", "is much like",
     "has trodden in", "wishes for", "hath not",
     "hath", "hath no more hair than", "doth look upon",
-    "hath infected", "is unfit for", "is much like", "is compound of", 
+    "hath infected", "is unfit for", "is much like", "is compound of"
 ];
 
 var intrans_verbs = [
-	"sours ripe grapes", "is not for all markets",
+	"sours ripe grapes", "is not for all markets"
 ];
 
 var adjectives = [
@@ -53,7 +53,7 @@ var adjectives = [
     "unnecessary", "clay-brained", "cream-faced",
     "pigeon-liver’d", "roasted", "saucy",
     "beef-witted", "ill-breading", "half-faced",
-    "sodden-witted", "festering", "lily-liver’d", "incontinent", "sodden-witted"
+    "sodden-witted", "festering", "lily-liver'd", "incontinent", "sodden-witted"
 ];
 
 var interject_adj = [
@@ -80,6 +80,10 @@ var curOptions = [];
 var sentence = "";
 var stateHistory = [];
 var rerolls = { current: 3, max: 5 };
+
+var timerStart;
+var timerLength;
+var showTimer;
 
 function isVowel(ch) {
     return ["a", "e", "i", "o", "u"].indexOf(ch.toLowerCase()) >= 0;
@@ -197,13 +201,13 @@ var states = [
         ),
         transitions: [
             { to: SUBJ_NOUNS, valid: hist_not(hist_mostRecentIs([CONJOINERS, TRANS_VERBS, INTRANS_VERBS, INTERJECT_START], TRANS_VERBS)) },
-            { to: OBJ_NOUNS, valid: hist_mostRecentIs([CONJOINERS, TRANS_VERBS, INTRANS_VERBS, INTERJECT_START], TRANS_VERBS) },
+            { to: OBJ_NOUNS, valid: hist_mostRecentIs([CONJOINERS, TRANS_VERBS, INTRANS_VERBS, INTERJECT_START], TRANS_VERBS) }
         ],
         apply: standardApply
     },
 	{ // transitive verbs
 		words: trans_verbs.concat(
-			adjectives.map(function (word) { return "is as " + word + " as" })
+            adjectives.map(function (word) { return "is as " + word + " as"; })
         ),
         transitions: [
             { to: PRE_NOUNS, weight: 1 },
@@ -214,7 +218,7 @@ var states = [
     { // intransitive verbs and is-adjectives
         words: intrans_verbs.concat(
             intrans_verbs,
-            adjectives.map(function (word) { return "is " + word })
+            adjectives.map(function (word) { return "is " + word; })
         ),
         transitions: [
             { to: CONJOINERS },
@@ -235,7 +239,7 @@ var states = [
                 return before + " " + word + after;
             }
         },
-        modifier: true,
+        modifier: true
     },
     { // 
         words: conjoiners,
@@ -251,7 +255,7 @@ var states = [
         words: [ ", thou" ],
         transitions: [
             { to: INTERJECT_ADJ, weight: 4 },
-            { to: INTERJECT_NOUN, weight: 1 },
+            { to: INTERJECT_NOUN, weight: 1 }
         ],
         apply: standardApply
     },
@@ -259,7 +263,7 @@ var states = [
         words: adjectives.concat(interject_adj, interject_adj),
         transitions: [
             { to: INTERJECT_ADJ, weight: 2 },
-            { to: INTERJECT_NOUN, weight: 1 },
+            { to: INTERJECT_NOUN, weight: 1 }
         ],
         apply: function (sentence, word) {
             if (stateHistory[0] === INTERJECT_ADJ) {
@@ -275,7 +279,7 @@ var states = [
         words: other_nouns.concat(interject_noun, interject_noun).map(function (word) { return word + "!"; }),
         transitions: [
             { to: PRE_NOUNS, weight: 1 },
-            { to: SUBJ_NOUNS, weight: 4 },
+            { to: SUBJ_NOUNS, weight: 4 }
         ],
         apply: standardApply
     }
@@ -307,10 +311,10 @@ function validSets() {
     for (let i = 0; i < curState.transitions.length; i++) {
         let t = curState.transitions[i];
         
-        if (!t.valid || (t.valid(stateHistory))) {
+        if (!t.valid || t.valid(stateHistory)) {
             if (!t.weight) {
                 t.weight = 1.0;
-            };
+            }
             result.push(t);
         }
     }
@@ -341,7 +345,7 @@ function chooseSet() {
             }
         }
 
-    } while (isSetOption(set) && (options.length > curOptions.length || (states[set].words.length === 1)));
+    } while (isSetOption(set) && (options.length > curOptions.length || states[set].words.length === 1));
 
     return set;
 }
@@ -439,24 +443,8 @@ function reroll(index) {
     updateOptionButtons();
 }
 
-function shuffle(array) {
-    var currentIndex = array.length, temporaryValue, randomIndex;
-    // While there remain elements to shuffle...
-    while (0 !== currentIndex) {
-
-        // Pick a remaining element...
-        randomIndex = Math.floor(Math.random() * currentIndex);
-        currentIndex -= 1;
-
-        // And swap it with the current element.
-        temporaryValue = array[currentIndex];
-        array[currentIndex] = array[randomIndex];
-        array[randomIndex] = temporaryValue;
-
-    }
-
-
-    return array;
+function timeMilliseconds() {
+    return new Date().getTime();
 }
 
 function submitName() {
@@ -479,9 +467,21 @@ function httpPostAsync(theUrl, callback, params) {
     xmlHttp.onreadystatechange = function () {
         if (xmlHttp.readyState === 4 && xmlHttp.status === 200)
             callback(xmlHttp.responseText);
-    }
+    };
     xmlHttp.open("POST", theUrl, true);
     xmlHttp.send(params);
+}
+
+function updateTimer() {
+    let timer = document.getElementById("timer");
+    if (showTimer) {
+        let time = timeMilliseconds() - timerStart;
+        let rem = Math.max(0, Math.floor((timerLength - time) / 1000));
+
+        timer.innerHTML = "" + rem;
+    } else {
+        timer.innerHTML = "...";
+    }
 }
 
 function showUpdateResponse(text) {
@@ -509,10 +509,13 @@ function showUpdateResponse(text) {
             roleP.innerHTML = "(In audience)";
             insultDiv.style.display = "none";
         }
-        
-        
+
+        showTimer = json.running;
+        timerStart = json.timerStart;
+        timerLength = json.timerLength;
+
         if(!json.running){
-            roleP.innerHTML += "<br>Waiting for host to start game...<br>";
+            roleP.innerHTML += "<br>Waiting...<br>";
             insultDiv.style.display = "none";
             allInsultsDiv.style.display = "none";
         }else if (json.insults && json.insults.length > 0) {
@@ -577,10 +580,12 @@ function clearInsult() {
 
 function startGame() {
     httpPostAsync(getUpdateUrl(), showUpdateResponse, null);
+
     window.setInterval(function () {
         httpPostAsync(getUpdateUrl(), showUpdateResponse, null);
     }, 1000);
 
+    window.setInterval(updateTimer, 100);
     clearInsult();
 }
 

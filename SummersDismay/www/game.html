@@ -59,27 +59,59 @@
             text-decoration: none;
         }
 
-            .killbtn:hover {
-                background: #ff4517;
-                background-image: -webkit-linear-gradient(top, #ff4517, #ff4747);
-                background-image: -moz-linear-gradient(top, #ff4517, #ff4747);
-                background-image: -ms-linear-gradient(top, #ff4517, #ff4747);
-                background-image: -o-linear-gradient(top, #ff4517, #ff4747);
-                background-image: linear-gradient(to bottom, #ff4517, #ff4747);
-                text-decoration: none;
-            }
+        .killbtn:hover {
+            background: #ff4517;
+            background-image: -webkit-linear-gradient(top, #ff4517, #ff4747);
+            background-image: -moz-linear-gradient(top, #ff4517, #ff4747);
+            background-image: -ms-linear-gradient(top, #ff4517, #ff4747);
+            background-image: -o-linear-gradient(top, #ff4517, #ff4747);
+            background-image: linear-gradient(to bottom, #ff4517, #ff4747);
+            text-decoration: none;
+        }
+
+        #wrapper {
+            width: 256px;
+            margin: 0 auto;
+            height: 85px;
+        }
+
+        #leftcolumn, #rightcolumn {
+            float: left;
+            width: 49%;
+        }
+
+        #insult_area {
+            margin-top: 0px;
+            padding-top: 0px;
+            clear:both;
+        }
+
+        #timer {
+            font-size: 72px;
+            margin-top: 0px;
+            margin-bottom: 0px;
+        }
     </style>
 </head>
     <body onload="startGame()">
-        <div class="game_area"style="width:75%;">
-           
+        <div class="game_area" style="width:75%;">
+
             <button onclick="die()" class="killbtn">Not To Be</button>
             <h2 id="show_name" style="margin:5px"></h2>
-            <p id="show_role"></p>
-            <p id="reroll_text">Rerolls: 3</p>
+
+
+            <div id="wrapper">
+                <div id="leftcolumn">
+                    <p id="show_role"></p>
+                    <p id="reroll_text">Rerolls: 3</p>
+                </div>
+                <div id="rightcolumn">
+                    <p id="timer">...</p>
+                </div>
+            </div>
+
 
             <div id="insult_area" style="display:none">
-                <p>Enter your insult:</p>
                 <p id="sentence_display" style="width:90%; margin-left:auto; margin-right:auto"></p>
                 <button id="particle_1" style="width:50%;">Meme</button><button id="magic_1">↺</button><br>
                 <button id="particle_2" style="width:50%;">Meme1</button><button id="magic_2">↺</button><br>

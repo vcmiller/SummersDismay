@@ -1921,7 +1921,7 @@ MonoBehaviour:
   showRoomCode: {fileID: 786991380}
   connectionInfo: {fileID: 709126310}
   joinButton: {fileID: 1132021901}
-  masterServer: http://35.196.96.77:12345
+  masterServer: http://104.196.20.223:12345
 --- !u!4 &1367151835
 Transform:
   m_ObjectHideFlags: 0
