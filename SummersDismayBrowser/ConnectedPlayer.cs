@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Text;
-using UnityEngine;
 using SBR;
 
 public class ConnectedPlayer {
@@ -12,8 +11,6 @@ public class ConnectedPlayer {
     private static HashSet<long> usedIds = new HashSet<long>();
     
     public string name { get; private set; }
-    public PlayerIcon iconObject;
-    public GameObject insultViewObject;
     public string receivedInsult;
     public int wins;
     public bool left;

@@ -45,9 +45,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GameManagerManager.cs" />
+    <Compile Include="ConnectedPlayer.cs" />
+    <Compile Include="CooldownTimer.cs" />
+    <Compile Include="ExpirationTimer.cs" />
+    <Compile Include="GameManager.cs" />
+    <Compile Include="GameManagerSM.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SimpleHTTPServer.cs" />
+    <Compile Include="Server.cs" />
+    <Compile Include="StateMachine.cs" />
+    <Compile Include="Time.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

@@ -7,11 +7,15 @@ using System.Threading.Tasks;
 namespace SummersDismayBrowser {
     class Program {
         static void Main(string[] args) {
+            Time.Init();
+
             if (args.Length > 0) {
-                new SimpleHTTPServer(Convert.ToInt32(args[0]));
+                new Server(Convert.ToInt32(args[0]));
             } else {
-                new SimpleHTTPServer(12345);
+                new Server(12345);
             }
+
+            GameManagerManager.RunUpdateThread();
         }
     }
 }

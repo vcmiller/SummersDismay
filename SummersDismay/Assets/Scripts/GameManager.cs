@@ -83,6 +83,7 @@ public class GameManager : GameManagerSM {
     public void HandleNewConnection(HttpListenerContext context) {
         string name = context.Request.QueryString.Get("name");
 
+
         if (!string.IsNullOrEmpty(name)) {
             name = name.Trim();
             if (name.Length > 24) {
@@ -121,6 +122,7 @@ public class GameManager : GameManagerSM {
         }
 
         if (payload != null) {
+
             var response = new UpdateResponse();
             var playerInfo = GetPlayerInfo(payload.privateId);
 
@@ -178,6 +180,7 @@ public class GameManager : GameManagerSM {
 
             ServerManager.inst.server.WriteJsonToContext(context, response);
         } else {
+            print("Invalid payload");
             context.Response.StatusCode = (int)HttpStatusCode.BadRequest;
         }
     }

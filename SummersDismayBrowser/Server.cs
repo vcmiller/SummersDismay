@@ -11,15 +11,15 @@ using System.IO;
 using System.Threading;
 using Newtonsoft.Json;
 using System.Collections.Concurrent;
+using SummersDismayBrowser;
 
-public class SimpleHTTPServer {
+public class Server {
     private Thread _serverThread;
     private HttpListener _listener;
     private int _port;
     private const int expiration = 100000; // 100 seconds
 
-    private ConcurrentDictionary<string, KeyValuePair<long, string>> connections = new ConcurrentDictionary<string, KeyValuePair<long, string>>();
-    private ConcurrentBag<string> usedCodes = new ConcurrentBag<string>();
+    public static Server inst { get; private set; }
 
     public int Port {
         get { return _port; }
@@ -30,8 +30,10 @@ public class SimpleHTTPServer {
     /// Construct server with suitable port.
     /// </summary>
     /// <param name="path">Directory path to serve.</param>
-    public SimpleHTTPServer(int port) {
+    public Server(int port) {
         Initialize(port);
+
+        inst = this;
     }
 
     /// <summary>
@@ -40,43 +42,6 @@ public class SimpleHTTPServer {
     public void Stop() {
         _serverThread.Abort();
         _listener.Stop();
-    }
-
-    private long GetTime() {
-        return DateTimeOffset.Now.ToUnixTimeMilliseconds();
-    }
-
-    private void ClearExpiredAddrs() {
-        long t = GetTime();
-
-        List<string> toRemove = new List<string>();
-
-        foreach (var entry in connections) {
-            if (t - entry.Value.Key > expiration) {
-                toRemove.Add(entry.Key);
-            }
-        }
-
-        foreach (var entry in toRemove) {
-            KeyValuePair<long, string> l;
-            connections.TryRemove(entry, out l);
-        }
-    }
-
-    private string GetRoomCode() {
-        string alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-        Random r = new Random();
-
-        string code = "";
-        do {
-            for (int i = 0; i < 4; i++) {
-                code += alphabet[r.Next(alphabet.Length)];
-            }
-        } while (usedCodes.Contains(code));
-
-        usedCodes.Add(code);
-
-        return code;
     }
 
     private void Listen() {
@@ -101,47 +66,59 @@ public class SimpleHTTPServer {
     private void Process(HttpListenerContext context) {
         string filename = context.Request.Url.AbsolutePath;
         filename = filename.Substring(1);
+        string code;
+        GameManager man;
 
-        switch (filename) {
-            case null:
-            case "reg":
-                string host = context.Request.QueryString.Get("host");
-                if (host != null) {
-                    if (connections.ContainsKey(host)) {
-                        connections[host] = new KeyValuePair<long, string>(GetTime(), connections[host].Value);
+        try {
+            switch (filename) {
+                case null:
+                case "reg":
+                    break;
+
+                case "join":
+                    code = context.Request.QueryString.Get("code");
+                    man = GameManagerManager.GetGame(code);
+                    if (man != null) {
+                        man.HandleNewConnection(context);
                     } else {
-                        connections[host] = new KeyValuePair<long, string>(GetTime(), GetRoomCode());
-                        Console.WriteLine("New server registered: " + host);
+                        WriteTextToContext(context, "none");
                     }
-                }
+                    break;
 
-                WriteTextToContext(context, connections[host].Value);
-                break;
-
-            case "join":
-                string code = context.Request.QueryString.Get("code");
-                string result = "none";
-                if (code != null) {
-                    foreach (var kvp in connections) {
-                        if (kvp.Value.Value == code.ToUpper()) {
-                            result = kvp.Key;
-                            break;
-                        }
+                case "update":
+                    code = context.Request.QueryString.Get("code");
+                    man = GameManagerManager.GetGame(code);
+                    if (man != null) {
+                        man.HandleUpdate(context);
+                    } else {
+                        WriteTextToContext(context, "none");
                     }
-                }
+                    break;
 
-                WriteTextToContext(context, result);
-                break;
-
-            default:
-                ClearExpiredAddrs();
-                Console.WriteLine("List request");
-                WriteJsonToContext(context, connections.Keys.ToArray());
-                break;
+                case "host":
+                    string idStr = context.Request.QueryString.Get("id");
+                    if (!string.IsNullOrEmpty(idStr)) {
+                        int id = int.Parse(idStr);
+                        GameManagerManager.KeepAlive(id);
+                        Console.WriteLine("Keep Alive: " + id);
+                        WriteTextToContext(context, "ok");
+                    } else {
+                        var game = GameManagerManager.CreateGame();
+                        Console.WriteLine("Created Game: " + game);
+                        var info = new GameInfo();
+                        info.code = game.Item1;
+                        info.id = game.Item2;
+                        WriteJsonToContext(context, info);
+                    }
+                    break;
+            }
+        } catch (Exception ex) {
+            context.Response.StatusCode = (int)HttpStatusCode.InternalServerError;
+            Console.WriteLine(ex);
         }
     }
 
-    public void WriteTextToContext(HttpListenerContext context, string str) {
+    public static void WriteTextToContext(HttpListenerContext context, string str) {
         try {
             byte[] bytes = new ASCIIEncoding().GetBytes(str);
 
@@ -149,6 +126,9 @@ public class SimpleHTTPServer {
             context.Response.ContentLength64 = bytes.Length;
             context.Response.AddHeader("Date", DateTime.Now.ToString("r"));
             context.Response.AddHeader("Access-Control-Allow-Origin", "*");
+            context.Response.AddHeader("Connection", "close");
+            context.Response.AddHeader("Cache-Control", "no-store, must-revalidate");
+            context.Response.AddHeader("Expires", "0");
 
             context.Response.OutputStream.Write(bytes, 0, bytes.Length);
         } catch (Exception ex) {
@@ -157,15 +137,18 @@ public class SimpleHTTPServer {
         }
     }
 
-    public void WriteJsonToContext(HttpListenerContext context, string[] addrs) {
+    public static void WriteJsonToContext(HttpListenerContext context, object obj) {
         try {
-            string json = JsonConvert.SerializeObject(addrs);
+            string json = JsonConvert.SerializeObject(obj);
             byte[] bytes = new ASCIIEncoding().GetBytes(json);
 
             context.Response.ContentType = "application/json";
             context.Response.ContentLength64 = bytes.Length;
             context.Response.AddHeader("Date", DateTime.Now.ToString("r"));
             context.Response.AddHeader("Access-Control-Allow-Origin", "*");
+            context.Response.AddHeader("Connection", "close");
+            context.Response.AddHeader("Cache-Control", "no-store, must-revalidate");
+            context.Response.AddHeader("Expires", "0");
 
             context.Response.OutputStream.Write(bytes, 0, bytes.Length);
         } catch {
@@ -179,5 +162,8 @@ public class SimpleHTTPServer {
         _serverThread.Start();
     }
 
-
+    public class GameInfo {
+        public string code;
+        public int id;
+    }
 }
